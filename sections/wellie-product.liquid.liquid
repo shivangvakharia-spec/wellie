@@ -11,59 +11,63 @@
       Product media
     {%- endcomment -%}
     <div class="wellie-product__media">
-      <div class="grid gap-3">
+      <div class="relative overflow-hidden rounded-lg bg-muted/20" data-wellie-gallery>
         {%- for media in product.media -%}
-          <div class="{% if forloop.first %}block{% else %}hidden lg:block{% endif %}" data-media-id="{{ media.id }}">
+          <div
+            class="{% unless forloop.first %}hidden{% endunless %}"
+            data-media-id="{{ media.id }}"
+            data-wellie-media="{{ media.id }}">
             {%- case media.media_type -%}
               {%- when 'image' -%}
                 <img
-                  src="{{ media | image_url: width: 1000 }}"
+                  src="{{ media | image_url: width: 1200 }}"
                   alt="{{ media.alt | default: product.title | escape }}"
-                  width="1000"
-                  height="{{ 1000 | divided_by: media.aspect_ratio | round }}"
+                  width="1200"
+                  height="{{ 1200 | divided_by: media.aspect_ratio | round }}"
                   loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
-                  class="w-full rounded-lg">
+                  class="block h-auto w-full object-cover">
 
               {%- when 'video' -%}
-                {{ media | video_tag: autoplay: true, controls: false, muted: true, class: 'w-full rounded-lg'
+                {{ media | video_tag: 	autoplay: true, 	controls: false, 	muted: true, 	class: 'block w-full'
                 }}
 
               {%- when 'external_video' -%}
-                {{ media | external_video_tag: class: 'w-full rounded-lg' }}
+                {{ media | external_video_tag: class: 'block w-full' }}
 
               {%- when 'model' -%}
-                {{ media | model_viewer_tag: class: 'w-full rounded-lg' }}
+                {{ media | model_viewer_tag: class: 'block w-full' }}
             {%- endcase -%}
           </div>
         {%- endfor -%}
       </div>
 
-      {%- comment -%}
-        Product thumbnails
-      {%- endcomment -%}
       {%- if product.media.size > 1 -%}
-        <div class="mt-3 grid grid-cols-5 gap-2">
+        <div class="mt-3 flex gap-2 overflow-x-auto">
           {%- for media in product.media -%}
-            {%- if media.media_type == 'image' -%}
-              <button
-                type="button"
-                class="overflow-hidden rounded border border-border transition-opacity hover:opacity-75"
-                data-media-thumbnail="{{ media.id }}"
-                aria-label="View product image {{ forloop.index }}">
+            <button
+              type="button"
+              class="wellie-product__thumbnail shrink-0 overflow-hidden rounded border border-border transition-opacity hover:opacity-75{% if forloop.first %} opacity-100{% else %} opacity-60{% endif %}"
+              data-wellie-thumbnail="{{ media.id }}"
+              aria-label="View product media {{ forloop.index }}"
+              aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}">
+              {%- if media.media_type == 'image' -%}
                 <img
-                  src="{{ media | image_url: width: 160 }}"
+                  src="{{ media | image_url: width: 180 }}"
                   alt="{{ media.alt | default: product.title | escape }}"
-                  width="160"
-                  height="{{ 160 | divided_by: media.aspect_ratio | round }}"
+                  width="90"
+                  height="{{ 90 | divided_by: media.aspect_ratio | round }}"
                   loading="lazy"
-                  class="aspect-square w-full object-cover">
-              </button>
-            {%- endif -%}
+                  class="h-[72px] w-[72px] object-cover">
+              {%- else -%}
+                <div class="flex h-[72px] w-[72px] items-center justify-center bg-muted/20 text-xs text-muted">
+                  {{ media.media_type | capitalize }}
+                </div>
+              {%- endif -%}
+            </button>
           {%- endfor -%}
         </div>
       {%- endif -%}
     </div>
-
     {%- comment -%}
       Product information
     {%- endcomment -%}
@@ -182,6 +186,7 @@
 </section>
 
 <script src="{{ 'product.js' | asset_url }}" defer></script>
+<script src="{{ 'wellie-product.liquid-javascript.js' | asset_url }}" defer></script>
 
 {% schema %}
   {
