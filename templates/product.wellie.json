@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "old-wellie-product",
+      "type": "wellie-product",
       "settings": {}
     }
   },

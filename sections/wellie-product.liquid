@@ -4,6 +4,7 @@
 
 <section
   class="wellie-product page-width py-8 md:py-12 lg:py-16"
+  style="font-family: var(--font-secondary--family);"
   data-product-id="{{ product.id }}"
   data-product-section>
   <div class="grid gap-8 lg:grid-cols-2 lg:gap-12">
@@ -82,18 +83,6 @@
         {{ product.title }}
       </h1>
 
-      {%- comment -%}
-        Rating placeholder.
-        We will connect this to the actual review data later.
-      {%- endcomment -%}
-      <div class="mb-4 flex items-center gap-2">
-        <span class="text-sm" aria-label="Product rating">
-          ★★★★★
-        </span>
-        <span class="text-sm text-muted">
-          4.9
-        </span>
-      </div>
 
       {%- comment -%}
         Price
@@ -138,10 +127,12 @@
         Variant selector
       {%- endcomment -%}
       {%- if product.has_only_default_variant == false -%}
-        <div class="mb-6">
+        {%- assign product_options = product.options | join: ',' -%}
+
+        <div>
           {% render 'variant-selector'
             , product: product
-            , options: 'color,size'
+            , options: product_options
             , swatch_size: 'lg'
             , show_labels: true
             , color_display: 'image'
