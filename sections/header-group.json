@@ -1,0 +1,30 @@
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "announcement_bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_1": {
+          "type": "announcement-bar-item",
+          "settings": {
+            "announcement_bar_text": "<p>Clone. Customize. Deploy</p>"
+          }
+        }
+      },
+      "block_order": ["announcement_1"],
+      "settings": {
+        "background_color": "#0a0a0a",
+        "text_color": "#ffffff",
+        "scroll_speed": 50
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu"
+      }
+    }
+  },
+  "order": ["announcement_bar", "header"]
+}
