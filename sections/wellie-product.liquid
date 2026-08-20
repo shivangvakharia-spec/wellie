@@ -73,11 +73,20 @@
       Product information
     {%- endcomment -%}
     <div class="wellie-product__info lg:pt-4">
-      {%- if product.vendor != blank -%}
-        <p class="mb-2 text-sm text-muted">
-          {{ product.vendor }}
-        </p>
-      {%- endif -%}
+      {%- comment -%}
+        Product proof
+      {%- endcomment -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'product_proof' -%}
+          <div class="mb-6 rounded-lg border border-border p-4" {{ block.shopify_attributes }}>
+            {%- if block.settings.heading != blank -%}
+              <h2 class="mb-2 text-base font-semibold">
+                {{ block.settings.heading }}
+              </h2>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
 
       <h1 class="mb-3 text-3xl font-bold leading-tight md:text-4xl">
         {{ product.title }}
@@ -115,15 +124,6 @@
       </div>
 
       {%- comment -%}
-        Product description
-      {%- endcomment -%}
-      {%- if product.description != blank -%}
-        <div class="mb-6 text-sm leading-6 text-muted">
-          {{ product.description }}
-        </div>
-      {%- endif -%}
-
-      {%- comment -%}
         Variant selector
       {%- endcomment -%}
       {%- if product.has_only_default_variant == false -%}
@@ -149,29 +149,6 @@
           , product: product %}
       </div>
 
-      {%- comment -%}
-        Product highlights.
-        These are temporary placeholders for the information
-        shown in the Figma. We will make these configurable later.
-      {%- endcomment -%}
-      <div class="border-t border-border pt-5">
-        <ul class="space-y-3 text-sm">
-          <li class="flex items-center gap-3">
-            <span aria-hidden="true">✓</span>
-            <span>Made with premium ingredients</span>
-          </li>
-
-          <li class="flex items-center gap-3">
-            <span aria-hidden="true">✓</span>
-            <span>Healthy treats for your pet</span>
-          </li>
-
-          <li class="flex items-center gap-3">
-            <span aria-hidden="true">✓</span>
-            <span>Fast and reliable delivery</span>
-          </li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
@@ -185,9 +162,29 @@
     "tag": "section",
     "class": "wellie-product-section",
     "settings": [],
+    "blocks": [
+      {
+        "type": "product_proof",
+        "name": "Product proof",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "India's #1 Advanced Dog Food"
+          }
+        ]
+      }
+    ],
     "presets": [
       {
-        "name": "Wellie product"
+        "name": "Wellie product",
+        "blocks": [
+          {
+            "type": "product_proof"
+          }
+        ]
       }
     ]
   }
