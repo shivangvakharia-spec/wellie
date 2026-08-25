@@ -32,8 +32,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: var(--font-primary--family);
-  color: var(--color-foreground);
-  background-color: var(--color-background);
+  color: rgb(var(--color-foreground));
+  background-color: rgb(var(--color-background));
   line-height: 1.6;
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
@@ -99,7 +99,7 @@ ol {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: var(--color-background);
+  background-color: rgb(var(--color-background));
 }
 
 /* Search input reset */
@@ -135,6 +135,12 @@ input[type='search']::-webkit-search-decoration {
 
 .animate-scroll:hover {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announcement-bar__track {
+    animation: none;
+  }
 }
 
 /* Variant option states */
@@ -204,4 +210,28 @@ cart-drawer .cart-line-item__loading.flex {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+@font-face {
+  font-family: 'Cabin-Regular';
+  src: url('https://cdn.shopify.com/s/files/1/1006/5972/4566/files/Cabin-Regular.woff2?v=1787294306') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cafeteria-Regular';
+  src: url('https://cdn.shopify.com/s/files/1/1006/5972/4566/files/Cafeteria-Regular.woff2?v=1787294307') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Harond';
+  src: url('https://cdn.shopify.com/s/files/1/1006/5972/4566/files/Harond.woff2?v=1787294318') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }

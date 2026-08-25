@@ -1,0 +1,78 @@
+{% doc %}
+  Renders a single customer testimonial card: photo, quote mark, star rating,
+  review copy and the reviewer's name/avatar.
+
+  @param {object} review - A `review` metaobject with customer_name, rating, review_text and customer_image fields
+  @param {object} [block] - The section block wrapping this card, used to output editor attributes
+
+  @example
+  {% render 'review-card', review: block.settings.review, block: block %}
+{% enddoc %}
+
+{%- liquid
+  assign customer_name = review.customer_name.value
+  assign review_text = review.review_text.value
+  assign customer_image = review.customer_image.value
+  assign rating_value = review.rating.value.rating | default: 0
+  assign rating_rounded = rating_value | round
+-%}
+
+<div class="wellie-testimonial-card" {{ block.shopify_attributes }}>
+  {%- if customer_image != blank -%}
+    <img
+      class="wellie-testimonial-card__photo"
+      src="{{ customer_image | image_url: width: 300 }}"
+      srcset="{{ customer_image | image_url: width: 292 }} 1x, {{ customer_image | image_url: width: 584 }} 2x"
+      width="146"
+      height="200"
+      alt="{{ customer_image.alt | default: customer_name | escape }}"
+      loading="lazy">
+  {%- else -%}
+    <div class="wellie-testimonial-card__photo wellie-testimonial-card__photo--placeholder" aria-hidden="true"></div>
+  {%- endif -%}
+
+  <div class="wellie-testimonial-card__content">
+    <div class="wellie-testimonial-card__top">
+      <svg class="wellie-testimonial-card__quote" width="24" height="22" viewBox="0 0 24 22" fill="none" aria-hidden="true">
+        <path d="M9.4 0.6C5.2 2.4 2.4 6.4 2.4 10.8C2.4 14.8 4.9 17.6 8.1 17.6C10.7 17.6 12.6 15.6 12.6 13.1C12.6 10.7 10.9 8.8 8.6 8.8C8.2 8.8 7.8 8.9 7.5 9C7.9 5.9 10 3.2 13 1.8L9.4 0.6Z" fill="currentColor"/>
+        <path d="M20.4 0.6C16.2 2.4 13.4 6.4 13.4 10.8C13.4 14.8 15.9 17.6 19.1 17.6C21.7 17.6 23.6 15.6 23.6 13.1C23.6 10.7 21.9 8.8 19.6 8.8C19.2 8.8 18.8 8.9 18.5 9C18.9 5.9 21 3.2 24 1.8L20.4 0.6Z" fill="currentColor"/>
+      </svg>
+
+      <div class="wellie-testimonial-card__body">
+        {%- if rating_value > 0 -%}
+          <div class="wellie-testimonial-card__rating" role="img" aria-label="Rated {{ rating_value }} out of 5 stars">
+            {%- for i in (1..5) -%}
+              {%- liquid
+                assign is_filled = false
+                if i <= rating_rounded
+                  assign is_filled = true
+                endif
+              -%}
+              {% render 'icon-star', filled: is_filled %}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if review_text != blank -%}
+          <p class="wellie-testimonial-card__text">{{ review_text }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if customer_name != blank -%}
+      <div class="wellie-testimonial-card__author">
+        {%- if customer_image != blank -%}
+          <img
+            class="wellie-testimonial-card__avatar"
+            src="{{ customer_image | image_url: width: 56 }}"
+            width="28"
+            height="28"
+            alt=""
+            loading="lazy"
+            aria-hidden="true">
+        {%- endif -%}
+        <span class="wellie-testimonial-card__name">{{ customer_name }}</span>
+      </div>
+    {%- endif -%}
+  </div>
+</div>

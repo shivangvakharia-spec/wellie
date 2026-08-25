@@ -1,0 +1,33 @@
+{% doc %}
+  Renders a single announcement bar message, linked if a link is configured.
+
+  @param {object} block - The announcement-bar-item block
+  @param {boolean} [include_shopify_attributes] - Stamp block.shopify_attributes on the root element.
+    Pass true only once per block (e.g. the first pass of a repeated marquee track) so the Theme
+    Editor doesn't try to target multiple duplicate elements for the same block.
+
+  @example
+  {% render 'announcement-bar-item', block: block, include_shopify_attributes: true %}
+{% enddoc %}
+
+{%- liquid
+  assign text = block.settings.announcement_bar_text
+  assign link = block.settings.link
+-%}
+
+{%- if link != blank -%}
+  <a
+    href="{{ link }}"
+    class="announcement-bar__item inline-flex flex-shrink-0 items-center font-tertiary text-[12px] font-normal leading-[15px] hover:underline"
+    {%- if include_shopify_attributes %} {{ block.shopify_attributes }}{% endif %}
+  >
+    {{ text }}
+  </a>
+{%- else -%}
+  <span
+    class="announcement-bar__item inline-flex flex-shrink-0 items-center font-tertiary text-[12px] font-normal leading-[15px]"
+    {%- if include_shopify_attributes %} {{ block.shopify_attributes }}{% endif %}
+  >
+    {{ text }}
+  </span>
+{%- endif -%}

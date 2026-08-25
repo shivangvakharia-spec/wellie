@@ -1,0 +1,404 @@
+/* =========================================================
+   Wellie Certified
+   Mobile First
+
+   Figma Mobile:
+   Width: 390px
+   Height: 146px
+   ========================================================= */
+
+
+/* =========================================================
+   Section
+   ========================================================= */
+
+.wellie-certified {
+  position: relative;
+
+  width: 100%;
+  height: 146px;
+
+  margin: 0 0 64px;
+  padding: 20px 0;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  background: #D4E391;
+
+  color: #3A3A3E;
+
+  isolation: isolate;
+}
+
+
+.wellie-certified *,
+.wellie-certified *::before,
+.wellie-certified *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Decorative Shapes
+   ========================================================= */
+
+.wellie-certified__shape {
+  position: absolute;
+
+  width: 60px;
+  height: 60px;
+
+  margin: 0;
+  padding: 0;
+
+  background: #C0DD45;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   Top Left Shape
+   ========================================================= */
+
+.wellie-certified__shape--top-left {
+  top: -20px;
+  left: -20px;
+
+  border-radius:
+    0
+    0
+    60px
+    0;
+}
+
+
+/* =========================================================
+   Bottom Right Shape
+   ========================================================= */
+
+.wellie-certified__shape--bottom-right {
+  right: -20px;
+  bottom: -20px;
+
+  border-radius:
+    60px
+    0
+    0
+    0;
+}
+
+
+/* =========================================================
+   Content
+   ========================================================= */
+
+.wellie-certified__content {
+  position: relative;
+
+  width: 100%;
+  height: 106px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 20px;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   Heading
+   ========================================================= */
+
+.wellie-certified__heading {
+  width: 100%;
+  height: 26px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: 20px;
+  line-height: 26px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   Logo Container
+   ========================================================= */
+
+.wellie-certified__logos {
+  width: 100%;
+
+  height: 60px;
+
+  margin: 0;
+  padding: 0 27px;
+
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   Individual Logo
+   ========================================================= */
+
+.wellie-certified__logo {
+  flex: 0 0 60px;
+
+  width: 60px;
+  height: 60px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   Logo Image
+   ========================================================= */
+
+.wellie-certified__logo img {
+  display: block;
+
+  width: 60px;
+  height: 60px;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: contain;
+
+  border: 0;
+}
+
+
+/* =========================================================
+   Fourth Logo
+   ========================================================= */
+
+.wellie-certified__logo--fourth img {
+  width: 46px;
+}
+
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  /* =======================================================
+     Section
+
+     Figma:
+     1440 × 203px
+     padding: 32px 0
+     ======================================================= */
+
+  .wellie-certified {
+    width: 100%;
+    height: 203px;
+
+    margin: 0 0 64px;
+    padding: 32px 0;
+  }
+
+
+  /* =======================================================
+     Decorative Shapes
+
+     Figma:
+     100 × 100px
+     ======================================================= */
+
+  .wellie-certified__shape {
+    width: 100px;
+    height: 100px;
+  }
+
+
+  /* =======================================================
+     Top Left Shape
+
+     Figma:
+     left: -30px
+     top: -30px
+     ======================================================= */
+
+  .wellie-certified__shape--top-left {
+    top: -30px;
+    left: -30px;
+
+    border-radius:
+      0
+      0
+      100px
+      0;
+  }
+
+
+  /* =======================================================
+     Bottom Right Shape
+
+     Figma:
+     right: -30px
+     top: 132px
+     ======================================================= */
+
+  .wellie-certified__shape--bottom-right {
+    top: 132px;
+    right: -30px;
+    bottom: auto;
+
+    border-radius:
+      100px
+      0
+      0
+      0;
+  }
+
+
+  /* =======================================================
+     Content
+
+     Figma:
+     1440 × 139px
+     gap: 32px
+     ======================================================= */
+
+  .wellie-certified__content {
+    width: 100%;
+    height: 139px;
+
+    gap: 32px;
+  }
+
+
+  /* =======================================================
+     Heading
+
+     Figma:
+     1440 × 26px
+     20px / 26px
+     ======================================================= */
+
+  .wellie-certified__heading {
+    width: 100%;
+    height: 26px;
+
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+
+  /* =======================================================
+     Logo Container
+
+     Figma:
+     height: 81px
+     gap: 62px
+     ======================================================= */
+
+  .wellie-certified__logos {
+    width: auto;
+    height: 81px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 62px;
+  }
+
+
+  /* =======================================================
+     Individual Logo
+
+     Figma:
+     80 × 80px
+     ======================================================= */
+
+  .wellie-certified__logo {
+    flex: 0 0 80px;
+
+    width: 80px;
+    height: 80px;
+  }
+
+
+  /* =======================================================
+     Logo Image
+
+     Figma:
+     80 × 80px
+     ======================================================= */
+
+  .wellie-certified__logo img {
+    width: 80px;
+    height: 80px;
+
+    object-fit: contain;
+  }
+
+
+  /* =======================================================
+     FEDIAF / Fourth Logo
+
+     Figma:
+     61 × 80px
+     ======================================================= */
+
+  .wellie-certified__logo--fourth {
+    flex: 0 0 61px;
+
+    width: 61px;
+    height: 80px;
+  }
+
+
+  .wellie-certified__logo--fourth img {
+    width: 61px;
+    height: 80px;
+  }
+
+}

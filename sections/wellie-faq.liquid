@@ -1,0 +1,168 @@
+{{ 'wellie-faq-stylesheet.css' | asset_url | stylesheet_tag }}
+
+<section class="wellie-faq" aria-label="{{ section.settings.heading | escape }}">
+
+  <div class="wellie-faq__inner">
+
+    <!-- =====================================================
+      Heading
+      ===================================================== -->
+    {% if section.settings.heading != blank %}
+
+      <h2 class="wellie-faq__heading">
+        {{ section.settings.heading }}
+      </h2>
+
+    {% endif %}
+
+
+    <!-- =====================================================
+      FAQ List
+      ===================================================== -->
+    <div class="wellie-faq__list">
+
+      {% for block in section.blocks %}
+
+        <article class="wellie-faq__item{% if forloop.first %} is-open{% endif %}" {{ block.shopify_attributes }}>
+
+          <!-- =================================================
+            Question
+            ================================================= -->
+          <button
+            type="button"
+            class="wellie-faq__question"
+            aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+            aria-controls="wellie-faq-answer-{{ section.id }}-{{ block.id }}">
+
+            <span class="wellie-faq__question-text">
+              {{ block.settings.question }}
+            </span>
+
+
+            <span class="wellie-faq__icon" aria-hidden="true"></span>
+
+          </button>
+
+
+          <!-- =================================================
+            Answer
+            ================================================= -->
+          <div
+            id="wellie-faq-answer-{{ section.id }}-{{ block.id }}"
+            class="wellie-faq__answer-wrapper"
+            {% unless forloop.first %}
+            hidden
+            {% endunless %}>
+
+            {% if block.settings.answer != blank %}
+
+              <div class="wellie-faq__answer">
+                {{ block.settings.answer }}
+              </div>
+
+            {% endif %}
+
+          </div>
+
+
+          <!-- =================================================
+            Divider
+            ================================================= -->
+          {% unless forloop.last %}
+
+            <div class="wellie-faq__divider" aria-hidden="true"></div>
+
+          {% endunless %}
+
+        </article>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script src="{{ 'wellie-faq-javascript.js' | asset_url }}" defer></script>
+
+
+{% schema %}
+
+  {
+    "name": "Wellie FAQ",
+
+    "tag": "section",
+
+    "class": "wellie-faq-section",
+
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "FAQ’s"
+      }
+    ],
+
+    "blocks": [
+      {
+        "type": "faq",
+
+        "name": "FAQ",
+
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question",
+            "default": "My dog doesn’t have stomach problems is this still useful?"
+          }, {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer",
+            "default": "<p>Yes, Bellie Bites help prevent issues, boost nutrient absorption, boost immunity, improve poop quality, and improve breath.</p>"
+          }
+        ]
+      }
+    ],
+
+    "presets": [
+      {
+        "name": "Wellie FAQ",
+
+        "blocks": [
+          {
+            "type": "faq",
+            "settings": {
+              "question": "My dog doesn’t have stomach problems is this still useful?",
+              "answer": "<p>Yes, Bellie Bites help prevent issues, boost nutrient absorption, boost immunity, improve poop quality, and improve breath.</p>"
+            }
+          }, {
+            "type": "faq",
+            "settings": {
+              "question": "I feed commercial food. Isn’t that enough?",
+              "answer": "<p>Commercial food can provide a complete diet, but additional nutritional support can help address specific wellness needs.</p>"
+            }
+          }, {
+            "type": "faq",
+            "settings": {
+              "question": "What’s the difference from syrups or pills?",
+              "answer": "<p>Bellie Bites provide nutritional support in a convenient treat format that is easy to add to your dog’s routine.</p>"
+            }
+          }, {
+            "type": "faq",
+            "settings": {
+              "question": "I give my dog curd - isn’t that fine?",
+              "answer": "<p>Curd can be part of a dog's diet, but it does not provide the same nutritional support as a targeted supplement.</p>"
+            }
+          }
+        ]
+      }
+    ],
+
+    "max_blocks": 10
+  }
+
+{% endschema %}

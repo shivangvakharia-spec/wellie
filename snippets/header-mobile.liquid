@@ -28,17 +28,7 @@
         href="{{ routes.root_url }}"
         aria-label="{{ shop.name }} - Home"
       >
-        {%- if settings.logo != blank -%}
-          <img
-            src="{{ settings.logo | image_url: width: 200 }}"
-            alt="{{ shop.name }}"
-            width="{{ settings.logo_width | default: 100 }}"
-            height="auto"
-            loading="eager"
-          >
-        {%- else -%}
-          <span class="font-primary text-lg font-normal tracking-tight">{{ shop.name }}</span>
-        {%- endif -%}
+        {% render 'wellie-logo', width: 100 %}
       </a>
     </div>
     <div class="flex items-center gap-3">

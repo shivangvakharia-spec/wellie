@@ -1,0 +1,355 @@
+{{ 'wellie-certified-stylesheet.css' | asset_url | stylesheet_tag }}
+
+  <section class="wellie-certified" aria-label="{{ section.settings.heading | escape }}">
+
+  <!-- =====================================================
+    Decorative Background Shapes
+    ===================================================== -->
+  <div class="wellie-certified__shape wellie-certified__shape--top-left" aria-hidden="true"></div>
+
+  <div class="wellie-certified__shape wellie-certified__shape--bottom-right" aria-hidden="true"></div>
+
+
+  <!-- =====================================================
+    Content
+    ===================================================== -->
+  <div class="wellie-certified__content">
+
+    {% if section.settings.heading != blank %}
+
+      <h2 class="wellie-certified__heading">
+        {{ section.settings.heading }}
+      </h2>
+
+    {% endif %}
+
+
+    <!-- =================================================
+      Certification Logos
+      ================================================= -->
+    <div class="wellie-certified__logos">
+
+
+      <!-- =================================================
+        Logo 1 — HACCP
+        ================================================= -->
+      {% if section.settings.logo_1 != blank %}
+
+        <div class="wellie-certified__logo">
+
+          {{
+            section.settings.logo_1 | image_url: width: 160 | image_tag: loading: 'lazy', widths: '60, 80, 120, 160', sizes: '(min-width: 750px) 80px, 60px', alt: section.settings.logo_1_alt
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- =================================================
+        Logo 2 — GHP
+        ================================================= -->
+      {% if section.settings.logo_2 != blank %}
+
+        <div class="wellie-certified__logo">
+
+          {{
+            section.settings.logo_2 | image_url: width: 160 | image_tag: loading: 'lazy', widths: '60, 80, 120, 160', sizes: '(min-width: 750px) 80px, 60px', alt: section.settings.logo_2_alt
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- =================================================
+        Logo 3 — HACCP
+        ================================================= -->
+      {% if section.settings.logo_3 != blank %}
+
+        <div class="wellie-certified__logo">
+
+          {{
+            section.settings.logo_3 | image_url: width: 160 | image_tag: loading: 'lazy', widths: '60, 80, 120, 160', sizes: '(min-width: 750px) 80px, 60px', alt: section.settings.logo_3_alt
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- =================================================
+        Logo 4 — ISO
+        ================================================= -->
+      {% if section.settings.logo_4 != blank %}
+
+        <div class="wellie-certified__logo">
+
+          {{
+            section.settings.logo_4 | image_url: width: 160 | image_tag: loading: 'lazy', widths: '60, 80, 120, 160', sizes: '(min-width: 750px) 80px, 60px', alt: section.settings.logo_4_alt
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- =================================================
+        Logo 5 — FDA
+        ================================================= -->
+      {% if section.settings.logo_5 != blank %}
+
+        <div class="wellie-certified__logo">
+
+          {{
+            section.settings.logo_5 | image_url: width: 160 | image_tag: loading: 'lazy', widths: '60, 80, 120, 160', sizes: '(min-width: 750px) 80px, 60px', alt: section.settings.logo_5_alt
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- =================================================
+        Logo 6 — FEDIAF
+        ================================================= -->
+      {% if section.settings.logo_6 != blank %}
+
+        <div class="wellie-certified__logo wellie-certified__logo--fourth">
+
+          {{
+            section.settings.logo_6 | image_url: width: 160 | image_tag: loading: 'lazy', widths: '60, 80, 120, 160', sizes: '(min-width: 750px) 61px, 60px', alt: section.settings.logo_6_alt
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- =================================================
+        Logo 7 — GMP
+        ================================================= -->
+      {% if section.settings.logo_7 != blank %}
+
+        <div class="wellie-certified__logo">
+
+          {{
+            section.settings.logo_7 | image_url: width: 160 | image_tag: loading: 'lazy', widths: '60, 80, 120, 160', sizes: '(min-width: 750px) 80px, 60px', alt: section.settings.logo_7_alt
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- =================================================
+        Logo 8 — HACCP
+        ================================================= -->
+      {% if section.settings.logo_8 != blank %}
+
+        <div class="wellie-certified__logo">
+
+          {{
+            section.settings.logo_8 | image_url: width: 160 | image_tag: loading: 'lazy', widths: '60, 80, 120, 160', sizes: '(min-width: 750px) 80px, 60px', alt: section.settings.logo_8_alt
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- =================================================
+        Logo 9 — ISO
+        ================================================= -->
+      {% if section.settings.logo_9 != blank %}
+
+        <div class="wellie-certified__logo">
+
+          {{
+            section.settings.logo_9 | image_url: width: 160 | image_tag: loading: 'lazy', widths: '60, 80, 120, 160', sizes: '(min-width: 750px) 80px, 60px', alt: section.settings.logo_9_alt
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- =================================================
+        Logo 10 — FDA
+        ================================================= -->
+      {% if section.settings.logo_10 != blank %}
+
+        <div class="wellie-certified__logo">
+
+          {{
+            section.settings.logo_10 | image_url: width: 160 | image_tag: loading: 'lazy', widths: '60, 80, 120, 160', sizes: '(min-width: 750px) 80px, 60px', alt: section.settings.logo_10_alt
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+{% schema %}
+
+  {
+    "name": "Wellie certified",
+
+    "tag": "section",
+
+    "class": "wellie-certified-section",
+
+    "settings": [
+
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Certified & Trusted"
+      },
+
+
+      {
+        "type": "header",
+        "content": "Certification logo 1"
+      },
+
+      {
+        "type": "image_picker",
+        "id": "logo_1",
+        "label": "Logo"
+      },
+
+      {
+        "type": "text",
+        "id": "logo_1_alt",
+        "label": "Alt text",
+        "default": "HACCP certified"
+      }, {
+        "type": "header",
+        "content": "Certification logo 2"
+      }, {
+        "type": "image_picker",
+        "id": "logo_2",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_2_alt",
+        "label": "Alt text",
+        "default": "GHP certified"
+      }, {
+        "type": "header",
+        "content": "Certification logo 3"
+      }, {
+        "type": "image_picker",
+        "id": "logo_3",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_3_alt",
+        "label": "Alt text",
+        "default": "HACCP certified"
+      }, {
+        "type": "header",
+        "content": "Certification logo 4"
+      }, {
+        "type": "image_picker",
+        "id": "logo_4",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_4_alt",
+        "label": "Alt text",
+        "default": "ISO certified"
+      }, {
+        "type": "header",
+        "content": "Certification logo 5"
+      }, {
+        "type": "image_picker",
+        "id": "logo_5",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_5_alt",
+        "label": "Alt text",
+        "default": "FDA approved"
+      }, {
+        "type": "header",
+        "content": "Certification logo 6"
+      }, {
+        "type": "image_picker",
+        "id": "logo_6",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_6_alt",
+        "label": "Alt text",
+        "default": "FEDIAF certified"
+      }, {
+        "type": "header",
+        "content": "Certification logo 7"
+      }, {
+        "type": "image_picker",
+        "id": "logo_7",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_7_alt",
+        "label": "Alt text",
+        "default": "GMP certified"
+      }, {
+        "type": "header",
+        "content": "Certification logo 8"
+      }, {
+        "type": "image_picker",
+        "id": "logo_8",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_8_alt",
+        "label": "Alt text",
+        "default": "HACCP certified"
+      }, {
+        "type": "header",
+        "content": "Certification logo 9"
+      }, {
+        "type": "image_picker",
+        "id": "logo_9",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_9_alt",
+        "label": "Alt text",
+        "default": "ISO certified"
+      }, {
+        "type": "header",
+        "content": "Certification logo 10"
+      }, {
+        "type": "image_picker",
+        "id": "logo_10",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_10_alt",
+        "label": "Alt text",
+        "default": "FDA approved"
+      }
+
+    ],
+
+    "presets": [
+      {
+        "name": "Wellie certified"
+      }
+    ]
+
+  }
+
+{% endschema %}

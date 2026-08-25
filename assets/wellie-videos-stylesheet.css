@@ -1,0 +1,486 @@
+/* =========================================================
+   Wellie Videos
+   Mobile First
+   ========================================================= */
+
+.wellie-videos {
+  width: 100%;
+
+  margin: 0;
+  padding: 0 0 64px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+}
+
+
+/* =========================================================
+   Header
+   ========================================================= */
+
+.wellie-videos__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0 18px;
+
+  box-sizing: border-box;
+}
+
+
+.wellie-videos__heading {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-size: 28px;
+  font-weight: 700;
+
+  line-height: 34px;
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+
+.wellie-videos__subheading {
+  width: 100%;
+
+  margin: 8px 0 0;
+  padding: 0;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: 20px;
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Carousel Wrapper
+   ========================================================= */
+
+.wellie-videos__carousel-wrap {
+  position: relative;
+
+  width: 100%;
+
+  margin: 24px 0 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Carousel
+   ========================================================= */
+
+.wellie-videos__carousel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0 18px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 18px;
+
+  scroll-behavior: smooth;
+
+  overscroll-behavior-x: contain;
+
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+
+  box-sizing: border-box;
+
+  cursor: grab;
+}
+
+
+.wellie-videos__carousel:active {
+  cursor: grabbing;
+}
+
+
+.wellie-videos__carousel::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   Video Card
+   ========================================================= */
+
+.wellie-videos__card {
+  position: relative;
+
+  flex: 0 0 200px;
+
+  width: 200px;
+  height: 340px;
+
+  min-width: 200px;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background: #3A3A3E;
+
+  scroll-snap-align: start;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Video Media
+   ========================================================= */
+
+.wellie-videos__media {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  border-radius: inherit;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Video
+   ========================================================= */
+
+.wellie-videos__video {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: cover;
+  object-position: center center;
+
+  background: #3A3A3E;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Bottom Gradient
+   ========================================================= */
+
+.wellie-videos__gradient {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 45%;
+
+  margin: 0;
+  padding: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(58, 58, 62, 0) 0%,
+      rgba(58, 58, 62, 0.15) 35%,
+      rgba(58, 58, 62, 0.85) 100%
+    );
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   Play Button
+   ========================================================= */
+
+.wellie-videos__play-button {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 26px;
+  height: 26px;
+
+  margin: 0;
+  padding: 0;
+
+  transform: translate(-50%, -50%);
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  z-index: 2;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+
+.wellie-videos__play-button svg {
+  display: block;
+
+  width: 26px;
+  height: 26px;
+
+  margin: 0;
+  padding: 0;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   Playing State
+   ========================================================= */
+
+.wellie-videos__card.is-playing
+.wellie-videos__play-button {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   Next Arrow
+   ========================================================= */
+
+.wellie-videos__next {
+  position: absolute;
+
+  top: 50%;
+  right: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin: 0;
+  padding: 0;
+
+  transform: translateY(-50%);
+
+  border: 2px solid #FFFFFF;
+
+  border-radius: 50%;
+
+  background: #E52888;
+
+  cursor: pointer;
+
+  z-index: 3;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+
+.wellie-videos__next svg {
+  display: block;
+
+  width: 24px;
+  height: 24px;
+
+  pointer-events: none;
+}
+
+
+.wellie-videos__next:disabled {
+  display: none;
+}
+
+/* =========================================================
+   Previous Arrow
+   ========================================================= */
+
+.wellie-videos__previous {
+  position: absolute;
+
+  top: 50%;
+  left: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin: 0;
+  padding: 0;
+
+  transform: translateY(-50%);
+
+  border: 2px solid #FFFFFF;
+
+  border-radius: 50%;
+
+  background: #E52888;
+
+  cursor: pointer;
+
+  z-index: 3;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+
+.wellie-videos__previous svg {
+  display: block;
+
+  width: 24px;
+  height: 24px;
+
+  pointer-events: none;
+}
+
+
+.wellie-videos__previous:disabled {
+  display: none;
+}
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  .wellie-videos {
+    margin-bottom: 64px;
+  }
+
+
+  .wellie-videos__header {
+    padding: 0 24px;
+  }
+
+
+  .wellie-videos__heading {
+    font-size: 42px;
+    line-height: 50px;
+  }
+
+
+  .wellie-videos__subheading {
+    margin-top: 8px;
+
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+
+  .wellie-videos__carousel-wrap {
+    margin-top: 48px;
+  }
+
+
+  .wellie-videos__carousel {
+    padding: 0 48px;
+
+    gap: 12px;
+
+    scroll-padding-inline: 48px;
+  }
+
+
+  .wellie-videos__card {
+    flex-basis: 354px;
+
+    width: 354px;
+    min-width: 354px;
+
+    height: 600px;
+  }
+
+
+  .wellie-videos__next {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .wellie-videos__carousel {
+    scroll-behavior: auto;
+  }
+
+}

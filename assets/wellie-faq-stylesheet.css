@@ -1,0 +1,667 @@
+/* =========================================================
+   Wellie FAQ
+   Mobile First
+   ========================================================= */
+
+
+/* =========================================================
+   Section
+   ========================================================= */
+
+.wellie-faq {
+  width: 100%;
+
+  margin: 0;
+  padding: 0 0 64px;
+
+  box-sizing: border-box;
+
+  color: #3A3A3E;
+}
+
+
+.wellie-faq *,
+.wellie-faq *::before,
+.wellie-faq *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Inner
+   ========================================================= */
+
+.wellie-faq__inner {
+  width: calc(100vw - 36px);
+  max-width: none;
+
+  margin: 0 auto;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 24px;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   Heading
+   ========================================================= */
+
+.wellie-faq__heading {
+  width: 100%;
+  height: 42px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: 28px;
+  line-height: 42px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   FAQ List
+   ========================================================= */
+
+.wellie-faq__list {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+/* =========================================================
+   FAQ Item
+   ========================================================= */
+
+.wellie-faq__item {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================================================
+   Question
+   ========================================================= */
+
+.wellie-faq__question {
+  width: 100%;
+  min-height: 44px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  background: transparent;
+
+  border: 0;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+
+/* =========================================================
+   Question Text
+   ========================================================= */
+
+.wellie-faq__question-text {
+  width: 324px;
+
+  margin: 0;
+  padding: 0;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: 18px;
+  line-height: 22px;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   FAQ Icon
+   ========================================================= */
+
+.wellie-faq__icon {
+  position: relative;
+
+  flex: 0 0 20px;
+
+  width: 20px;
+  height: 20px;
+
+  margin: 0;
+  padding: 0;
+
+  display: block;
+}
+
+
+/* Horizontal line */
+
+.wellie-faq__icon::before {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  width: 20px;
+  height: 2px;
+
+  margin: 0;
+
+  background: #3A3A3E;
+
+  transform: translateY(-50%);
+}
+
+
+/* Vertical line */
+
+.wellie-faq__icon::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 9px;
+
+  width: 2px;
+  height: 20px;
+
+  margin: 0;
+
+  background: #3A3A3E;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* =========================================================
+   Open State
+   ========================================================= */
+
+.wellie-faq__item.is-open
+  .wellie-faq__icon::after {
+  opacity: 0;
+
+  transform: scaleY(0);
+}
+
+
+/* =========================================================
+   Answer Wrapper
+   ========================================================= */
+
+.wellie-faq__answer-wrapper {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================================================
+   Answer
+   ========================================================= */
+
+.wellie-faq__answer {
+  width: 100%;
+
+  margin: 16px 0 0;
+  padding: 0;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 400;
+
+  font-size: 14px;
+  line-height: 21px;
+
+  text-align: left;
+}
+
+
+.wellie-faq__answer p {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================================================
+   Divider
+   ========================================================= */
+
+.wellie-faq__divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 24px 0;
+
+  padding: 0;
+
+  background: rgba(58, 58, 62, 0.2);
+}
+
+
+/* =========================================================
+   Hidden
+   ========================================================= */
+
+.wellie-faq__answer-wrapper[hidden] {
+  display: none;
+}
+
+
+/* =========================================================
+   Focus
+   ========================================================= */
+
+.wellie-faq__question:focus-visible {
+  outline: 2px solid #025A60;
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  /* =======================================================
+     Inner
+     
+     Figma:
+     1064px wide
+     ======================================================= */
+
+  .wellie-faq__inner {
+    width: 1064px;
+    max-width: 1064px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 24px;
+  }
+
+
+  /* =======================================================
+     Heading
+     
+     Figma:
+     1064 × 42
+     28px / 42px
+     ======================================================= */
+
+  .wellie-faq__heading {
+    width: 1064px;
+    height: 42px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-style: normal;
+    font-weight: 700;
+
+    font-size: 28px;
+    line-height: 42px;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     FAQ List
+     
+     Figma:
+     1064 × 370
+     ======================================================= */
+
+  .wellie-faq__list {
+    width: 1064px;
+    height: 370px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 24px;
+  }
+
+
+  /* =======================================================
+     FAQ Item
+     ======================================================= */
+
+  .wellie-faq__item {
+    width: 1064px;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =======================================================
+     Question
+     
+     Figma:
+     1064 × 24
+     ======================================================= */
+
+  .wellie-faq__question {
+    width: 1064px;
+    min-height: 24px;
+    height: 24px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 39px;
+
+    background: transparent;
+
+    border: 0;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-style: normal;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+
+  /* =======================================================
+     Question Text
+     
+     Figma:
+     20px / 24px
+     ======================================================= */
+
+  .wellie-faq__question-text {
+    width: auto;
+
+    margin: 0;
+    padding: 0;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-style: normal;
+    font-weight: 700;
+
+    font-size: 20px;
+    line-height: 24px;
+
+    text-align: left;
+  }
+
+
+  /* =======================================================
+     FAQ Icon
+     
+     Figma:
+     20 × 20
+     ======================================================= */
+
+  .wellie-faq__icon {
+    position: relative;
+
+    flex: 0 0 20px;
+
+    width: 20px;
+    height: 20px;
+
+    margin: 0;
+    padding: 0;
+
+    display: block;
+  }
+
+
+  /* Horizontal line */
+
+  .wellie-faq__icon::before {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    width: 20px;
+    height: 2px;
+
+    margin: 0;
+
+    background: #3A3A3E;
+
+    transform: translateY(-50%);
+  }
+
+
+  /* Vertical line */
+
+  .wellie-faq__icon::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 9px;
+
+    width: 2px;
+    height: 20px;
+
+    margin: 0;
+
+    background: #3A3A3E;
+
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+
+  /* =======================================================
+     Answer Wrapper
+     ======================================================= */
+
+  .wellie-faq__answer-wrapper {
+    width: 1064px;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =======================================================
+     Answer
+     
+     Figma:
+     1064 × 42
+     16px / 21px
+     ======================================================= */
+
+  .wellie-faq__answer {
+    width: 1064px;
+    height: 42px;
+
+    margin: 16px 0 0;
+    padding: 0;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-style: normal;
+    font-weight: 400;
+
+    font-size: 16px;
+    line-height: 21px;
+
+    text-align: left;
+
+    display: flex;
+    align-items: center;
+  }
+
+
+  .wellie-faq__answer p {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =======================================================
+     Divider
+     
+     Figma:
+     1064px
+     0.81px
+     20% opacity
+     ======================================================= */
+
+  .wellie-faq__divider {
+    width: 1064px;
+    height: 1px;
+
+    margin: 16px 0 0;
+
+    padding: 0;
+
+    background: rgba(58, 58, 62, 0.2);
+  }
+
+
+  /* =======================================================
+     Open State
+     ======================================================= */
+
+  .wellie-faq__item.is-open
+    .wellie-faq__icon::after {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+}
+
+
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .wellie-faq *,
+  .wellie-faq *::before,
+  .wellie-faq *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+}

@@ -1,0 +1,173 @@
+<style>
+  @font-face {
+    font-family: 'Cafeteria';
+    src: url('{{ 'Cafeteria-Regular.woff2' | asset_url }}') format('woff2');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+  }
+</style>
+
+{{ 'wellie-pet-benefits-stylesheet.css' | asset_url | stylesheet_tag }}
+
+{%- assign benefits_group = product.metafields.custom.benefits_your_pets_can_feel.value -%}
+
+{%- if benefits_group != blank -%}
+
+  {%- assign benefits = benefits_group.benefits.value -%}
+
+  {%- if benefits != blank -%}
+
+    <section class="wellie-pet-benefits" aria-label="Benefits your pet can feel">
+
+        <!-- =====================================================
+        Backdrop
+        ===================================================== -->
+      <img
+        src="{{ 'wellie-pet-benefits-backdrop.svg' | asset_url }}"
+        width="394"
+        height="654"
+        class="wellie-pet-benefits__backdrop"
+        alt=""
+        aria-hidden="true">
+
+
+      <!-- =====================================================
+        Main Content
+        ===================================================== -->
+      <div class="wellie-pet-benefits__inner">
+
+
+        <!-- =====================================================
+          Heading
+          ===================================================== -->
+        <div class="wellie-pet-benefits__heading-wrapper">
+
+          <h2 class="wellie-pet-benefits__heading">
+            Benefits your pet
+            <br>
+            can feel.
+          </h2>
+
+          <img
+            src="{{ 'wellie-pet-benefits-line-benefits.svg' | asset_url }}"
+            width="149"
+            height="6"
+            class="wellie-pet-benefits__heading-line wellie-pet-benefits__heading-line--benefits"
+            alt=""
+            aria-hidden="true">
+
+          <img
+            src="{{ 'wellie-pet-benefits-line-feel.svg' | asset_url }}"
+            width="76"
+            height="6"
+            class="wellie-pet-benefits__heading-line wellie-pet-benefits__heading-line--feel"
+            alt=""
+            aria-hidden="true">
+
+        </div>
+
+        <!-- =====================================================
+          Benefits
+          ===================================================== -->
+        <div class="wellie-pet-benefits__list">
+
+          {%- for benefit in benefits -%}
+
+            {%- assign benefit_title = benefit.title.value -%}
+            {%- assign benefit_description = benefit.description.value -%}
+
+              <article class="wellie-pet-benefits__item" data-pet-benefit>
+
+              <!-- Number -->
+
+              <div class="wellie-pet-benefits__number">
+                {{ forloop.index }}
+              </div>
+
+
+              <!-- Content -->
+
+              <div class="wellie-pet-benefits__content">
+
+                {%- if benefit_title != blank -%}
+
+                  <h3 class="wellie-pet-benefits__title">
+                    {{ benefit_title }}
+                  </h3>
+
+                {%- endif -%}
+
+
+                {%- if benefit_description != blank -%}
+
+                  <p class="wellie-pet-benefits__description">
+                    {{ benefit_description }}
+                  </p>
+
+                {%- endif -%}
+
+              </div>
+
+            </article>
+
+          {%- endfor -%}
+
+        </div>
+
+
+        <!-- =====================================================
+          Bottom Illustrations
+          ===================================================== -->
+        <div class="wellie-pet-benefits__illustrations" aria-hidden="true">
+
+            <!-- Left -->
+
+          <img
+            src="{{ 'wellie-pet-benefits-left.svg' | asset_url }}"
+            width="62"
+            height="64"
+            class="wellie-pet-benefits__illustration wellie-pet-benefits__illustration--left"
+            alt="">
+
+
+            <!-- Right -->
+
+          <img
+            src="{{ 'wellie-pet-benefits-right.svg' | asset_url }}"
+            width="120"
+            height="64"
+            class="wellie-pet-benefits__illustration wellie-pet-benefits__illustration--right"
+            alt="">
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <script src="{{ 'wellie-pet-benefits-javascript.js' | asset_url }}" defer></script>
+
+  {%- endif -%}
+
+{%- endif -%}
+
+
+{% schema %}
+
+  {
+    "name": "Wellie pet benefits",
+    "tag": "section",
+    "class": "wellie-pet-benefits-section",
+
+    "settings": [],
+
+    "presets": [
+      {
+        "name": "Wellie pet benefits"
+      }
+    ]
+  }
+
+{% endschema %}

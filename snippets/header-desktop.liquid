@@ -7,29 +7,23 @@
   @param {object} section - The header section object (for settings.menu and blocks)
 {% enddoc %}
 
-<div class="menu-desktop hidden lg:flex items-center justify-between gap-8 page-width py-4">
+{%- assign desktop_logo_width = settings.logo_width | default: 135 -%}
+
+<div class="menu-desktop hidden lg:flex lg:h-[75px] lg:items-center">
   {%- comment -%} Logo {%- endcomment -%}
-  <a
-    href="{{ routes.root_url }}"
-    class="flex-shrink-0"
-    aria-label="{{ shop.name }} - Home"
-  >
-    {%- if settings.logo != blank -%}
-      <img
-        src="{{ settings.logo | image_url: width: 300 }}"
-        alt="{{ shop.name }}"
-        width="{{ settings.logo_width | default: 120 }}"
-        height="auto"
-        loading="eager"
-      >
-    {%- else -%}
-      <span class="font-primary text-xl font-normal tracking-tight">{{ shop.name }}</span>
-    {%- endif -%}
-  </a>
+  <div class="flex flex-1 items-center gap-[10px] py-[10px] pl-[80px] pr-[10px]">
+    <a
+      href="{{ routes.root_url }}"
+      class="flex-shrink-0"
+      aria-label="{{ shop.name }} - Home"
+    >
+      {% render 'wellie-logo', width: desktop_logo_width %}
+    </a>
+  </div>
 
   {%- comment -%} Navigation {%- endcomment -%}
-  <nav class="flex-1" aria-label="Main navigation">
-    <ul class="flex items-center justify-center gap-6">
+  <nav class="flex flex-1 items-center justify-center gap-[10px] py-[10px]" aria-label="Main navigation">
+    <ul class="flex items-center justify-center gap-[40px]">
       {%- for link in linklists[section.settings.menu].links -%}
         {%- liquid
           assign mega_menu_block = null
@@ -44,14 +38,14 @@
         <li class="group/nav relative">
           <a
             href="{{ link.url }}"
-            class="relative flex items-center gap-1 py-2 text-sm font-medium opacity-70 transition-opacity duration-200 hover:opacity-100"
+            class="relative flex items-center gap-1 font-tertiary text-[16px] font-medium leading-[19px] transition-opacity duration-200 hover:opacity-70"
             {%- if link.links.size > 0 %}
               aria-expanded="false" aria-haspopup="true"
             {% endif -%}
           >
             {{ link.title }}
             {%- if link.links.size > 0 -%}
-              {% render 'icon-chevron-down', size: 14 %}
+              {% render 'icon-chevron-down', size: 16 %}
             {%- endif -%}
           </a>
 
@@ -170,30 +164,30 @@
   </nav>
 
   {%- comment -%} Action icons {%- endcomment -%}
-  <div class="flex items-center gap-4">
+  <div class="flex flex-1 items-center justify-end gap-[20px] py-[10px] pl-[10px] pr-[80px]">
     <button
       type="button"
-      class="search-trigger flex items-center justify-center opacity-70 transition-opacity duration-200 hover:opacity-100"
+      class="search-trigger flex items-center justify-center transition-opacity duration-200 hover:opacity-70"
       aria-label="{{ 'accessibility.search' | t }}"
     >
-      {% render 'icon-search', size: 20 %}
+      {% render 'icon-search', size: 24 %}
     </button>
 
     <a
       href="{{ routes.account_url }}"
-      class="flex items-center justify-center opacity-70 transition-opacity duration-200 hover:opacity-100"
+      class="flex items-center justify-center transition-opacity duration-200 hover:opacity-70"
       aria-label="{{ 'accessibility.account' | t }}"
     >
-      {% render 'icon-account', size: 20 %}
+      {% render 'icon-account', size: 24 %}
     </a>
 
     <button
       type="button"
-      class="relative flex items-center justify-center opacity-70 transition-opacity duration-200 hover:opacity-100"
+      class="relative flex items-center justify-center transition-opacity duration-200 hover:opacity-70"
       aria-label="{{ 'accessibility.cart' | t }}"
       data-cart-trigger
     >
-      {% render 'icon-cart', size: 20 %}
+      {% render 'icon-cart', size: 24 %}
       <span
         class="cart-item-count absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground"
         data-cart-count="{{ cart.item_count }}"
@@ -208,7 +202,7 @@
     </button>
     <noscript>
       <a href="{{ routes.cart_url }}" aria-label="{{ 'accessibility.cart' | t }}">
-        {% render 'icon-cart', size: 20 %}
+        {% render 'icon-cart', size: 24 %}
       </a>
     </noscript>
   </div>

@@ -1,6 +1,7 @@
 <header
-  class="header sticky top-0 z-50 w-full border-b border-border bg-background transition-all duration-300"
+  class="header sticky top-0 z-50 w-full transition-all duration-300"
   id="main-header"
+  style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};"
 >
   {%- comment -%} Desktop header {%- endcomment -%}
   {% render 'header-desktop', section: section %}
@@ -27,6 +28,18 @@
       "id": "menu",
       "label": "Menu",
       "default": "main-menu"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#F9F3F1"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text and icon color",
+      "default": "#025A60"
     }
   ],
   "blocks": [

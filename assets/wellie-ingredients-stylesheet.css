@@ -1,0 +1,775 @@
+/* =========================================================
+   Wellie Ingredients
+   Mobile First
+   ========================================================= */
+
+.wellie-ingredients {
+  width: 100%;
+
+  margin: 0;
+  padding: 0 18px 64px;
+
+  box-sizing: border-box;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+}
+
+
+/* =========================================================
+   Heading
+   ========================================================= */
+
+.wellie-ingredients__heading {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-size: 28px;
+  font-weight: 700;
+
+  line-height: 34px;
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Ingredients Grid
+   ========================================================= */
+
+.wellie-ingredients__grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  column-gap: 14px;
+  row-gap: 14px;
+
+  width: 100%;
+
+  margin: 24px 0 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Ingredient Card
+   ========================================================= */
+
+.wellie-ingredients__card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 0;
+
+  height: 260px;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  background: #FFFFFF;
+
+  border: 0.6px solid rgba(58, 58, 62, 0.1);
+
+  border-radius: 8px;
+}
+
+
+/* =========================================================
+   Image Wrapper
+   ========================================================= */
+
+.wellie-ingredients__image-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 129px;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  flex: 0 0 129px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Image
+   ========================================================= */
+
+.wellie-ingredients__image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: cover;
+  object-position: center center;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Card Content
+   ========================================================= */
+
+.wellie-ingredients__content {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+  height: 131px;
+
+  margin: 0;
+  padding: 10px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Ingredient Name
+   ========================================================= */
+
+.wellie-ingredients__name {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-size: 16px;
+  font-weight: 700;
+
+  line-height: 19px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Description
+   ========================================================= */
+
+.wellie-ingredients__description {
+  display: block;
+
+  width: 100%;
+
+  margin: 4px 0 0;
+  padding: 0;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-size: 12px;
+  font-weight: 400;
+
+  line-height: 15px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Description Text
+   ========================================================= */
+
+.wellie-ingredients__description-text {
+  display: -webkit-box;
+
+  overflow: hidden;
+
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+/* =========================================================
+   Read More
+   ========================================================= */
+
+.wellie-ingredients__read-more {
+  display: inline;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 15px;
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+
+/* =========================================================
+   Tags
+   ========================================================= */
+
+.wellie-ingredients__tags {
+  position: absolute;
+
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 8px;
+
+  width: auto;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Individual Tag
+   ========================================================= */
+
+.wellie-ingredients__tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  min-height: 20px;
+
+  margin: 0;
+  padding: 4px 10px;
+
+  box-sizing: border-box;
+
+  background: rgba(2, 90, 96, 0.1);
+
+  border: 0.5px solid rgba(2, 90, 96, 0.2);
+
+  border-radius: 40px;
+
+  color: #025A60;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-size: 10px;
+  font-weight: 400;
+
+  line-height: 12px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   Expanded Description
+   ========================================================= */
+
+.wellie-ingredients__card.is-expanded
+.wellie-ingredients__description-text {
+  display: inline;
+}
+
+
+/* =========================================================
+   Expanded State
+   ========================================================= */
+
+.wellie-ingredients__card.is-expanded
+.wellie-ingredients__read-more {
+  display: none;
+}
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  /* =======================================================
+     Main Section
+     ======================================================= */
+
+  .wellie-ingredients {
+    width: 1280px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Heading
+     ======================================================= */
+
+  .wellie-ingredients__heading {
+    width: 1280px;
+    height: 44px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-size: 36px;
+    font-weight: 700;
+
+    line-height: 44px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Ingredients Grid
+
+     Figma:
+     Width: 1280px
+     Height: 400px
+     4 cards
+     20px gap
+     ======================================================= */
+
+  .wellie-ingredients__grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(4, 305px);
+
+    column-gap: 20px;
+    row-gap: 20px;
+
+    width: 1280px;
+    height: 400px;
+
+    margin: 48px 0 0;
+    padding: 0;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Ingredient Card
+     ======================================================= */
+
+  .wellie-ingredients__card {
+    position: relative;
+
+    display: block;
+
+    width: 305px;
+    height: 400px;
+
+    min-width: 305px;
+    min-height: 400px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #FFFFFF;
+
+    border: 0.6px solid rgba(58, 58, 62, 0.1);
+
+    border-radius: 8px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Image Wrapper
+
+     Figma:
+     305 × 231
+     top: 0
+     left: 0
+     ======================================================= */
+
+  .wellie-ingredients__image-wrapper {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 305px;
+    height: 231px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Image
+     ======================================================= */
+
+  .wellie-ingredients__image {
+    display: block;
+
+    width: 305px;
+    height: 231px;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: cover;
+    object-position: center center;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Card Content
+
+     Figma:
+     left: 16px
+     top: 247px
+     width: 273px
+     height: 94px
+     gap: 4px
+     ======================================================= */
+
+  .wellie-ingredients__content {
+    position: absolute;
+
+    top: 247px;
+    left: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 273px;
+    height: 94px;
+
+    margin: 0;
+    padding: 0;
+
+    gap: 4px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Ingredient Name
+
+     Figma:
+     273 × 27
+     22px / 700 / 27px
+     ======================================================= */
+
+  .wellie-ingredients__name {
+    display: flex;
+    align-items: center;
+
+    width: 273px;
+    height: 27px;
+
+    flex: 0 0 27px;
+
+    margin: 0;
+    padding: 0;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-size: 22px;
+    font-weight: 700;
+
+    line-height: 27px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Description
+
+     Figma:
+     273 × 63
+     14px / 400 / 21px
+     ======================================================= */
+
+  .wellie-ingredients__description {
+    display: block;
+
+    width: 273px;
+    height: 63px;
+
+    flex: 0 0 63px;
+
+    margin: 0;
+    padding: 0;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 21px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+  }
+
+
+  /* =======================================================
+     Description Text
+
+     Desktop:
+     Allow the text to occupy the complete
+     273px content width.
+
+     Do NOT use the mobile 2-line clamp here.
+     ======================================================= */
+
+  .wellie-ingredients__description-text {
+    display: inline;
+
+    width: auto;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: visible;
+
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+  }
+
+
+  /* =======================================================
+     Read More
+
+     Figma:
+     Read more appears inline with the
+     description rather than in a separate
+     right-hand column.
+     ======================================================= */
+
+  .wellie-ingredients__read-more {
+    display: inline;
+
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 21px;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+
+  /* =======================================================
+     Tags
+
+     Figma:
+     left: 16px
+     top: 359px
+     width: 186px
+     height: 25px
+     gap: 8px
+     ======================================================= */
+
+  .wellie-ingredients__tags {
+    position: absolute;
+
+    top: 359px;
+    left: 16px;
+
+    right: auto;
+    bottom: auto;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 8px;
+
+    width: 186px;
+    height: 25px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: visible;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Individual Tag
+
+     Figma:
+     Height: 25px
+     Padding: 4px 10px
+     ======================================================= */
+
+  .wellie-ingredients__tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    height: 25px;
+    min-height: 25px;
+
+    margin: 0;
+    padding: 4px 10px;
+
+    box-sizing: border-box;
+
+    background: rgba(2, 90, 96, 0.1);
+
+    border: 0.5px solid rgba(2, 90, 96, 0.2);
+
+    border-radius: 40px;
+
+    color: #025A60;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 17px;
+
+    white-space: nowrap;
+  }
+
+
+  /* =======================================================
+     Expanded Description
+     ======================================================= */
+
+  .wellie-ingredients__card.is-expanded
+  .wellie-ingredients__description-text {
+    display: inline;
+  }
+
+
+  /* =======================================================
+     Expanded State
+     ======================================================= */
+
+  .wellie-ingredients__card.is-expanded
+  .wellie-ingredients__read-more {
+    display: none;
+  }
+
+}

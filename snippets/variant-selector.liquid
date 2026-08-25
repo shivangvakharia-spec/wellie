@@ -13,6 +13,7 @@
   @param {boolean} [show_overflow_count] - Show "+N" after limit (default: false)
   @param {string} [color_display] - Color swatch style: 'image' or 'swatch' (default: 'swatch')
   @param {string} [pill_style] - Non-color button style: 'outline' or 'filled' (default: 'outline')
+  @param {boolean} [show_variant_discount] - Append the matching variant's discount to non-color values (default: false)
 
   @example
   {% render 'variant-selector', product: product, options: 'color,size', swatch_size: 'lg', show_labels: true %}
@@ -36,6 +37,7 @@
   assign show_overflow_count = show_overflow_count | default: false
   assign color_display = color_display | default: 'swatch'
   assign pill_style = pill_style | default: 'outline'
+  assign show_variant_discount = show_variant_discount | default: false
 
   assign selected_variant = product.selected_or_first_available_variant
   assign selected_options = selected_variant.options
@@ -211,6 +213,26 @@
               </button>
 
             {%- else -%}
+              {%- liquid
+                assign value_label = value
+
+                if show_variant_discount
+                  assign matching_variant = null
+                  for variant in product.variants
+                    assign variant_option_value = variant.options[option_index]
+                    if variant_option_value == value and variant.compare_at_price > variant.price
+                      assign matching_variant = variant
+                      break
+                    endif
+                  endfor
+
+                  if matching_variant != null
+                    assign discount_amount = matching_variant.compare_at_price | minus: matching_variant.price
+                    assign discount_percentage = discount_amount | times: 100.0 | divided_by: matching_variant.compare_at_price | round
+                    assign value_label = value | append: ' (' | append: discount_percentage | append: '% Off)'
+                  endif
+                endif
+              -%}
               <button
                 type="button"
                 class="variant-option rounded border px-4 py-2 text-sm transition-colors{% if is_selected %} border-foreground bg-foreground text-background{% elsif pill_style == 'filled' %} border-foreground/20 bg-foreground/5 hover:border-foreground{% else %} border-border hover:border-foreground{% endif %}{% unless value_available %} opacity-40{% endunless %}"
@@ -222,7 +244,7 @@
                   disabled
                 {% endunless %}
               >
-                {{ value }}
+                {{ value_label }}
               </button>
             {%- endif -%}
           {%- endfor -%}

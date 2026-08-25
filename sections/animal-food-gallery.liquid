@@ -1,0 +1,635 @@
+{{ 'animal-food-gallery-stylesheet.css' | asset_url | stylesheet_tag }}
+
+<section id="AnimalFoodGallery-{{ section.id }}" class="animal-food-gallery">
+  <div class="animal-food-gallery__layout">
+
+    <!-- =====================================================
+      LEFT: IMAGE GALLERY
+      ===================================================== -->
+    <div class="animal-food-gallery__left">
+
+      <div class="animal-food-gallery__container">
+
+        {% if product.featured_image %}
+          <div class="animal-food-gallery__main-image-wrapper">
+
+            <img
+              id="AnimalFoodGalleryMainImage-{{ section.id }}"
+              class="animal-food-gallery__main-image"
+              src="{{ product.featured_image | image_url: width: 1260 }}"
+              alt="{{ product.featured_image.alt | escape | default: product.title | escape }}"
+              width="630"
+              height="630"
+              data-image-id="{{ product.featured_image.id }}">
+
+            <!-- Previous Image -->
+
+            <button
+              type="button"
+              class="animal-food-gallery__navigation animal-food-gallery__navigation--left"
+              data-gallery-previous
+              aria-label="Previous product image">
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 25 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <g filter="url(#filter0_d_gallery_left_{{ section.id }})">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="12"
+                    transform="matrix(-1 0 0 1 24 0)"
+                    fill="#E52888" />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="11.75"
+                    transform="matrix(-1 0 0 1 24 0)"
+                    stroke="#D4E391"
+                    stroke-width="0.5" />
+                </g>
+
+                <path
+                  d="M13 8L9 12L13 16"
+                  stroke="#D4E391"
+                  stroke-width="1.5"
+                  stroke-linecap="square"
+                  stroke-linejoin="round" />
+
+                <defs>
+                  <filter
+                    id="filter0_d_gallery_left_{{ section.id }}"
+                    x="0"
+                    y="0"
+                    width="24.5"
+                    height="24.5"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha" />
+                    <feOffset dx="0.5" dy="0.5" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0.831373 0 0 0 0 0.890196 0 0 0 0 0.568627 0 0 0 1 0" />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow" />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow"
+                      result="shape" />
+                  </filter>
+                </defs>
+              </svg>
+            </button>
+
+            <!-- Next Image -->
+
+            <button
+              type="button"
+              class="animal-food-gallery__navigation animal-food-gallery__navigation--right"
+              data-gallery-next
+              aria-label="Next product image">
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 25 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <g filter="url(#filter0_d_gallery_right_{{ section.id }})">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="12"
+                    fill="#E52888" />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="11.75"
+                    stroke="#D4E391"
+                    stroke-width="0.5" />
+                </g>
+
+                <path
+                  d="M11 8L15 12L11 16"
+                  stroke="#D4E391"
+                  stroke-width="1.5"
+                  stroke-linecap="square"
+                  stroke-linejoin="round" />
+
+                <defs>
+                  <filter
+                    id="filter0_d_gallery_right_{{ section.id }}"
+                    x="0"
+                    y="0"
+                    width="24.5"
+                    height="24.5"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha" />
+                    <feOffset dx="0.5" dy="0.5" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0.831373 0 0 0 0 0.890196 0 0 0 0 0.568627 0 0 0 1 0" />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow" />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow"
+                      result="shape" />
+                  </filter>
+                </defs>
+              </svg>
+            </button>
+
+          </div>
+        {% endif %}
+
+
+        <!-- Thumbnails -->
+
+        {% if product.images.size > 0 %}
+          <div class="animal-food-gallery__thumbnails" role="list">
+
+            {% for image in product.images %}
+
+              {% assign is_selected = false %}
+
+              {% if image.id == product.featured_image.id %}
+                {% assign is_selected = true %}
+              {% endif %}
+
+              <button
+                type="button"
+                class="
+                  animal-food-gallery__thumbnail
+                  {% if is_selected %}
+                    animal-food-gallery__thumbnail--selected
+                  {% endif %}
+                "
+                data-image-id="{{ image.id }}"
+                data-image-src="{{ image | image_url: width: 1260 }}"
+                data-image-alt="{{ image.alt | escape | default: product.title | escape }}"
+                aria-label="View product image {{ forloop.index }}"
+                aria-current="{% if is_selected %}true{% else %}false{% endif %}">
+                <img
+                  src="{{ image | image_url: width: 140 }}"
+                  alt="{{ image.alt | escape | default: product.title | escape }}"
+                  width="70"
+                  height="70"
+                  loading="lazy">
+              </button>
+
+            {% endfor %}
+
+          </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+      RIGHT: PRODUCT INFORMATION
+      ===================================================== -->
+    <div class="animal-food-gallery__right">
+
+      {% assign badge_text = product.metafields.custom.badge_text.value %}
+
+      {% if badge_text != blank %}
+        <div class="animal-food-gallery__badge">
+          <span class="animal-food-gallery__badge-text">
+            {{ badge_text }}
+          </span>
+        </div>
+      {% endif %}
+
+      <h1 class="animal-food-gallery__product-title">
+        {{ product.title }}
+      </h1>
+
+      {% assign selected_variant = product.selected_or_first_available_variant %}
+
+      <div class="animal-food-gallery__price-row">
+        <div class="animal-food-gallery__price" data-product-price>
+          {{ selected_variant.price | money }}
+        </div>
+
+        {% if selected_variant.compare_at_price > selected_variant.price %}
+          <div class="animal-food-gallery__compare-price" data-product-compare-price>
+            {{ selected_variant.compare_at_price | money }}
+          </div>
+        {% else %}
+          <div
+            class="animal-food-gallery__compare-price"
+            data-product-compare-price
+            hidden></div>
+        {% endif %}
+      </div>
+
+      <div class="animal-food-gallery__tax-info">
+        MRP Inclusive of all taxes
+      </div>
+
+      {% assign product_benefits = product.metafields.custom.product_benefit.value %}
+
+      {% if product_benefits != blank %}
+        {% for product_benefit in product_benefits %}
+
+          <div class="animal-food-gallery__info-badge">
+
+            <div class="animal-food-gallery__info-badge-inner">
+
+              {% if product_benefit.icon.value != blank %}
+                <div class="animal-food-gallery__info-badge-icon">
+                  <img
+                    src="{{ product_benefit.icon.value | image_url: width: 60 }}"
+                    alt=""
+                    width="30"
+                    height="30"
+                    loading="lazy">
+                </div>
+              {% endif %}
+
+              <div class="animal-food-gallery__info-badge-content">
+
+                {% if product_benefit.title.value != blank %}
+                  <div class="animal-food-gallery__info-badge-title">
+                    {{ product_benefit.title.value }}
+                  </div>
+                {% endif %}
+
+                {% if product_benefit.description.value != blank %}
+                  <div class="animal-food-gallery__info-badge-description">
+                    {{ product_benefit.description.value }}
+
+                    {% if product_benefit.link_text.value != blank %}
+                      <a
+                        class="animal-food-gallery__info-badge-link"
+                        {% if product_benefit.link.value != blank %}
+                        href="{{ product_benefit.link.value }}"
+                        {% endif %}>
+                        {{ product_benefit.link_text.value }}
+                      </a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        {% endfor %}
+      {% endif %}
+
+      {% if product.variants.size > 0 %}
+        <fieldset class="animal-food-gallery__variant-selector">
+          <legend class="animal-food-gallery__variant-label">
+            Select Size
+          </legend>
+
+          <div class="animal-food-gallery__variant-options">
+
+            {% for variant in product.variants %}
+
+              {% assign discount_percentage = 0 %}
+
+              {% if variant.compare_at_price > variant.price %}
+                {% assign discount_amount = variant.compare_at_price | minus: variant.price %}
+                {% assign discount_percentage = discount_amount | times: 100 | divided_by: variant.compare_at_price %}
+              {% endif %}
+
+              {% assign variant_badge = variant.metafields.custom.variant_badge.value %}
+
+              <div class="animal-food-gallery__variant-wrapper">
+
+                {% if variant_badge != blank %}
+                  <div class="animal-food-gallery__variant-badge">
+                    <span class="animal-food-gallery__variant-badge-text">
+                      {{ variant_badge }}
+                    </span>
+                  </div>
+                {% endif %}
+
+                <button
+                  type="button"
+                  class="animal-food-gallery__variant-option {% if variant.id == selected_variant.id %}animal-food-gallery__variant-option--selected{% endif %}"
+                  data-variant-id="{{ variant.id }}"
+                  data-variant-price="{{ variant.price | money }}"
+                  data-variant-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
+                  aria-pressed="{% if variant.id == selected_variant.id %}true{% else %}false{% endif %}"
+                  {% unless variant.available %}
+                  disabled
+                  {% endunless %}>
+
+                  <span class="animal-food-gallery__variant-text">
+                    {{ variant.title }}
+
+                    {% if discount_percentage > 0 %}
+                      ({{ discount_percentage }}% Off)
+                    {% endif %}
+                  </span>
+
+                </button>
+
+              </div>
+
+            {% endfor %}
+
+          </div>
+        </fieldset>
+      {% endif %}
+
+      {% if product.variants.size > 0 %}
+
+        {% if product.variants.size > 0 %}
+          <div class="animal-food-gallery__cart-controls">
+
+            <!-- =====================================================
+              Quantity + Add To Cart
+              ===================================================== -->
+            <div class="animal-food-gallery__cart-row">
+
+              <!-- Quantity Selector -->
+
+              <div class="animal-food-gallery__quantity-selector">
+
+                <button
+                  type="button"
+                  class="animal-food-gallery__quantity-button"
+                  data-quantity-decrease
+                  aria-label="Decrease quantity">
+
+                  <svg
+                    class="animal-food-gallery__quantity-icon animal-food-gallery__quantity-icon--minus"
+                    width="14"
+                    height="2"
+                    viewBox="0 0 14 2"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+
+                    <path
+                      d="M0 1H14"
+                      stroke="#025A60"
+                      stroke-width="2" />
+
+                  </svg>
+
+                </button>
+
+
+                <span class="animal-food-gallery__quantity-value" data-quantity-value>
+                  01
+                </span>
+
+
+                <button
+                  type="button"
+                  class="animal-food-gallery__quantity-button"
+                  data-quantity-increase
+                  aria-label="Increase quantity">
+
+                  <svg
+                    class="animal-food-gallery__quantity-icon animal-food-gallery__quantity-icon--plus"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+
+                    <path
+                      d="M0 7H7M14 7H7M7 7V0M7 7L7 14"
+                      stroke="#025A60"
+                      stroke-width="2" />
+
+                  </svg>
+
+                </button>
+
+              </div>
+
+
+              <!-- =================================================
+                Add To Cart
+                ================================================= -->
+              <button
+                type="button"
+                class="animal-food-gallery__add-to-cart"
+                data-add-to-cart>
+
+                <span class="animal-food-gallery__add-to-cart-icon" aria-hidden="true">
+
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+
+                    <path
+                      d="M3 5H5L7.4 15.2C7.63 16.18 8.5 16.88 9.5 16.88H17.4C18.34 16.88 19.17 16.25 19.43 15.35L21 10H6.2"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+
+                    <circle
+                      cx="9.5"
+                      cy="20"
+                      r="1.2"
+                      stroke="currentColor"
+                      stroke-width="1.5" />
+
+                    <circle
+                      cx="18"
+                      cy="20"
+                      r="1.2"
+                      stroke="currentColor"
+                      stroke-width="1.5" />
+
+                  </svg>
+
+                </span>
+
+                <span class="animal-food-gallery__add-to-cart-text">
+                  Add to Cart
+                </span>
+
+              </button>
+
+            </div>
+
+
+            <!-- =====================================================
+              Buy It Now
+              ===================================================== -->
+            <button
+              type="button"
+              class="animal-food-gallery__buy-now"
+              data-buy-now>
+
+              <span class="animal-food-gallery__buy-now-text">
+                Buy It Now
+              </span>
+
+            </button>
+
+          </div>
+        {% endif %}
+      {% endif %}
+
+      {% assign discount_badges = product.metafields.custom.discount_badge.value %}
+
+      {% if discount_badges != blank %}
+        <div class="animal-food-gallery__discount-badges">
+
+          <div class="animal-food-gallery__discount-badges-track">
+
+            {% for discount_badge in discount_badges %}
+
+              <div class="animal-food-gallery__discount-badge">
+
+                <div class="animal-food-gallery__discount-badge-content">
+
+                  <!-- Discount Icon -->
+
+                  <div class="animal-food-gallery__discount-badge-icon">
+
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 30 30"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true">
+
+                      <path
+                        d="M15 3.75L18.6594 6.1654L22.955 7.04505L23.8346 11.3406L26.25 15L23.8346 18.6594L22.955 22.955L18.6594 23.8346L15 26.25L11.3406 23.8346L7.04505 22.955L6.1654 18.6594L3.75 15L6.1654 11.3406L7.04505 7.04505L11.3406 6.1654L15 3.75Z"
+                        stroke="#025A60"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+
+                      <path
+                        d="M18.75 11.25L11.25 18.75M12.5 11.875C12.5 12.2202 12.2202 12.5 11.875 12.5C11.5298 12.5 11.25 12.2202 11.25 11.875C11.25 11.5298 11.5298 11.25 11.875 11.25C12.2202 11.25 12.5 11.5298 12.5 11.875ZM18.75 18.125C18.75 18.4702 18.4702 18.75 18.125 18.75C17.7798 18.75 17.5 18.4702 17.5 18.125C17.5 17.7798 17.7798 17.5 18.125 17.5C18.4702 17.5 18.75 18.125Z"
+                        stroke="#025A60"
+                        stroke-width="2"
+                        stroke-linecap="square"
+                        stroke-linejoin="round" />
+
+                    </svg>
+
+                  </div>
+
+
+                  <!-- Discount Text -->
+
+                  <div class="animal-food-gallery__discount-badge-text">
+
+                    {% if discount_badge.title.value != blank %}
+                      <div class="animal-food-gallery__discount-badge-title">
+                        {{ discount_badge.title.value }}
+                      </div>
+                    {% endif %}
+
+                    {% if discount_badge.description.value != blank %}
+                      <div class="animal-food-gallery__discount-badge-description">
+                        {{ discount_badge.description.value }}
+                      </div>
+                    {% endif %}
+
+                  </div>
+
+
+                  <!-- Copy Button -->
+
+                  {% if discount_badge.code.value != blank %}
+
+                    <button
+                      type="button"
+                      class="animal-food-gallery__discount-badge-copy"
+                      data-discount-code="{{ discount_badge.code.value | escape }}"
+                      aria-label="Copy discount code">
+
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+
+                        <path
+                          d="M15 16.5V20H9.5H4V8H8.5"
+                          stroke="#025A60"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+
+                        <path
+                          d="M20 4H9V16H14.5H20V10V4Z"
+                          stroke="#025A60"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+
+                      </svg>
+
+                    </button>
+
+                  {% endif %}
+
+                </div>
+
+              </div>
+
+            {% endfor %}
+
+          </div>
+
+        </div>
+      {% endif %}
+
+
+    </div>
+
+  </div>
+</section>
+
+<script src="{{ 'animal-food-gallery-javascript.js' | asset_url }}" defer></script>
+
+
+{% schema %}
+  {
+    "name": "Animal Food Gallery",
+    "tag": "section",
+    "class": "section-animal-food-gallery",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Animal Food Gallery"
+      }
+    ]
+  }
+{% endschema %}

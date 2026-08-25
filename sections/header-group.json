@@ -8,14 +8,16 @@
         "announcement_1": {
           "type": "announcement-bar-item",
           "settings": {
-            "announcement_bar_text": "<p>Clone. Customize. Deploy</p>"
+            "announcement_bar_text": "<p>15% Off over ₹5000 Use Code WELLIEWOW</p>"
           }
         }
       },
-      "block_order": ["announcement_1"],
+      "block_order": [
+        "announcement_1"
+      ],
       "settings": {
-        "background_color": "#0a0a0a",
-        "text_color": "#ffffff",
+        "background_color": "#025A60",
+        "text_color": "#F9F3F1",
         "scroll_speed": 50
       }
     },
@@ -26,5 +28,8 @@
       }
     }
   },
-  "order": ["announcement_bar", "header"]
+  "order": [
+    "announcement_bar",
+    "header"
+  ]
 }

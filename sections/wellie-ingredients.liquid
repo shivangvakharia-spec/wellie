@@ -1,0 +1,133 @@
+{{ 'wellie-ingredients-stylesheet.css' | asset_url | stylesheet_tag }}
+
+{%- assign ingredients = product.metafields.custom.product_ingredients.value -%}
+
+{%- if ingredients != blank -%}
+
+  <section class="wellie-ingredients" aria-label="Premium Ingredients">
+
+    <!-- =====================================================
+      Heading
+      ===================================================== -->
+    <h2 class="wellie-ingredients__heading">
+      Premium Ingredients
+    </h2>
+
+
+    <!-- =====================================================
+      Ingredients Grid
+      ===================================================== -->
+    <div class="wellie-ingredients__grid">
+
+      {%- for ingredient in ingredients -%}
+
+        <article class="wellie-ingredients__card">
+
+          <!-- ===============================================
+            Image
+            =============================================== -->
+          <div class="wellie-ingredients__image-wrapper">
+
+            {%- if ingredient.image != blank -%}
+
+              {{
+                ingredient.image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'wellie-ingredients__image', alt: ingredient.name
+              }}
+
+            {%- endif -%}
+
+          </div>
+
+
+          <!-- ===============================================
+            Card Content
+            =============================================== -->
+          <div class="wellie-ingredients__content">
+
+            <!-- =============================================
+              Ingredient Name
+              ============================================= -->
+            {%- if ingredient.name != blank -%}
+
+              <h3 class="wellie-ingredients__name">
+                {{ ingredient.name }}
+              </h3>
+
+            {%- endif -%}
+
+
+            <!-- =============================================
+              Description
+              ============================================= -->
+            {%- if ingredient.description != blank -%}
+
+              <div class="wellie-ingredients__description">
+
+                <span class="wellie-ingredients__description-text">
+                  {{ ingredient.description }}
+                </span>
+
+                <button
+                  type="button"
+                  class="wellie-ingredients__read-more"
+                  data-ingredient-read-more
+                  aria-expanded="false">
+                  Read more
+                </button>
+
+              </div>
+
+            {%- endif -%}
+
+
+            <!-- =============================================
+              Tags
+              ============================================= -->
+            {%- if ingredient.tag != blank -%}
+
+              <div class="wellie-ingredients__tags">
+
+                {%- for tag in ingredient.tag.value -%}
+
+                  <span class="wellie-ingredients__tag">
+                    {{ tag }}
+                  </span>
+
+                {%- endfor -%}
+
+              </div>
+
+            {%- endif -%}
+
+          </div>
+
+        </article>
+
+      {%- endfor -%}
+
+    </div>
+
+  </section>
+
+  <script src="{{ 'wellie-ingredients-javascript.js' | asset_url }}" defer></script>
+
+{%- endif -%}
+
+
+{% schema %}
+
+  {
+    "name": "Wellie ingredients",
+    "tag": "section",
+    "class": "wellie-ingredients-section",
+
+    "settings": [],
+
+    "presets": [
+      {
+        "name": "Wellie ingredients"
+      }
+    ]
+  }
+
+{% endschema %}

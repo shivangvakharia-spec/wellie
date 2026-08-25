@@ -1,0 +1,677 @@
+/* =========================================================
+   Wellie Vet Check
+   Mobile First
+   ========================================================= */
+
+
+/* =========================================================
+   Section
+   ========================================================= */
+
+.wellie-vet-check {
+  width: 100%;
+
+  margin: 0;
+  padding: 0 0 64px;
+
+  box-sizing: border-box;
+
+  color: #3A3A3E;
+}
+
+
+.wellie-vet-check *,
+.wellie-vet-check *::before,
+.wellie-vet-check *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Card
+   ========================================================= */
+
+.wellie-vet-check__card {
+  position: relative;
+
+  width: calc(100vw - 36px);
+  max-width: none;
+
+  height: 314px;
+
+  margin: 0 auto;
+  padding: 0;
+
+  overflow: hidden;
+
+  background: #FFFFFF;
+
+  border: 1px solid rgba(58, 58, 62, 0.1);
+  border-radius: 8px;
+
+  box-sizing: border-box;
+}
+/* =========================================================
+   Image
+   ========================================================= */
+
+.wellie-vet-check__image {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 236px;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: cover;
+  object-position: center;
+
+  border: 0;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   Image Gradient
+   ========================================================= */
+
+.wellie-vet-check__image-gradient {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 236px;
+
+  margin: 0;
+  padding: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 34.11%,
+      #FFFFFF 80.93%
+    );
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   Content
+   ========================================================= */
+
+.wellie-vet-check__content {
+  position: absolute;
+
+  top: 160px;
+  left: 14px;
+
+  width: calc(100% - 28px);
+  height: 140px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 16px;
+
+  z-index: 3;
+}
+
+/* =========================================================
+   Text
+   ========================================================= */
+
+.wellie-vet-check__text {
+  width: 100%;
+  height: 94px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 8px;
+}
+
+
+/* =========================================================
+   Heading
+   ========================================================= */
+
+.wellie-vet-check__heading {
+  width: 100%;
+  height: 32px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: 26px;
+  line-height: 32px;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   Description
+   ========================================================= */
+
+.wellie-vet-check__description {
+  width: 100%;
+  height: 54px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 400;
+
+  font-size: 12px;
+  line-height: 18px;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   Copy Button
+   ========================================================= */
+
+.wellie-vet-check__copy-button {
+  width: 115px;
+  height: 30px;
+
+  margin: 0;
+  padding: 6px 10px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 4px;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  background: rgba(2, 90, 96, 0.1);
+
+  border: 0.5px solid rgba(2, 90, 96, 0.1);
+
+  border-radius: 50px;
+
+  color: #025A60;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 400;
+
+  font-size: 12px;
+  line-height: 18px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Copy Icon
+   ========================================================= */
+
+.wellie-vet-check__copy-icon {
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 18px;
+}
+
+
+/* =========================================================
+   Copy Label
+   ========================================================= */
+
+.wellie-vet-check__copy-label {
+  width: 73px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   Hover
+   ========================================================= */
+
+.wellie-vet-check__copy-button:hover {
+  background: rgba(2, 90, 96, 0.15);
+}
+
+
+/* =========================================================
+   Focus
+   ========================================================= */
+
+.wellie-vet-check__copy-button:focus-visible {
+  outline: 2px solid #025A60;
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   Copied State
+   ========================================================= */
+
+.wellie-vet-check__copy-button.is-copied {
+  background: rgba(2, 90, 96, 0.15);
+}
+
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  /* =======================================================
+     Card
+     
+     Figma:
+     1064 × 300
+     ======================================================= */
+
+  .wellie-vet-check__card {
+    position: relative;
+
+    width: 1064px;
+    max-width: 1064px;
+    height: 300px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #FFFFFF;
+
+    border: 0;
+    border-radius: 10px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Image
+     
+     Figma:
+     532 × 300
+     left: 0
+     top: 0
+     ======================================================= */
+
+  .wellie-vet-check__image {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    width: 532px;
+    height: 300px;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: cover;
+    object-position: center;
+
+    border: 0;
+
+    z-index: 1;
+  }
+
+
+  /* =======================================================
+     Image Gradient
+     
+     Desktop Figma uses a horizontal gradient:
+     
+     transparent → white
+     
+     from approximately 50% to 98.39%
+     ======================================================= */
+
+  .wellie-vet-check__image-gradient {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 532px;
+    height: 300px;
+
+    margin: 0;
+    padding: 0;
+
+    background:
+      linear-gradient(
+        88.09deg,
+        rgba(255, 255, 255, 0) 50%,
+        #FFFFFF 98.39%
+      );
+
+    pointer-events: none;
+
+    z-index: 2;
+  }
+
+
+  /* =======================================================
+     Content
+     
+     Figma:
+     width: 450px
+     height: 228px
+     left: 573px
+     vertically centered
+     
+     (300 - 228) / 2 = 36px
+     ======================================================= */
+
+  .wellie-vet-check__content {
+    position: absolute;
+
+    top: 36px;
+    left: 573px;
+
+    width: 450px;
+    height: 228px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 16px;
+
+    z-index: 3;
+  }
+
+
+  /* =======================================================
+     Text
+     
+     Figma:
+     450 × 172
+     gap: 10px
+     ======================================================= */
+
+  .wellie-vet-check__text {
+    width: 450px;
+    height: 172px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+
+
+  /* =======================================================
+     Heading
+     
+     Figma:
+     450 × 42
+     28px / 42px
+     ======================================================= */
+
+  .wellie-vet-check__heading {
+    width: 450px;
+    height: 42px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-style: normal;
+    font-weight: 700;
+
+    font-size: 28px;
+    line-height: 42px;
+
+    text-align: left;
+  }
+
+
+  /* =======================================================
+     Description
+     
+     Figma:
+     450 × 120
+     16px / 24px
+     ======================================================= */
+
+  .wellie-vet-check__description {
+    width: 450px;
+    height: 120px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-style: normal;
+    font-weight: 400;
+
+    font-size: 16px;
+    line-height: 24px;
+
+    text-align: left;
+  }
+
+
+  /* =======================================================
+     Copy Button
+     
+     Figma:
+     149 × 40
+     padding: 10px 20px
+     ======================================================= */
+
+  .wellie-vet-check__copy-button {
+    width: 149px;
+    height: 40px;
+
+    margin: 0;
+    padding: 10px 20px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: rgba(2, 90, 96, 0.1);
+
+    border: 0.5px solid rgba(2, 90, 96, 0.1);
+
+    border-radius: 50px;
+
+    color: #025A60;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-style: normal;
+    font-weight: 400;
+
+    font-size: 14px;
+    line-height: 18px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Copy Icon
+     
+     Figma:
+     20 × 20
+     ======================================================= */
+
+  .wellie-vet-check__copy-icon {
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 20px;
+  }
+
+
+  /* =======================================================
+     Copy Label
+     
+     Figma:
+     85 × 18
+     ======================================================= */
+
+  .wellie-vet-check__copy-label {
+    width: 85px;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+
+    white-space: nowrap;
+  }
+
+
+  /* =======================================================
+     Hover
+     ======================================================= */
+
+  .wellie-vet-check__copy-button:hover {
+    background: rgba(2, 90, 96, 0.15);
+  }
+
+
+  /* =======================================================
+     Focus
+     ======================================================= */
+
+  .wellie-vet-check__copy-button:focus-visible {
+    outline: 2px solid #025A60;
+    outline-offset: 2px;
+  }
+
+
+  /* =======================================================
+     Copied State
+     ======================================================= */
+
+  .wellie-vet-check__copy-button.is-copied {
+    background: rgba(2, 90, 96, 0.15);
+  }
+
+}
+
+
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .wellie-vet-check *,
+  .wellie-vet-check *::before,
+  .wellie-vet-check *::after {
+    scroll-behavior: auto;
+    transition: none !important;
+    animation: none !important;
+  }
+
+}

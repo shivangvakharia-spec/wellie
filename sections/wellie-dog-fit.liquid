@@ -1,0 +1,214 @@
+{{ 'wellie-dog-fit-stylesheet.css' | asset_url | stylesheet_tag }}
+
+<section class="wellie-dog-fit" aria-label="Is this right for my dog?">
+
+  <div class="wellie-dog-fit__inner">
+
+    <!-- =====================================================
+      Hero
+      ===================================================== -->
+    <div class="wellie-dog-fit__hero">
+
+      <h2 class="wellie-dog-fit__heading">
+        Is this right for my dog?
+      </h2>
+
+
+      <div class="wellie-dog-fit__visual">
+
+        <!-- Background decorative shapes -->
+        <div class="wellie-dog-fit__shape wellie-dog-fit__shape--top-left" aria-hidden="true"></div>
+
+        <div class="wellie-dog-fit__shape wellie-dog-fit__shape--bottom-right" aria-hidden="true"></div>
+
+
+        <!-- Dog -->
+        {% if section.settings.hero_dog_image != blank %}
+
+          {{
+            section.settings.hero_dog_image | image_url: width: 634 | image_tag: class: 'wellie-dog-fit__dog', loading: 'lazy', widths: '317, 634', sizes: '317px'
+          }}
+
+        {% endif %}
+
+
+        <!-- Pink decorative doodle -->
+        {% if section.settings.pink_doodle != blank %}
+
+          {{
+            section.settings.pink_doodle | image_url: width: 200 | image_tag: class: 'wellie-dog-fit__doodle wellie-dog-fit__doodle--pink', loading: 'lazy'
+          }}
+
+        {% endif %}
+
+
+        <!-- White decorative doodles -->
+        {% if section.settings.white_doodle_top != blank %}
+
+          {{
+            section.settings.white_doodle_top | image_url: width: 120 | image_tag: class: 'wellie-dog-fit__doodle wellie-dog-fit__doodle--white-top', loading: 'lazy'
+          }}
+
+        {% endif %}
+
+
+        {% if section.settings.white_doodle_bottom != blank %}
+
+          {{
+            section.settings.white_doodle_bottom | image_url: width: 120 | image_tag: class: 'wellie-dog-fit__doodle wellie-dog-fit__doodle--white-bottom', loading: 'lazy'
+          }}
+
+        {% endif %}
+
+
+        <!-- White small marks -->
+        {% if section.settings.white_marks != blank %}
+
+          {{
+            section.settings.white_marks | image_url: width: 120 | image_tag: class: 'wellie-dog-fit__doodle wellie-dog-fit__doodle--white-marks', loading: 'lazy'
+          }}
+
+        {% endif %}
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+      Recommendation List
+      ===================================================== -->
+    <div class="wellie-dog-fit__recommendations">
+
+      {% for block in section.blocks %}
+
+        <article class="wellie-dog-fit__recommendation" {{ block.shopify_attributes }}>
+
+          <!-- Image -->
+
+          <div class="wellie-dog-fit__recommendation-image-wrapper">
+
+            {% if block.settings.image != blank %}
+
+              {{
+                block.settings.image | image_url: width: 160 | image_tag: class: 'wellie-dog-fit__recommendation-image', loading: 'lazy', widths: '80, 160', sizes: '80px'
+              }}
+
+            {% endif %}
+
+          </div>
+
+
+          <!-- Content -->
+
+          <div class="wellie-dog-fit__recommendation-content">
+
+            {% if block.settings.title != blank %}
+
+              <h3 class="wellie-dog-fit__recommendation-title">
+                {{ block.settings.title }}
+              </h3>
+
+            {% endif %}
+
+
+            {% if block.settings.description != blank %}
+
+              <p class="wellie-dog-fit__recommendation-description">
+                {{ block.settings.description }}
+              </p>
+
+            {% endif %}
+
+          </div>
+
+        </article>
+
+        {% unless forloop.last %}
+
+          <div class="wellie-dog-fit__divider" aria-hidden="true"></div>
+
+        {% endunless %}
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+
+{% schema %}
+
+  {
+    "name": "Wellie dog fit",
+
+    "tag": "section",
+
+    "class": "wellie-dog-fit-section",
+
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "hero_dog_image",
+        "label": "Hero dog image"
+      }
+    ],
+
+    "blocks": [
+      {
+        "type": "recommendation",
+
+        "name": "Recommendation",
+
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Supports Healthy Teeth and Gums"
+          }, {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description",
+            "default": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+          }
+        ]
+      }
+    ],
+
+    "presets": [
+      {
+        "name": "Wellie dog fit",
+
+        "blocks": [
+          {
+            "type": "recommendation",
+            "settings": {
+              "title": "Supports Healthy Teeth and Gums",
+              "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+            }
+          }, {
+            "type": "recommendation",
+            "settings": {
+              "title": "Supports Healthy Teeth and Gums",
+              "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+            }
+          }, {
+            "type": "recommendation",
+            "settings": {
+              "title": "Supports Healthy Teeth and Gums",
+              "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+            }
+          }
+        ]
+      }
+    ]
+  }
+
+{% endschema %}

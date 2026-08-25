@@ -1,0 +1,25 @@
+{% doc %}
+  Renders the merchant-selected logo, with the supplied Wellie SVG as the storefront fallback.
+
+  @param {number} [width] - Rendered logo width in pixels.
+{% enddoc %}
+
+{%- assign logo_width = width | default: settings.logo_width | default: 135 -%}
+
+{%- if settings.logo != blank -%}
+  <img
+    src="{{ settings.logo | image_url: width: logo_width }}"
+    alt="{{ settings.logo.alt | default: shop.name | escape }}"
+    width="{{ logo_width }}"
+    height="{{ logo_width | divided_by: settings.logo.aspect_ratio | round }}"
+    loading="eager"
+  >
+{%- else -%}
+  <img
+    src="{{ 'wellie-logo.svg' | asset_url }}"
+    alt="{{ shop.name | escape }}"
+    width="{{ logo_width }}"
+    height="{{ logo_width | times: 30 | divided_by: 135 | round }}"
+    loading="eager"
+  >
+{%- endif -%}

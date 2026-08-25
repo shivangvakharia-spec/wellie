@@ -1,0 +1,107 @@
+{{ 'wellie-promo-strip-stylesheet.css' | asset_url | stylesheet_tag }}
+
+{%- if section.blocks.size > 0 -%}
+  <section
+    class="wellie-promo-strip"
+    style="--wellie-promo-background: {{ section.settings.background_color }}; --wellie-promo-foreground: {{ section.settings.text_color }};"
+    aria-label="Product benefits">
+    <div class="wellie-promo-strip__track">
+      {%- for repeat in (1..3) -%}
+        {%- for block in section.blocks -%}
+          <span
+            class="wellie-promo-strip__message"
+            {% if repeat == 1 %}
+            {{ block.shopify_attributes }}
+            {% endif %}>{{ block.settings.text }}</span>
+          <svg
+            class="wellie-promo-strip__paw"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            aria-hidden="true">
+            <circle
+              cx="4"
+              cy="6"
+              r="2.25"
+              fill="currentColor" />
+            <circle
+              cx="9"
+              cy="3.5"
+              r="2.25"
+              fill="currentColor" />
+            <circle
+              cx="14"
+              cy="6"
+              r="2.25"
+              fill="currentColor" />
+            <path d="M10 9C6.686 9 4 11.462 4 14.5C4 17.262 6.239 18.5 10 18.5C13.761 18.5 16 17.262 16 14.5C16 11.462 13.314 9 10 9Z" fill="currentColor" />
+          </svg>
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Wellie promo strip",
+    "tag": "section",
+    "class": "wellie-promo-strip-section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#E52888"
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text and icon color",
+        "default": "#D4E391"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "message",
+        "name": "Message",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "Scientifically Formulated"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Wellie promo strip",
+        "blocks": [
+          {
+            "type": "message",
+            "settings": {
+              "text": "Targets Root Cause"
+            }
+          }, {
+            "type": "message",
+            "settings": {
+              "text": "Targets Root Cause"
+            }
+          }, {
+            "type": "message",
+            "settings": {
+              "text": "Vet Approved"
+            }
+          }, {
+            "type": "message",
+            "settings": {
+              "text": "Scientifically Formulated"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

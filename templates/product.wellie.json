@@ -1,11 +1,322 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "main": {
-      "type": "wellie-product",
+    "animal_food_gallery_wVRi6C": {
+      "type": "animal-food-gallery",
+      "name": "Animal Food Gallery",
       "settings": {}
+    },
+    "promo_strip": {
+      "type": "wellie-promo-strip",
+      "blocks": {
+        "root_cause_one": {
+          "type": "message",
+          "settings": {
+            "text": "Targets Root Cause"
+          }
+        },
+        "root_cause_two": {
+          "type": "message",
+          "settings": {
+            "text": "Targets Root Cause"
+          }
+        },
+        "vet_approved": {
+          "type": "message",
+          "settings": {
+            "text": "Vet Approved"
+          }
+        },
+        "scientifically_formulated": {
+          "type": "message",
+          "settings": {
+            "text": "Scientifically Formulated"
+          }
+        }
+      },
+      "block_order": [
+        "root_cause_one",
+        "root_cause_two",
+        "vet_approved",
+        "scientifically_formulated"
+      ],
+      "settings": {
+        "background_color": "#e52888",
+        "text_color": "#d4e391"
+      }
+    },
+    "wellie_reviews_NXVNmL": {
+      "type": "wellie-reviews",
+      "name": "Wellie reviews",
+      "settings": {}
+    },
+    "wellie_videos_jp4pdP": {
+      "type": "wellie-videos",
+      "name": "Wellie videos",
+      "settings": {}
+    },
+    "wellie_description_Y7jW7A": {
+      "type": "wellie-description",
+      "name": "Wellie description",
+      "settings": {}
+    },
+    "wellie_ingredients_gGADaf": {
+      "type": "wellie-ingredients",
+      "name": "Wellie ingredients",
+      "settings": {}
+    },
+    "wellie_feeding_guide_aVaJnD": {
+      "type": "wellie-feeding-guide",
+      "name": "Wellie feeding guide",
+      "settings": {}
+    },
+    "wellie_pet_benefits_nPDNVc": {
+      "type": "wellie-pet-benefits",
+      "name": "Wellie pet benefits",
+      "settings": {}
+    },
+    "wellie_journey_bAqcNy": {
+      "type": "wellie-journey",
+      "blocks": {
+        "journey_step_K4QHnn": {
+          "type": "journey_step",
+          "settings": {
+            "month": "Month 1",
+            "title": "Initial adaptation and digestive support",
+            "description_1": "The prebiotics help improve nutrient absorption.",
+            "description_2": "Enhanced digestion often leads to an improved appetite."
+          }
+        },
+        "journey_step_7387zz": {
+          "type": "journey_step",
+          "settings": {
+            "month": "Month 2",
+            "title": "Strengthening gut health adn Immunit",
+            "description_1": "Probiotics begin to establish a healthier gut microbiome.",
+            "description_2": "The probiotics reduce bad bacteria, leading to better breath."
+          }
+        },
+        "journey_step_KcN8cg": {
+          "type": "journey_step",
+          "settings": {
+            "month": "Month 3",
+            "title": "Visible skin and coat improvements",
+            "description_1": "Healthy coat noticeable improvement in coat quality.",
+            "description_2": "Dogs experience reduced itchiness and fewer skin irritations."
+          }
+        }
+      },
+      "block_order": [
+        "journey_step_K4QHnn",
+        "journey_step_7387zz",
+        "journey_step_KcN8cg"
+      ],
+      "name": "Wellie journey",
+      "settings": {
+        "image": "shopify://shop_images/87aabff1c1dbca8031f3746aa1b9d658648a1e48.png"
+      }
+    },
+    "wellie_dog_fit_XFgVAy": {
+      "type": "wellie-dog-fit",
+      "blocks": {
+        "recommendation_rGQkmN": {
+          "type": "recommendation",
+          "settings": {
+            "image": "shopify://shop_images/18fa52c7e4834d0cc5f9c9f789eb4eba62735d3e.jpg",
+            "title": "Supports Healthy Teeth and Gums",
+            "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+          }
+        },
+        "recommendation_rrdYQX": {
+          "type": "recommendation",
+          "settings": {
+            "image": "shopify://shop_images/bbac6a73306fb78245d889e12d364b11cd105da9.jpg",
+            "title": "Supports Healthy Teeth and Gums",
+            "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+          }
+        },
+        "recommendation_yb7Nnd": {
+          "type": "recommendation",
+          "settings": {
+            "image": "shopify://shop_images/deb098f20bf2bfb77ee7cf32398b195a4ce53cab.jpg",
+            "title": "Supports Healthy Teeth and Gums",
+            "description": "Designed to promote oral wellness, these dental sticks help support strong, healthy teeth and gums with every chew."
+          }
+        }
+      },
+      "block_order": [
+        "recommendation_rGQkmN",
+        "recommendation_rrdYQX",
+        "recommendation_yb7Nnd"
+      ],
+      "name": "Wellie dog fit",
+      "settings": {
+        "hero_dog_image": "shopify://shop_images/abc.png"
+      }
+    },
+    "wellie_suggestions_DbRCe4": {
+      "type": "wellie-suggestions",
+      "blocks": {
+        "product_BkEzbX": {
+          "type": "product",
+          "settings": {
+            "product": "wellie-bellie-bites"
+          }
+        },
+        "product_FLH4fC": {
+          "type": "product",
+          "settings": {
+            "product": "wellie-bellie-bites"
+          }
+        },
+        "product_D7gCi7": {
+          "type": "product",
+          "settings": {
+            "product": "wellie-bellie-bites"
+          }
+        },
+        "product_cWHMPU": {
+          "type": "product",
+          "settings": {
+            "product": "wellie-bellie-bites"
+          }
+        }
+      },
+      "block_order": [
+        "product_BkEzbX",
+        "product_FLH4fC",
+        "product_D7gCi7",
+        "product_cWHMPU"
+      ],
+      "name": "Wellie suggestions",
+      "settings": {
+        "heading": "You may also like"
+      }
+    },
+    "wellie_vet_check_KQ3Th4": {
+      "type": "wellie-vet-check",
+      "name": "Wellie vet check",
+      "settings": {
+        "image": "shopify://shop_images/a9d3bbfb76cfc005d51934d39fd0755e5d1a364e.jpg",
+        "heading": "Check with my vet",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.",
+        "button_text": "Copy Message"
+      }
+    },
+    "wellie_faq_aMTrEz": {
+      "type": "wellie-faq",
+      "blocks": {
+        "faq_TUx3hU": {
+          "type": "faq",
+          "settings": {
+            "question": "My dog doesn’t have stomach problems is this still useful?",
+            "answer": "<p>Yes, Bellie Bites help prevent issues, boost nutrient absorption, boost immunity, improve poop quality, and improve breath.</p>"
+          }
+        },
+        "faq_6KjF4K": {
+          "type": "faq",
+          "settings": {
+            "question": "I feed commercial food. Isn’t that enough?",
+            "answer": "<p>Commercial food can provide a complete diet, but additional nutritional support can help address specific wellness needs.</p>"
+          }
+        },
+        "faq_CwrLUi": {
+          "type": "faq",
+          "settings": {
+            "question": "What’s the difference from syrups or pills?",
+            "answer": "<p>Bellie Bites provide nutritional support in a convenient treat format that is easy to add to your dog’s routine.</p>"
+          }
+        },
+        "faq_RML8hn": {
+          "type": "faq",
+          "settings": {
+            "question": "I give my dog curd - isn’t that fine?",
+            "answer": "<p>Curd can be part of a dog's diet, but it does not provide the same nutritional support as a targeted supplement.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_TUx3hU",
+        "faq_6KjF4K",
+        "faq_CwrLUi",
+        "faq_RML8hn"
+      ],
+      "name": "Wellie FAQ",
+      "settings": {
+        "heading": "FAQ’s"
+      }
+    },
+    "wellie_certified_UUNbrf": {
+      "type": "wellie-certified",
+      "name": "Wellie certified",
+      "settings": {
+        "heading": "Certified & Trusted",
+        "logo_1": "shopify://shop_images/svgviewer-output_1.svg",
+        "logo_1_alt": "HACCP certified",
+        "logo_2": "shopify://shop_images/svgviewer-output_5.svg",
+        "logo_2_alt": "GHP",
+        "logo_3": "shopify://shop_images/svgviewer-output_1.svg",
+        "logo_3_alt": "HACCP",
+        "logo_4": "shopify://shop_images/svgviewer-output_2.svg",
+        "logo_4_alt": "ISO",
+        "logo_5": "shopify://shop_images/svgviewer-output_3.svg",
+        "logo_5_alt": "FDA approved",
+        "logo_6": "shopify://shop_images/svgviewer-output_4.svg",
+        "logo_6_alt": "FEDIAF certified",
+        "logo_7": "shopify://shop_images/svgviewer-output_6.svg",
+        "logo_7_alt": "GMP certified",
+        "logo_8": "shopify://shop_images/svgviewer-output_1.svg",
+        "logo_8_alt": "HACCP certified",
+        "logo_9": "shopify://shop_images/svgviewer-output_2.svg",
+        "logo_9_alt": "ISO certified",
+        "logo_10": "shopify://shop_images/svgviewer-output_3.svg",
+        "logo_10_alt": "FDA approved"
+      }
+    },
+    "wellie_payment_GfKThd": {
+      "type": "wellie-payment",
+      "name": "Wellie payment",
+      "settings": {
+        "heading": "Securely pay using",
+        "logo_1": "shopify://shop_images/e469a249ced762f164c3ff6d6a18b673ee52637f.png",
+        "logo_1_alt": "Mastercard",
+        "logo_2": "shopify://shop_images/0e970bd1e94ca4a3bd879052491b02cf07167827.png",
+        "logo_2_alt": "Visa",
+        "logo_3": "shopify://shop_images/f9d9f236ccb8900421239c70c60ed02b835ee96d.png",
+        "logo_3_alt": "Paytm",
+        "logo_4": "shopify://shop_images/6da49daa0fe436a9e4a59958cd19dee86d89efd0.png",
+        "logo_4_alt": "UPI",
+        "logo_5": "shopify://shop_images/25b5b2cc456ebf28adc3b5b1c4697c5500f275d8.png",
+        "logo_5_alt": "Google Pay",
+        "logo_6": "shopify://shop_images/64e037e2389550e813747211d7b0630af78e4f35.png",
+        "logo_6_alt": "PhonePe",
+        "cod_text": "Oh! and cash on delivery too :)"
+      }
     }
   },
   "order": [
-    "main"
+    "animal_food_gallery_wVRi6C",
+    "promo_strip",
+    "wellie_reviews_NXVNmL",
+    "wellie_videos_jp4pdP",
+    "wellie_description_Y7jW7A",
+    "wellie_ingredients_gGADaf",
+    "wellie_feeding_guide_aVaJnD",
+    "wellie_pet_benefits_nPDNVc",
+    "wellie_journey_bAqcNy",
+    "wellie_dog_fit_XFgVAy",
+    "wellie_suggestions_DbRCe4",
+    "wellie_vet_check_KQ3Th4",
+    "wellie_faq_aMTrEz",
+    "wellie_certified_UUNbrf",
+    "wellie_payment_GfKThd"
   ]
 }

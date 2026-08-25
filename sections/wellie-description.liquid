@@ -1,0 +1,55 @@
+{{ 'wellie-description-stylesheet.css' | asset_url | stylesheet_tag }}
+
+<section class="wellie-description" aria-label="Product description">
+
+  <div class="wellie-description__card">
+
+    <!-- =====================================================
+      Heading
+      ===================================================== -->
+    <div class="wellie-description__heading-row">
+
+      <h2 class="wellie-description__heading">
+        Description
+      </h2>
+
+    </div>
+
+
+    <!-- =====================================================
+      Divider
+      ===================================================== -->
+    <div class="wellie-description__divider" aria-hidden="true"></div>
+
+
+    <!-- =====================================================
+      Product Description
+      ===================================================== -->
+    <div class="wellie-description__content">
+
+      {{ product.description | strip_html | escape }}
+
+    </div>
+
+  </div>
+
+</section>
+
+
+{% schema %}
+
+  {
+    "name": "Wellie description",
+    "tag": "section",
+    "class": "wellie-description-section",
+
+    "settings": [],
+
+    "presets": [
+      {
+        "name": "Wellie description"
+      }
+    ]
+  }
+
+{% endschema %}

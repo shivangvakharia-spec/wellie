@@ -1,0 +1,251 @@
+{{ 'wellie-reviews-stylesheet.css' | asset_url | stylesheet_tag }}
+
+{%- assign reviews = shop.metaobjects.reviews.values -%}
+
+{%- if reviews != blank -%}
+
+  <section
+    class="wellie-reviews"
+    aria-label="Customer reviews"
+    style="--wellie-reviews-backdrop: url('{{ 'wellie-reviews-backdrop.svg' | asset_url }}');">
+
+    <!-- =====================================================
+      Section Heading
+      ===================================================== -->
+    <div class="wellie-reviews__header">
+      <h2 class="wellie-reviews__heading">
+        Hear from our Customers!
+      </h2>
+    </div>
+
+
+    <!-- =====================================================
+      Reviews Carousel
+      ===================================================== -->
+    <div class="wellie-reviews__carousel-wrap">
+
+      <div
+        class="wellie-reviews__carousel"
+        data-reviews-carousel
+        tabindex="0"
+        aria-label="Customer reviews carousel">
+
+        {%- for review in reviews -%}
+
+          {%- assign stars = review.stars.value | default: 0 | plus: 0 -%}
+
+          {%- assign review_photo = review.photo.value -%}
+
+          {%- assign profile_image = review.user_profile_photo.value -%}
+
+
+          <!-- =================================================
+            Review Card
+            ================================================= -->
+          <article class="wellie-reviews__card" data-review-card>
+
+            <!-- Decorative Background -->
+
+            <div class="wellie-reviews__card-pattern" aria-hidden="true"></div>
+
+
+            <!-- =================================================
+              Customer / Review Photo
+              ================================================= -->
+            {%- if review_photo != blank -%}
+
+              <div class="wellie-reviews__review-image">
+
+                {{
+                  review_photo | image_url: width: 600 | image_tag: loading: 'lazy', widths: '146,292,400,600', sizes: '(max-width: 749px) 146px, 40vw', alt: review.username.value
+                }}
+
+              </div>
+
+            {%- else -%}
+
+              <div class="wellie-reviews__review-image
+                       wellie-reviews__review-image--empty" aria-hidden="true"></div>
+
+            {%- endif -%}
+
+
+            <!-- =================================================
+              Review Content
+              ================================================= -->
+            <div class="wellie-reviews__content">
+
+
+              <!-- Quote -->
+
+              <div class="wellie-reviews__quote" aria-hidden="true">
+                <svg
+                  width="24"
+                  height="22"
+                  viewBox="0 0 24 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <foreignObject
+                    x="-10"
+                    y="-10"
+                    width="44"
+                    height="42">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(5px);clip-path:url(#bgblur_0_0_409_clip_path);height:100%;width:100%"></div>
+                  </foreignObject>
+
+                  <path
+                    data-figma-bg-blur-radius="10"
+                    d="M4.63941 0H9.72491L6.51301 10.4991H9.63569V22H0V11.4803L4.63941 0ZM18.9145 0H24L20.7881 10.4991H23.9108V22H14.2751V11.4803L18.9145 0Z"
+                    fill="#E52888"
+                    fill-opacity="0.2" />
+
+                  <defs>
+                    <clipPath id="bgblur_0_0_409_clip_path" transform="translate(10 10)">
+                      <path d="M4.63941 0H9.72491L6.51301 10.4991H9.63569V22H0V11.4803L4.63941 0ZM18.9145 0H24L20.7881 10.4991H23.9108V22H14.2751V11.4803L18.9145 0Z" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+
+
+              <!-- =================================================
+                Review Copy
+                ================================================= -->
+              <div class="wellie-reviews__review-copy">
+
+
+                <!-- Stars -->
+
+                <div
+                  class="wellie-reviews__stars"
+                  role="img"
+                  aria-label="{{ stars }} out of 5 stars">
+
+                  {%- for i in (1..5) -%}
+
+                    <svg
+                      class="
+      wellie-reviews__star
+      {% if i > stars %}
+        wellie-reviews__star--empty
+      {% endif %}
+    "
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true">
+                      <path d="M4.51527 19.3039C4.03277 19.5514 3.48527 19.1176 3.58277 18.5639L4.62027 12.6514L0.21652 8.45639C-0.19473 8.06389 0.0190199 7.34639 0.57027 7.26889L6.69277 6.39889L9.42277 0.990137C9.66902 0.502637 10.3353 0.502637 10.5815 0.990137L13.3115 6.39889L19.434 7.26889C19.9853 7.34639 20.199 8.06389 19.7865 8.45639L15.384 12.6514L16.4215 18.5639C16.519 19.1176 15.9715 19.5514 15.489 19.3039L10.0003 16.4839L4.51402 19.3039H4.51527Z" fill="#FF9400" />
+                    </svg>
+
+                  {%- endfor -%}
+
+                </div>
+
+
+                <!-- Review Body -->
+
+                <p class="wellie-reviews__body">
+                  {{ review.body.value }}
+                </p>
+
+              </div>
+
+
+              <!-- =================================================
+                Customer Profile
+                ================================================= -->
+              <div class="wellie-reviews__author">
+
+                {%- if profile_image != blank -%}
+
+                  {{
+                    profile_image | image_url: width: 56 | image_tag: loading: 'lazy', widths: '28,56', sizes: '28px', class: 'wellie-reviews__avatar', alt: review.username.value
+                  }}
+
+                {%- else -%}
+
+                  <span class="
+                      wellie-reviews__avatar
+                      wellie-reviews__avatar--empty
+                    " aria-hidden="true"></span>
+
+                {%- endif -%}
+
+
+                <span class="wellie-reviews__username">
+                  {{ review.username.value }}
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        {%- endfor -%}
+
+      </div>
+
+
+      <!-- =====================================================
+        Pagination Dots
+        ===================================================== -->
+      {%- if reviews.size > 1 -%}
+
+        <div
+          class="wellie-reviews__dots"
+          data-reviews-dots
+          aria-label="Review slides">
+
+          {%- for review in reviews -%}
+
+            <button
+              type="button"
+              class="
+                wellie-reviews__dot
+                {% if forloop.first %}
+                  wellie-reviews__dot--active
+                {% endif %}
+              "
+              data-review-dot="{{ forloop.index0 }}"
+              aria-label="Go to review {{ forloop.index }}"
+              aria-current="{% if forloop.first %}true{% else %}false{% endif %}"></button>
+
+          {%- endfor -%}
+
+        </div>
+
+      {%- endif -%}
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+    Reviews JavaScript
+    ======================================================= -->
+  <script src="{{ 'wellie-reviews-javascript.js' | asset_url }}" defer></script>
+
+{%- endif -%}
+
+
+{% schema %}
+
+  {
+    "name": "Wellie reviews",
+    "tag": "section",
+    "class": "wellie-reviews-section",
+
+    "settings": [],
+
+    "presets": [
+      {
+        "name": "Wellie reviews"
+      }
+    ]
+  }
+
+{% endschema %}

@@ -1,0 +1,223 @@
+{{ 'wellie-payment-stylesheet.css' | asset_url | stylesheet_tag }}
+
+<section class="wellie-payment" aria-label="{{ section.settings.heading | escape }}">
+
+  <div class="wellie-payment__inner">
+
+    <!-- =====================================================
+      Heading
+      ===================================================== -->
+    {% if section.settings.heading != blank %}
+
+      <h2 class="wellie-payment__heading">
+        {{ section.settings.heading }}
+      </h2>
+
+    {% endif %}
+
+
+    <!-- =====================================================
+      Payment Logos
+      ===================================================== -->
+    <div class="wellie-payment__logos">
+
+      {% if section.settings.logo_1 != blank %}
+
+        <div class="wellie-payment__logo wellie-payment__logo--1">
+          {{
+            section.settings.logo_1 | image_url: width: 100 | image_tag: loading: 'lazy', widths: '25, 50, 100', sizes: '25px', alt: section.settings.logo_1_alt
+          }}
+        </div>
+
+      {% endif %}
+
+
+      {% if section.settings.logo_2 != blank %}
+
+        <div class="wellie-payment__logo wellie-payment__logo--2">
+          {{
+            section.settings.logo_2 | image_url: width: 120 | image_tag: loading: 'lazy', widths: '40, 80, 120', sizes: '40px', alt: section.settings.logo_2_alt
+          }}
+        </div>
+
+      {% endif %}
+
+
+      {% if section.settings.logo_3 != blank %}
+
+        <div class="wellie-payment__logo wellie-payment__logo--3">
+          {{
+            section.settings.logo_3 | image_url: width: 140 | image_tag: loading: 'lazy', widths: '47, 94, 140', sizes: '47px', alt: section.settings.logo_3_alt
+          }}
+        </div>
+
+      {% endif %}
+
+
+      {% if section.settings.logo_4 != blank %}
+
+        <div class="wellie-payment__logo wellie-payment__logo--4">
+          {{
+            section.settings.logo_4 | image_url: width: 110 | image_tag: loading: 'lazy', widths: '37, 74, 110', sizes: '37px', alt: section.settings.logo_4_alt
+          }}
+        </div>
+
+      {% endif %}
+
+
+      {% if section.settings.logo_5 != blank %}
+
+        <div class="wellie-payment__logo wellie-payment__logo--5">
+          {{
+            section.settings.logo_5 | image_url: width: 110 | image_tag: loading: 'lazy', widths: '36, 72, 110', sizes: '36px', alt: section.settings.logo_5_alt
+          }}
+        </div>
+
+      {% endif %}
+
+
+      {% if section.settings.logo_6 != blank %}
+
+        <div class="wellie-payment__logo wellie-payment__logo--6">
+          {{
+            section.settings.logo_6 | image_url: width: 80 | image_tag: loading: 'lazy', widths: '21, 42, 80', sizes: '21px', alt: section.settings.logo_6_alt
+          }}
+        </div>
+
+      {% endif %}
+
+    </div>
+
+
+    <!-- =====================================================
+      Cash On Delivery
+      ===================================================== -->
+    {% if section.settings.cod_text != blank %}
+
+      <p class="wellie-payment__cod">
+        {{ section.settings.cod_text }}
+      </p>
+
+    {% endif %}
+
+  </div>
+
+</section>
+
+
+{% schema %}
+
+  {
+    "name": "Wellie payment",
+
+    "tag": "section",
+
+    "class": "wellie-payment-section",
+
+    "settings": [
+
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Securely pay using"
+      },
+
+
+      {
+        "type": "header",
+        "content": "Payment method 1"
+      },
+
+      {
+        "type": "image_picker",
+        "id": "logo_1",
+        "label": "Logo"
+      },
+
+      {
+        "type": "text",
+        "id": "logo_1_alt",
+        "label": "Alt text",
+        "default": "Mastercard"
+      }, {
+        "type": "header",
+        "content": "Payment method 2"
+      }, {
+        "type": "image_picker",
+        "id": "logo_2",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_2_alt",
+        "label": "Alt text",
+        "default": "Visa"
+      }, {
+        "type": "header",
+        "content": "Payment method 3"
+      }, {
+        "type": "image_picker",
+        "id": "logo_3",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_3_alt",
+        "label": "Alt text",
+        "default": "Paytm"
+      }, {
+        "type": "header",
+        "content": "Payment method 4"
+      }, {
+        "type": "image_picker",
+        "id": "logo_4",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_4_alt",
+        "label": "Alt text",
+        "default": "UPI"
+      }, {
+        "type": "header",
+        "content": "Payment method 5"
+      }, {
+        "type": "image_picker",
+        "id": "logo_5",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_5_alt",
+        "label": "Alt text",
+        "default": "Google Pay"
+      }, {
+        "type": "header",
+        "content": "Payment method 6"
+      }, {
+        "type": "image_picker",
+        "id": "logo_6",
+        "label": "Logo"
+      }, {
+        "type": "text",
+        "id": "logo_6_alt",
+        "label": "Alt text",
+        "default": "PhonePe"
+      }, {
+        "type": "header",
+        "content": "Cash on delivery"
+      }, {
+        "type": "text",
+        "id": "cod_text",
+        "label": "Text",
+        "default": "Oh! and cash on delivery too :)"
+      }
+
+    ],
+
+    "presets": [
+      {
+        "name": "Wellie payment"
+      }
+    ]
+
+  }
+
+{% endschema %}

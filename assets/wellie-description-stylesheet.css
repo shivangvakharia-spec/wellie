@@ -1,0 +1,176 @@
+/* =========================================================
+   Wellie Description
+   Mobile First
+   ========================================================= */
+
+.wellie-description {
+  width: 100%;
+
+  margin: 0;
+  padding: 0 18px 64px;
+
+  box-sizing: border-box;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+}
+
+
+/* =========================================================
+   Description Card
+   ========================================================= */
+
+.wellie-description__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 18px;
+
+  box-sizing: border-box;
+
+  gap: 10px;
+
+  border: 0.8px solid #025A60;
+  border-radius: 8px;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   Heading Row
+   ========================================================= */
+
+.wellie-description__heading-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 24px;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Heading
+   ========================================================= */
+
+.wellie-description__heading {
+  width: auto;
+  height: 24px;
+
+  margin: 0;
+  padding: 0;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-size: 20px;
+  font-weight: 700;
+
+  line-height: 24px;
+
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Divider
+   ========================================================= */
+
+.wellie-description__divider {
+  width: 100%;
+  height: 0;
+
+  margin: 0;
+  padding: 0;
+
+  opacity: 0.2;
+
+  border-top: 0.8px solid #3A3A3E;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Product Description
+   ========================================================= */
+
+.wellie-description__content {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-size: 14px;
+  font-weight: 400;
+
+  line-height: 21px;
+
+  text-align: left;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  .wellie-description {
+    padding: 0 48px 80px;
+  }
+
+
+  .wellie-description__card {
+    padding: 24px;
+  }
+
+
+  .wellie-description__heading {
+    font-size: 20px;
+    line-height: 34px;
+  }
+
+
+  .wellie-description__heading-row {
+    height: 34px;
+  }
+
+
+  .wellie-description__content {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+}

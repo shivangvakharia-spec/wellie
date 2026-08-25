@@ -1,0 +1,805 @@
+
+/* =========================================================
+   Wellie Journey
+   Mobile First
+   ========================================================= */
+
+
+/* =========================================================
+   Section
+   ========================================================= */
+
+.wellie-journey {
+  width: 100%;
+
+  margin: 0;
+  padding: 64px 0 64px;
+
+  color: #3A3A3E;
+
+  box-sizing: border-box;
+}
+
+
+.wellie-journey *,
+.wellie-journey *::before,
+.wellie-journey *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Inner
+   ========================================================= */
+
+.wellie-journey__inner {
+  width: 354px;
+
+  margin: 0 auto;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   Heading
+   ========================================================= */
+
+.wellie-journey__heading {
+  width: 354px;
+  height: 68px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: 28px;
+  line-height: 34px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   Content
+   ========================================================= */
+
+.wellie-journey__content {
+  width: 354px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   Image
+   ========================================================= */
+
+.wellie-journey__image-wrapper {
+  width: 354px;
+  height: 354px;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  flex: 0 0 354px;
+}
+
+
+.wellie-journey__image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 8px;
+}
+
+
+/* =========================================================
+   Timeline
+   ========================================================= */
+
+.wellie-journey__timeline {
+  width: 354px;
+  height: 476px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  gap: 16px;
+}
+
+/* =========================================================
+   Months Column
+   ========================================================= */
+
+.wellie-journey__months {
+  width: 72px;
+  height: 360px;
+
+  padding: 12px 0 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  flex: 0 0 72px;
+}
+
+
+/* =========================================================
+   Month Pill
+   ========================================================= */
+
+.wellie-journey__month {
+  width: 72px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px 12px;
+
+  background: #FFFFFF;
+
+  border: 0.6px solid #025A60;
+  border-radius: 50px;
+
+  color: #025A60;
+
+  font-family: 'Cabin', sans-serif;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+
+  text-align: center;
+
+  white-space: nowrap;
+
+  flex: 0 0 25px;
+}
+
+
+/* =========================================================
+   First Line
+   ========================================================= */
+
+.wellie-journey__timeline-line--first {
+  position: relative;
+
+  width: 72px;
+  height: 139px;
+
+  flex: 0 0 139px;
+}
+
+
+.wellie-journey__timeline-line--first::after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 50%;
+
+  border-left: 1px dashed #025A60;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================================
+   Second Line
+   ========================================================= */
+
+.wellie-journey__timeline-line--second {
+  position: relative;
+
+  width: 72px;
+  height: 134px;
+
+  flex: 0 0 134px;
+}
+
+
+.wellie-journey__timeline-line--second::after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 50%;
+
+  border-left: 1px dashed #025A60;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================================
+   Details Column
+   ========================================================= */
+
+.wellie-journey__details {
+  width: 266px;
+  height: 476px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 16px;
+
+  flex: 0 0 266px;
+}
+
+
+/* =========================================================
+   Individual Detail
+   ========================================================= */
+
+.wellie-journey__detail {
+  width: 266px;
+  height: 148px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 6px;
+
+  flex: 0 0 148px;
+}
+
+
+/* =========================================================
+   Journey Title
+   ========================================================= */
+
+.wellie-journey__title {
+  width: 266px;
+  height: 54px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: 18px;
+  line-height: 27px;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   Descriptions
+   ========================================================= */
+
+.wellie-journey__descriptions {
+  width: 266px;
+  height: 88px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 4px;
+}
+
+
+/* =========================================================
+   Description
+   ========================================================= */
+
+.wellie-journey__description {
+  width: 266px;
+  height: 42px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: flex-start;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 400;
+
+  font-size: 14px;
+  line-height: 21px;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   Bullet
+   ========================================================= */
+
+.wellie-journey__bullet {
+  flex: 0 0 auto;
+
+  margin-right: 12px;
+
+  line-height: 21px;
+}
+
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  /* =======================================================
+     Section
+     ======================================================= */
+
+  .wellie-journey {
+    width: 100%;
+    min-height: 628px;
+
+    margin: 0;
+    padding: 0 0 124.5px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Main Desktop Layout
+
+     1280px total
+     630px left content
+     22px gap
+     628px image
+     ======================================================= */
+
+  .wellie-journey__inner {
+    width: 1280px;
+    height: 628px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    display: grid;
+
+    grid-template-columns: 630px 628px;
+    grid-template-rows: 44px 48px 447px;
+
+    column-gap: 22px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Heading
+
+     Left side
+     630 × 44
+     ======================================================= */
+
+  .wellie-journey__heading {
+    grid-column: 1;
+    grid-row: 1;
+
+    width: 630px;
+    height: 44px;
+
+    margin: 0;
+    padding: 44.5px 0 0 ;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-style: normal;
+    font-weight: 700;
+
+    font-size: 36px;
+    line-height: 44px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Content Wrapper
+
+     The existing HTML wraps the image + timeline inside
+     this element.
+
+     On desktop we flatten that wrapper so the grid can
+     position the timeline on the left and image on right.
+     ======================================================= */
+
+  .wellie-journey__content {
+    display: contents;
+  }
+
+
+  /* =======================================================
+     Timeline
+
+     Left side
+
+     Figma:
+     Width: 630px
+     Height: 447px
+     Top: 92px
+     ======================================================= */
+
+  .wellie-journey__timeline {
+    grid-column: 1;
+    grid-row: 3;
+
+    width: 630px;
+    height: 447px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    gap: 16px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Months Column
+     ======================================================= */
+
+  .wellie-journey__months {
+    width: 72px;
+    height: 360px;
+
+    margin: 0;
+    padding: 12px 0 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    flex: 0 0 72px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Month Pill
+     ======================================================= */
+
+  .wellie-journey__month {
+    width: 72px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 4px 12px;
+
+    background: #FFFFFF;
+
+    border: 0.6px solid #025A60;
+    border-radius: 50px;
+
+    color: #025A60;
+
+    font-family: 'Cabin', sans-serif;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    flex: 0 0 25px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Timeline Lines
+     ======================================================= */
+
+  .wellie-journey__timeline-line--first {
+    position: relative;
+
+    width: 72px;
+    height: 139px;
+
+    flex: 0 0 139px;
+  }
+
+
+  .wellie-journey__timeline-line--second {
+    position: relative;
+
+    width: 72px;
+    height: 134px;
+
+    flex: 0 0 134px;
+  }
+
+
+  .wellie-journey__timeline-line--first::after,
+  .wellie-journey__timeline-line--second::after {
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 50%;
+
+    border-left: 1px dashed #025A60;
+
+    transform: translateX(-50%);
+  }
+
+
+  /* =======================================================
+     Details Column
+
+     Starts 88px from left edge of timeline
+     ======================================================= */
+
+  .wellie-journey__details {
+    width: 542px;
+    height: 435px;
+
+    margin: 12px 0 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 51px;
+
+    flex: 0 0 542px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Individual Detail
+     ======================================================= */
+
+  .wellie-journey__detail {
+    width: 542px;
+    height: 111px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 20px;
+
+    flex: 0 0 111px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Journey Title
+     ======================================================= */
+
+  .wellie-journey__title {
+    width: 100%;
+    height: 33px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-style: normal;
+    font-weight: 700;
+
+    font-size: 24px;
+    line-height: 33px;
+
+    text-align: left;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Descriptions
+     ======================================================= */
+
+  .wellie-journey__descriptions {
+    width: 542px;
+    height: 58px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 16px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Description
+     ======================================================= */
+
+  .wellie-journey__description {
+    width: 100%;
+    height: 21px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-style: normal;
+    font-weight: 400;
+
+    font-size: 18px;
+    line-height: 21px;
+
+    text-align: left;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Bullet
+     ======================================================= */
+
+  .wellie-journey__bullet {
+    flex: 0 0 auto;
+
+    margin-right: 12px;
+
+    line-height: 21px;
+  }
+
+
+  /* =======================================================
+     Image
+
+     RIGHT SIDE
+
+     Figma:
+     628 × 628px
+     ======================================================= */
+
+  .wellie-journey__image-wrapper {
+    grid-column: 2;
+    grid-row: 1 / 4;
+
+    width: 628px;
+    height: 628px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    border: 1.5px solid #3A3A3E;
+    border-radius: 8px;
+
+    box-shadow: 2px 2px 0 #3A3A3E;
+
+    box-sizing: border-box;
+  }
+
+
+  .wellie-journey__image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 8px;
+
+    box-sizing: border-box;
+  }
+
+}

@@ -68,6 +68,8 @@ class ProductForm extends HTMLElement {
   }
 
   async onSubmit(event) {
+    if (event.submitter?.dataset.buyNow !== undefined) return;
+
     event.preventDefault();
 
     if (this.submitButton?.disabled) return;

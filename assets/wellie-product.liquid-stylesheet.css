@@ -1,0 +1,271 @@
+.wellie-product {
+  max-width: 80rem;
+  padding-block: 3rem;
+  color: #3a3a3e;
+  font-family: var(--font-tertiary--family) !important;
+}
+
+.wellie-product > .grid {
+  grid-template-columns: minmax(0, 630fr) minmax(0, 626fr);
+  gap: 1.5rem;
+}
+
+.wellie-product__media > .relative {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: .5rem;
+  background: #fff;
+}
+
+.wellie-product__gallery-arrow { position: absolute; top: 50%; display: grid; width: 1.5rem; height: 1.5rem; place-items: center; border: .5px solid #d4e391; border-radius: 50%; color: #d4e391; background: #e52888; box-shadow: .5px .5px 0 #d4e391; font-size: 1.25rem; line-height: 1; transform: translateY(-50%); }
+.wellie-product__gallery-arrow--previous { left: 1rem; }
+.wellie-product__gallery-arrow--next { right: 1rem; }
+
+.wellie-product__media [data-wellie-media] {
+  height: 100%;
+}
+
+.wellie-product__media [data-wellie-media] > img,
+.wellie-product__media [data-wellie-media] > video,
+.wellie-product__media [data-wellie-media] > model-viewer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wellie-product__media + .wellie-product__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.wellie-product__info > h1 {
+  width: 25.5625rem;
+  height: 2.5rem;
+  margin: 2rem 0 .5rem;
+  color: #3a3a3e;
+  font-family: var(--font-primary--family);
+  font-size: 2.25rem;
+  font-weight: 400;
+  line-height: 2.5rem;
+}
+
+.wellie-product__info > .wellie-product__price-block {
+  width: 12.5625rem;
+  margin: 0;
+}
+
+.wellie-product__info [data-product-price] {
+  font-family: var(--font-tertiary--family);
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+  color: #3a3a3e;
+}
+
+.wellie-product__info [data-product-compare-price] {
+  color: #3a3a3e;
+}
+
+.wellie-product__info [data-product-discount] {
+  display: none;
+}
+
+.wellie-product__tax-note {
+  width: 12.5625rem;
+  margin: .375rem 0 0;
+  color: #3a3a3e;
+  font-size: .75rem;
+  line-height: .9375rem;
+}
+
+.wellie-product__thumbnail {
+  width: 4.375rem;
+  height: 4.375rem;
+  border-color: transparent;
+  border-radius: .3125rem;
+}
+
+.wellie-product__thumbnail.opacity-100 {
+  padding: .1875rem;
+  border-color: #025a60;
+}
+
+.wellie-product__thumbnail img {
+  width: 100%;
+  height: 100%;
+  border-radius: .1875rem;
+  object-fit: cover;
+}
+
+.wellie-product .variant-option {
+  position: relative;
+  min-height: 2.5rem;
+  padding: .5rem 1.1875rem;
+  border: 1.5px solid transparent;
+  border-radius: 1.75rem;
+  color: #025a60;
+  background: rgb(2 90 96 / 8%);
+  font-family: var(--font-tertiary--family);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+
+.wellie-product .variant-option.border-foreground {
+  color: #f9f3f1;
+  background: #025a60;
+  border-color: #025a60;
+}
+
+.wellie-product .wellie-product__health-proof + variant-selector {
+  width: 100%;
+}
+
+.wellie-product__info > div > variant-selector {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.wellie-product variant-selector > .space-y-5 {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  width: 100%;
+}
+
+.wellie-product variant-selector > .space-y-5 > div {
+  width: 100%;
+}
+
+.wellie-product variant-selector label {
+  margin: 0 0 .75rem;
+  color: #3a3a3e;
+  font-family: var(--font-tertiary--family);
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.3125rem;
+  text-transform: uppercase;
+}
+
+.wellie-product variant-selector label > span {
+  display: none;
+}
+
+.wellie-product variant-selector .flex.flex-wrap {
+  gap: .75rem;
+}
+
+@media screen and (max-width: 1023px) {
+  .wellie-product > .grid { grid-template-columns: 1fr; max-width: 39.375rem; margin-inline: auto; }
+  .wellie-product__health-proof { width: min(100%, 25.5625rem); }
+}
+
+.wellie-product__purchase {
+  width: 31.25rem;
+  margin: 0;
+}
+
+.wellie-product .product-form {
+  width: 31.25rem;
+}
+
+.wellie-product .product-form [data-product-form] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+
+.wellie-product .product-form [data-product-form] > .mb-4 {
+  display: contents;
+}
+
+.wellie-product .product-form label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.wellie-product .product-form .inline-flex {
+  width: 8.125rem;
+  height: 3rem;
+  justify-content: space-between;
+  padding: .4375rem;
+  border: .8px solid #025a60;
+  border-radius: .5rem;
+}
+
+.wellie-product .product-form .inline-flex button {
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: .375rem;
+  color: #025a60;
+  background: rgb(2 90 96 / 8%);
+}
+
+.wellie-product .product-form input[name='quantity'] {
+  width: 1.5rem;
+  height: auto;
+  border: 0;
+  color: #025a60;
+  font-family: var(--font-tertiary--family);
+  font-size: 1.125rem;
+  background: transparent;
+}
+
+.wellie-product .product-form__submit {
+  flex: 1;
+  height: 3rem;
+  padding: .75rem .625rem;
+  border-radius: .5rem;
+  color: #f9f3f1;
+  background: #025a60;
+  font-family: var(--font-tertiary--family);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.1875rem;
+  text-transform: uppercase;
+}
+
+.wellie-product__health-proof {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  width: 25.5625rem;
+  height: 3.4375rem;
+  margin: 2rem 0;
+  padding: .53125rem .625rem;
+  border: .4px solid #e52888;
+  border-radius: .375rem;
+  background: rgb(229 40 136 / 5%);
+}
+
+.wellie-product__health-icon {
+  display: grid;
+  flex: 0 0 1.875rem;
+  width: 1.875rem;
+  height: 1.875rem;
+  place-items: center;
+  color: #e52888;
+  font-size: 1.5rem;
+}
+
+.wellie-product__health-proof p { margin: 0; }
+.wellie-product__health-proof strong { font-size: 1rem; line-height: 1.1875rem; }
+.wellie-product__health-proof small { display: block; margin-top: .25rem; font-size: .75rem; line-height: .9375rem; }
+.wellie-product__badge { display: inline-flex; min-height: 1.625rem; align-items: center; margin: 0; padding: .25rem .625rem; border: .5px solid #d4e391; border-radius: 2.5rem; color: #d4e391; background: #e52888; box-shadow: .5px .5px 0 #d4e391; font-family: var(--font-secondary--family); font-size: 1rem; font-weight: 700; line-height: 1.125rem; }
+.wellie-product__buy-button { display: flex; width: min(100%, 31.25rem); height: 3rem; align-items: center; justify-content: center; margin-top: 1rem; border-radius: .5rem; color: #f9f3f1; background: #025a60; font-family: var(--font-tertiary--family); font-size: 1rem; font-weight: 500; line-height: 1.1875rem; text-transform: uppercase; }
+.wellie-product__buy-button:disabled { cursor: not-allowed; opacity: .5; }
+.wellie-product__offers { display: flex; gap: .75rem; width: min(100%, 33.75rem); margin-top: 1.25rem; }
+.wellie-product__offer { display: flex; flex: 1; align-items: center; justify-content: space-between; min-width: 0; min-height: 3.5rem; padding: .5rem 1rem; border: .5px dashed rgb(2 90 96 / 80%); border-radius: .5rem; color: #025a60; background: rgb(2 90 96 / 8%); text-align: left; }
+.wellie-product__offer > span:nth-child(2) { display: grid; gap: .25rem; }
+.wellie-product__offer strong { font-family: var(--font-secondary--family); font-size: 1.125rem; line-height: 1.25rem; }
+.wellie-product__offer small { font-size: .75rem; line-height: .9375rem; }
+.wellie-product__offer[data-copied='true'] { border-style: solid; }
+.wellie-product button:focus-visible, .wellie-product a:focus-visible { outline: 2px solid #e52888; outline-offset: 2px; }
+
+@media screen and (max-width: 520px) { .wellie-product__offers { flex-direction: column; } }

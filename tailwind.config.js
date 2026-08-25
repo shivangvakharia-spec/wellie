@@ -21,6 +21,7 @@ module.exports = {
       fontFamily: {
         primary: 'var(--font-primary--family)',
         secondary: 'var(--font-secondary--family)',
+        tertiary: 'var(--font-tertiary--family)',
       },
       colors: {
         /* Primary brand */

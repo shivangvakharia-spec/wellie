@@ -117,13 +117,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const row = cartPage.querySelector(`[data-item-key="${key}"]`);
     if (!row) return;
 
-    clearTimeout(_flushTimer);
-    _flushTimer = null;
-    for (const [, pendingData] of _pendingQty) {
-      CartStore.rollback(pendingData.stateRollback);
+    // Only cancel this item's own pending debounce entry, if it has one.
+    // Other items' pending quantity edits must survive so they still flush.
+    if (_pendingQty.has(key)) {
+      CartStore.rollback(_pendingQty.get(key).stateRollback);
+      _pendingQty.delete(key);
     }
-    _pendingQty.clear();
-
 
     const parent = row.parentElement;
     const rowWrapper = parent?.children.length === 1 ? parent : row;

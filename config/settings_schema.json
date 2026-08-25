@@ -25,6 +25,13 @@
         "id": "type_secondary_font",
         "default": "work_sans_n4",
         "label": "Secondary"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_tertiary_font",
+        "default": "cabin_n4",
+        "label": "Tertiary",
+        "info": "Used for accent UI text such as the announcement bar."
       }
     ]
   },
@@ -182,8 +189,8 @@
         "label": "Logo width",
         "min": 50,
         "max": 300,
-        "step": 10,
-        "default": 120,
+        "step": 5,
+        "default": 135,
         "unit": "px"
       },
       {
@@ -294,10 +301,22 @@
         "id": "product_color_display",
         "label": "Color display mode",
         "options": [
-          { "value": "hide", "label": "Hide" },
-          { "value": "count", "label": "Count" },
-          { "value": "swatch", "label": "Swatch" },
-          { "value": "variant", "label": "Variant image" }
+          {
+            "value": "hide",
+            "label": "Hide"
+          },
+          {
+            "value": "count",
+            "label": "Count"
+          },
+          {
+            "value": "swatch",
+            "label": "Swatch"
+          },
+          {
+            "value": "variant",
+            "label": "Variant image"
+          }
         ],
         "default": "swatch"
       }

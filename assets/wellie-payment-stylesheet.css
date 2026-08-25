@@ -1,0 +1,228 @@
+/* =========================================================
+   Wellie Payment
+   Mobile First
+
+   Figma:
+   Width: 390px
+   Height: 121px
+   ========================================================= */
+
+
+/* =========================================================
+   Section
+   ========================================================= */
+
+.wellie-payment {
+  width: 100%;
+  height: 121px;
+
+  margin: 0;
+  padding: 20px 42px;
+
+  box-sizing: border-box;
+
+  color: #3A3A3E;
+}
+
+
+.wellie-payment *,
+.wellie-payment *::before,
+.wellie-payment *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Inner
+   ========================================================= */
+
+.wellie-payment__inner {
+  width: 100%;
+  height: 81px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   Heading
+   ========================================================= */
+
+.wellie-payment__heading {
+  width: 100%;
+  height: 19px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: 16px;
+  line-height: 19px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   Payment Logos
+   ========================================================= */
+
+.wellie-payment__logos {
+  width: 306px;
+  height: 20px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  justify-content: flex-start;
+
+  gap: 20px;
+}
+.wellie-payment__logo--1 {
+  width: 25px;
+  height: 20px;
+}
+
+.wellie-payment__logo--2 {
+  width: 40px;
+  height: 13px;
+}
+
+/* =========================================================
+   Payment Logo 3 — Paytm
+   ========================================================= */
+
+.wellie-payment__logo--3 {
+
+  width: 47px;
+
+  height: 15px;
+
+  flex: 0 0 47px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+.wellie-payment__logo--3 img {
+  width: 47px;
+
+  height: 15px;
+
+  object-fit: contain;
+
+  transform: scale(2);
+
+  transform-origin: center;
+
+}
+
+.wellie-payment__logo--4 {
+  width: 37px;
+  height: 13px;
+}
+
+.wellie-payment__logo--5 {
+  width: 36px;
+  height: 17px;
+}
+
+.wellie-payment__logo--6 {
+  width: 21px;
+  height: 19px;
+}
+
+/* =========================================================
+   Logo Images
+   ========================================================= */
+
+.wellie-payment__logo {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
+}
+
+.wellie-payment__logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  object-fit: contain;
+}
+/* =========================================================
+   Cash On Delivery
+   ========================================================= */
+
+.wellie-payment__cod {
+  width: 100%;
+  height: 18px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #025A60;
+
+  font-family:
+    'Cafeteria',
+    var(--font-heading--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: 16px;
+  line-height: 18px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  .wellie-payment {
+    height: 121px;
+  }
+
+}

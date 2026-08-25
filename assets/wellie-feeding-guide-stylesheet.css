@@ -1,0 +1,659 @@
+/* =========================================================
+   Wellie Feeding Guide
+   Mobile First
+   ========================================================= */
+
+.wellie-feeding-guide {
+  width: 100%;
+
+  margin: 0;
+  padding: 0 18px 64px;
+
+  box-sizing: border-box;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+}
+
+
+/* =========================================================
+   Main Card
+   ========================================================= */
+
+.wellie-feeding-guide__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 24px 18px 24px;
+
+  box-sizing: border-box;
+
+  background: #FFFFFF;
+
+  border: 0.6px solid rgba(58, 58, 62, 0.15);
+
+  border-radius: 12px;
+}
+
+
+/* =========================================================
+   Heading
+   ========================================================= */
+
+.wellie-feeding-guide__heading {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-size: 32px;
+  font-weight: 700;
+
+  line-height: 38px;
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Image Wrapper
+   ========================================================= */
+
+.wellie-feeding-guide__image-wrapper {
+  width: 100%;
+
+  margin: 28px 0 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  border: 3px solid #3A3A3E;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   Image
+   ========================================================= */
+
+.wellie-feeding-guide__image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: cover;
+  object-position: center center;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Table
+   ========================================================= */
+
+.wellie-feeding-guide__table {
+  width: 100%;
+
+  margin: 28px 0 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Table Row
+   ========================================================= */
+
+.wellie-feeding-guide__row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(0, 0.85fr)
+    minmax(0, 0.95fr);
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid rgba(58, 58, 62, 0.2);
+}
+
+
+/* =========================================================
+   Remove divider from final row
+   ========================================================= */
+
+.wellie-feeding-guide__row:last-child {
+  border-bottom: 0;
+}
+
+
+/* =========================================================
+   Header Row
+   ========================================================= */
+
+.wellie-feeding-guide__row--header {
+  min-height: 48px;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   Table Cell
+   ========================================================= */
+
+.wellie-feeding-guide__cell {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+
+  margin: 0;
+  padding: 14px 0;
+
+  box-sizing: border-box;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: 21px;
+}
+
+
+/* =========================================================
+   Header Cell
+   ========================================================= */
+
+.wellie-feeding-guide__row--header
+.wellie-feeding-guide__cell {
+  padding-top: 0;
+  padding-bottom: 14px;
+
+  font-size: 15px;
+  font-weight: 400;
+
+  line-height: 20px;
+}
+
+
+/* =========================================================
+   Weight Column
+   ========================================================= */
+
+.wellie-feeding-guide__cell--weight {
+  justify-content: flex-start;
+
+  padding-right: 8px;
+}
+
+
+/* =========================================================
+   Daily Column
+   ========================================================= */
+
+.wellie-feeding-guide__cell--daily {
+  justify-content: center;
+
+  padding-right: 8px;
+  padding-left: 8px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   Monthly Column
+   ========================================================= */
+
+.wellie-feeding-guide__cell--monthly {
+  justify-content: flex-end;
+
+  padding-left: 8px;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  /* =======================================================
+     Section
+
+     Figma:
+     Main card = 1280 × 540
+     ======================================================= */
+
+  .wellie-feeding-guide {
+    width: 0 80px;
+
+    margin: 0 auto;
+
+    padding: 80px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Main Card
+
+     Figma:
+     Width: 1280px
+     Height: 540px
+     Border: 0.6px
+     Radius: 8px
+     ======================================================= */
+
+  .wellie-feeding-guide__card {
+    position: relative;
+
+    display: block;
+
+    width: 1280px;
+    height: 540px;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    background: #FFFFFF;
+
+    border: 0.6px solid rgba(58, 58, 62, 0.1);
+
+    border-radius: 8px;
+  }
+
+
+  /* =======================================================
+     Image Wrapper
+
+     Figma:
+     x: 20px
+     y: 20px
+     width: 608px
+     height: 500px
+     ======================================================= */
+
+  .wellie-feeding-guide__image-wrapper {
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+
+    width: 608px;
+    height: 500px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    border: 1.5px solid #3A3A3E;
+
+    border-radius: 8px;
+
+    box-shadow:
+      2px 2px 0px #3A3A3E;
+  }
+
+
+  /* =======================================================
+     Image
+
+     Figma:
+     608px × 500px
+     ======================================================= */
+
+  .wellie-feeding-guide__image {
+    display: block;
+
+    width: 608px;
+    height: 500px;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: cover;
+    object-position: center center;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Right Content Container
+
+     Figma:
+     x: 650px
+     y: 85px
+     width: 608px
+     height: 371px
+
+     Layout:
+     Column
+     Gap: 60px
+     ======================================================= */
+
+  .wellie-feeding-guide__heading {
+    position: absolute;
+
+    top: 85px;
+    left: 650px;
+
+    width: 608px;
+    height: 44px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-size: 36px;
+    font-weight: 700;
+
+    line-height: 44px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Table
+
+     Figma:
+     x: 650px
+     y: 189px
+     width: 608px
+     height: 267px
+
+     Heading:
+     y = 85
+     height = 44
+
+     Gap:
+     60px
+
+     Therefore:
+     85 + 44 + 60 = 189px
+     ======================================================= */
+
+  .wellie-feeding-guide__table {
+    position: absolute;
+
+    top: 189px;
+    left: 650px;
+
+    width: 608px;
+    height: 267px;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Table Row
+
+     Desktop Figma uses:
+     608px total width
+
+     Approximate column structure:
+     197px
+     196px
+     167px
+
+     with spacing between the columns.
+     ======================================================= */
+
+  .wellie-feeding-guide__row {
+    display: grid;
+
+    grid-template-columns:
+      197px
+      196px
+      167px;
+
+    width: 608px;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    border-bottom:
+      0.8px solid rgba(58, 58, 62, 0.2);
+  }
+
+
+  /* =======================================================
+     Header Row
+
+     Figma:
+     Header text top ≈ 104px
+     Divider top ≈ 151px
+     ======================================================= */
+
+  .wellie-feeding-guide__row--header {
+    height: 63px;
+
+    min-height: 63px;
+
+    align-items: center;
+  }
+
+
+  /* =======================================================
+     Data Rows
+
+     Each row:
+     Approximately 61px high
+     ======================================================= */
+
+  .wellie-feeding-guide__row:not(
+    .wellie-feeding-guide__row--header
+  ) {
+    height: 61px;
+
+    min-height: 61px;
+
+    align-items: center;
+  }
+
+
+  /* =======================================================
+     Table Cell
+
+     Figma:
+     Font: Cabin
+     Size: 20px
+     Weight: 400 / 500
+     Line height: 21px
+     ======================================================= */
+
+  .wellie-feeding-guide__cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+
+    height: 21px;
+
+    margin: 0;
+    padding: 0;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-size: 20px;
+
+    line-height: 21px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Header Cell
+
+     Figma:
+     Weight: 400
+     Size: 20px
+     ======================================================= */
+
+  .wellie-feeding-guide__row--header
+  .wellie-feeding-guide__cell {
+    font-size: 20px;
+
+    font-weight: 400;
+
+    line-height: 21px;
+  }
+
+
+  /* =======================================================
+     Data Cell
+
+     Figma:
+     Weight: 500
+     Size: 20px
+     ======================================================= */
+
+  .wellie-feeding-guide__row:not(
+    .wellie-feeding-guide__row--header
+  )
+  .wellie-feeding-guide__cell {
+    font-size: 20px;
+
+    font-weight: 500;
+
+    line-height: 21px;
+  }
+
+
+  /* =======================================================
+     Weight Column
+
+     Figma positions:
+     Header/data width ≈ 197px
+     ======================================================= */
+
+  .wellie-feeding-guide__cell--weight {
+    justify-content: center;
+
+    width: 197px;
+
+    padding: 0;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     Daily Column
+
+     Figma:
+     approximately 196px wide
+     ======================================================= */
+
+  .wellie-feeding-guide__cell--daily {
+    justify-content: center;
+
+    width: 196px;
+
+    padding: 0;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     Monthly Column
+
+     Figma:
+     approximately 167px wide
+     ======================================================= */
+
+  .wellie-feeding-guide__cell--monthly {
+    justify-content: center;
+
+    width: 167px;
+
+    padding: 0;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     Final Row
+
+     Figma still has the final row content,
+     but no divider underneath it.
+     ======================================================= */
+
+  .wellie-feeding-guide__row:last-child {
+    border-bottom: 0;
+  }
+
+}

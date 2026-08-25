@@ -1,0 +1,1088 @@
+/* =========================================================
+   Wellie Reviews
+   Mobile First
+   ========================================================= */
+
+.wellie-reviews {
+  width: 100%;
+
+  margin: 0;
+  padding: 0 0 64px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+}
+
+
+/* =========================================================
+   Header
+   ========================================================= */
+
+.wellie-reviews__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+.wellie-reviews__heading {
+  width: 100%;
+
+  margin: 0;
+  padding: 0 18px;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-size: 28px;
+  font-weight: 700;
+
+  line-height: 34px;
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Carousel Wrapper
+   ========================================================= */
+
+.wellie-reviews__carousel-wrap {
+  width: 100%;
+
+  margin: 24px 0 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Carousel
+   ========================================================= */
+
+.wellie-reviews__carousel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 8px;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0 18px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-snap-align: start;
+  scroll-padding-inline: 18px;
+
+  scroll-behavior: smooth;
+
+  overscroll-behavior-x: contain;
+
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+
+  box-sizing: border-box;
+
+  cursor: grab;
+}
+
+
+.wellie-reviews__carousel:active {
+  cursor: grabbing;
+}
+
+
+.wellie-reviews__carousel::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   Review Card
+   ========================================================= */
+
+.wellie-reviews__card {
+  position: relative;
+
+  display: flex;
+
+  flex: 0 0 calc(100vw - 36px);
+
+  width: calc(100vw - 36px);
+
+  height: 220px;
+
+  min-width: 0;
+
+  margin: 0;
+  padding: 10px;
+
+  overflow: hidden;
+
+  background: #FFFFFF;
+
+  border: 0.6px solid rgba(58, 58, 62, 0.1);
+
+  border-radius: 8px;
+
+  scroll-snap-align: start;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Decorative Background
+   ========================================================= */
+
+.wellie-reviews__card-pattern {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: var(--wellie-reviews-backdrop);
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   Customer / Review Photo
+   ========================================================= */
+
+.wellie-reviews__review-image {
+  position: relative;
+
+  z-index: 1;
+
+  flex: 0 0 146px;
+
+  width: 146px;
+  height: 200px;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  border-radius: 6px;
+
+  background: #D9D9D9;
+
+  box-sizing: border-box;
+}
+
+
+.wellie-reviews__review-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: cover;
+  object-position: center center;
+}
+
+
+.wellie-reviews__review-image--empty {
+  background: #025A60;
+}
+
+
+/* =========================================================
+   Review Content
+   ========================================================= */
+
+.wellie-reviews__content {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  flex: 1 1 auto;
+
+  min-width: 0;
+
+  height: 188px;
+
+  margin: 6px 0 0 10px;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Quote
+   ========================================================= */
+
+.wellie-reviews__quote {
+  display: block;
+
+  width: 24px;
+  height: 22px;
+
+  margin: 0;
+  padding: 0;
+
+  flex: 0 0 24px;
+
+  box-sizing: border-box;
+}
+
+
+.wellie-reviews__quote svg {
+  display: block;
+
+  width: 24px;
+  height: 22px;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================================================
+   Review Copy
+   ========================================================= */
+
+.wellie-reviews__review-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+
+  min-width: 0;
+
+  margin: 10px 0 0;
+  padding: 0;
+
+  gap: 8px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Stars
+   ========================================================= */
+
+.wellie-reviews__stars {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 6px;
+
+  width: 124px;
+  height: 20px;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+.wellie-reviews__star {
+  display: block;
+
+  flex: 0 0 20px;
+
+  width: 20px;
+  height: 20px;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+.wellie-reviews__star--empty {
+  color: rgba(255, 148, 0, 0.2);
+}
+
+
+/* =========================================================
+   Review Body
+   ========================================================= */
+
+.wellie-reviews__body {
+  width: 100%;
+  max-height: 68px;
+
+  margin: 0;
+  padding: 0;
+
+  color: #3A3A3E;
+
+  font-family: 'Cabin-Regular', sans-serif;
+
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+
+  line-height: 17px;
+
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Author
+   ========================================================= */
+
+.wellie-reviews__author {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 8px;
+
+  width: 100%;
+  height: 28px;
+
+  margin: auto 0 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Avatar
+   ========================================================= */
+
+.wellie-reviews__avatar {
+  display: block;
+
+  flex: 0 0 28px;
+
+  width: 28px;
+  height: 28px;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  background: #025A60;
+}
+
+
+.wellie-reviews__avatar--empty {
+  display: block;
+}
+
+
+/* =========================================================
+   Username
+   ========================================================= */
+
+.wellie-reviews__username {
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-size: 15px;
+  font-weight: 700;
+
+  line-height: 18px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   Pagination Dots
+   ========================================================= */
+
+.wellie-reviews__dots {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+
+  width: 34px;
+  height: 10px;
+
+  margin: 32px auto 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+.wellie-reviews__dot {
+  display: block;
+
+  flex: 0 0 8px;
+
+  width: 8px;
+  height: 8px;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: rgba(229, 40, 136, 0.3);
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+
+.wellie-reviews__dot--active {
+  flex-basis: 10px;
+
+  width: 10px;
+  height: 10px;
+
+  background: #E52888;
+}
+
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  /* =======================================================
+     Main Section
+
+     Figma:
+     Width: 1280px
+     Height: 312px
+     ======================================================= */
+
+  .wellie-reviews {
+    width: 1280px;
+
+    margin: 0 auto;
+
+    padding: 0 0 40px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Header
+
+     Figma:
+     Heading width: 1280px
+     Heading height: 44px
+     Font: Cabin
+     Weight: 700
+     Size: 36px
+     Line height: 44px
+     ======================================================= */
+
+  .wellie-reviews__header {
+    width: 1280px;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+  }
+
+
+  .wellie-reviews__heading {
+    width: 1280px;
+    height: 44px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-size: 36px;
+    font-weight: 700;
+
+    line-height: 44px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Carousel Wrapper
+
+     Figma:
+     Heading → cards = 48px
+     ======================================================= */
+
+  .wellie-reviews__carousel-wrap {
+    width: 1280px;
+
+    margin: 48px 0 0;
+    padding: 0;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Carousel
+
+     Figma:
+     Width: 1280px
+     Height: 220px
+     Gap: 20px
+     ======================================================= */
+
+  .wellie-reviews__carousel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 20px;
+
+    width: 1280px;
+    height: 220px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    scroll-snap-type: none;
+    scroll-padding-inline: 0;
+
+    scroll-behavior: auto;
+
+    overscroll-behavior-x: auto;
+
+    box-sizing: border-box;
+
+    cursor: default;
+  }
+
+
+  /* =======================================================
+     Review Card
+
+     Figma:
+     Card 1: 414px × 220px
+     Card 2: 413px × 220px
+     Card 3: 413px × 220px
+     ======================================================= */
+
+  .wellie-reviews__card {
+    position: relative;
+
+    display: block;
+
+    flex: 0 0 413px;
+
+    width: 413px;
+    height: 220px;
+
+    min-width: 0;
+
+    margin: 0;
+    padding: 10px;
+
+    overflow: hidden;
+
+    background: #FFFFFF;
+
+    border: 0.6px solid rgba(58, 58, 62, 0.1);
+
+    border-radius: 8px;
+
+    scroll-snap-align: none;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     First Card
+
+     Figma:
+     Width: 414px
+     ======================================================= */
+
+  .wellie-reviews__card:first-child {
+    flex-basis: 414px;
+
+    width: 414px;
+  }
+
+
+  /* =======================================================
+     Decorative Background
+     ======================================================= */
+
+  .wellie-reviews__card-pattern {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: var(--wellie-reviews-backdrop);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    pointer-events: none;
+
+    z-index: 0;
+  }
+
+
+  /* =======================================================
+     Customer / Review Photo
+
+     Figma:
+     Width: 146px
+     Height: 200px
+     Left: 10px
+     Top: 10px
+     ======================================================= */
+
+  .wellie-reviews__review-image {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    z-index: 1;
+
+    width: 146px;
+    height: 200px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    border-radius: 6px;
+
+    background: #D9D9D9;
+
+    box-sizing: border-box;
+  }
+
+
+  .wellie-reviews__review-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: cover;
+    object-position: center center;
+  }
+
+
+  .wellie-reviews__review-image--empty {
+    background: #025A60;
+  }
+
+
+  /* =======================================================
+     Review Content
+
+     Figma:
+     Width: 178px
+     Height: 188px
+     Left: 166px
+     Top: 16px
+     ======================================================= */
+
+  .wellie-reviews__content {
+    position: absolute;
+
+    top: 16px;
+    left: 166px;
+
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 178px;
+    height: 188px;
+
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Quote
+
+     Figma:
+     Width: 24px
+     Height: 22px
+     ======================================================= */
+
+  .wellie-reviews__quote {
+    display: block;
+
+    width: 24px;
+    height: 22px;
+
+    margin: 0;
+    padding: 0;
+
+    flex: 0 0 22px;
+
+    box-sizing: border-box;
+  }
+
+
+  .wellie-reviews__quote svg {
+    display: block;
+
+    width: 24px;
+    height: 22px;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =======================================================
+     Review Copy
+
+     Figma:
+     Gap: 8px
+     ======================================================= */
+
+  .wellie-reviews__review-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 178px;
+    min-width: 0;
+
+    margin: 10px 0 0;
+    padding: 0;
+
+    gap: 8px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Stars
+
+     Figma:
+     Width: 124px
+     Height: 20px
+     Gap: 6px
+     Each star: 20px × 20px
+     ======================================================= */
+
+  .wellie-reviews__stars {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 6px;
+
+    width: 124px;
+    height: 20px;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+  }
+
+
+  .wellie-reviews__star {
+    display: block;
+
+    flex: 0 0 20px;
+
+    width: 20px;
+    height: 20px;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .wellie-reviews__star--empty {
+    color: rgba(255, 148, 0, 0.2);
+  }
+
+
+  /* =======================================================
+     Review Body
+
+     Figma:
+     Width: 231px
+     Height: 68px
+     Font: Cabin
+     Weight: 400
+     Size: 14px
+     Line height: 17px
+
+     Note:
+     The Figma body text is wider than the
+     178px parent content frame, so it is
+     intentionally allowed to extend to 231px.
+     ======================================================= */
+
+  .wellie-reviews__body {
+    display: flex;
+
+    width: 231px;
+    height: 68px;
+
+    max-height: 68px;
+
+    margin: 0;
+    padding: 0;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+
+    line-height: 17px;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Author
+
+     Figma:
+     Width: 124px
+     Height: 28px
+     Gap: 8px
+     ======================================================= */
+
+  .wellie-reviews__author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 8px;
+
+    width: 124px;
+    height: 28px;
+
+    margin: auto 0 0;
+    padding: 0;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Avatar
+
+     Figma:
+     Width: 28px
+     Height: 28px
+     ======================================================= */
+
+  .wellie-reviews__avatar {
+    display: block;
+
+    flex: 0 0 28px;
+
+    width: 28px;
+    height: 28px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    background: #025A60;
+  }
+
+
+  .wellie-reviews__avatar--empty {
+    display: block;
+  }
+
+
+  /* =======================================================
+     Username
+
+     Figma:
+     Width: 88px
+     Height: 18px
+     Font: Cabin
+     Weight: 700
+     Size: 15px
+     Line height: 18px
+     ======================================================= */
+
+  .wellie-reviews__username {
+    width: 88px;
+    height: 18px;
+
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 18px;
+
+    display: flex;
+    align-items: center;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Pagination Dots
+
+     Desktop Figma screenshot does not show dots
+     in the visible 312px section.
+     ======================================================= */
+
+  .wellie-reviews__dots {
+    display:none;
+  }
+
+}
+
+
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .wellie-reviews__carousel {
+    scroll-behavior: auto;
+  }
+
+}

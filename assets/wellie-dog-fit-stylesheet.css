@@ -1,0 +1,904 @@
+/* =========================================================
+   Wellie Dog Fit
+   Mobile First
+   ========================================================= */
+
+
+/* =========================================================
+   Section
+   ========================================================= */
+
+.wellie-dog-fit {
+  width: 100%;
+
+  margin: 0;
+  padding: 0 0 64px;
+
+  color: #3A3A3E;
+
+  box-sizing: border-box;
+}
+
+
+.wellie-dog-fit *,
+.wellie-dog-fit *::before,
+.wellie-dog-fit *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Inner
+   ========================================================= */
+
+.wellie-dog-fit__inner {
+  width: 354px;
+
+  margin: 0 auto;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   Hero
+   ========================================================= */
+
+.wellie-dog-fit__hero {
+  width: 354px;
+  height: 420px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   Heading
+   ========================================================= */
+
+.wellie-dog-fit__heading {
+  width: 354px;
+  height: 42px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: 28px;
+  line-height: 42px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   Visual
+   ========================================================= */
+
+.wellie-dog-fit__visual {
+  position: relative;
+
+  width: 354px;
+  height: 354px;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  flex: 0 0 354px;
+}
+
+
+.wellie-dog-fit__dog {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 8px;
+
+  transform: none;
+}
+/* =========================================================
+   Background Shape — Top Left
+   ========================================================= */
+
+.wellie-dog-fit__shape--top-left {
+  position: absolute;
+
+  width: 200px;
+  height: 200px;
+
+  left: -73px;
+  top: -73px;
+
+  background: #C0DD45;
+
+  border-radius: 50%;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   Background Shape — Bottom Right
+   ========================================================= */
+
+.wellie-dog-fit__shape--bottom-right {
+  position: absolute;
+
+  width: 200px;
+  height: 200px;
+
+  left: 227px;
+  top: 227px;
+
+  background: #C0DD45;
+
+  border-radius: 50%;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   Decorative Doodles
+   ========================================================= */
+
+.wellie-dog-fit__doodle {
+  position: absolute;
+
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  z-index: 3;
+}
+
+
+/* Pink */
+
+.wellie-dog-fit__doodle--pink {
+  left: 170px;
+  top: 0;
+
+  width: 100px;
+  height: 100px;
+}
+
+
+/* White Top */
+
+.wellie-dog-fit__doodle--white-top {
+  right: -5px;
+  top: -15px;
+
+  width: 75px;
+  height: 100px;
+}
+
+
+/* White Bottom */
+
+.wellie-dog-fit__doodle--white-bottom {
+  left: -18px;
+  bottom: -15px;
+
+  width: 75px;
+  height: 100px;
+}
+
+
+/* White Marks */
+
+.wellie-dog-fit__doodle--white-marks {
+  left: 185px;
+  top: 90px;
+
+  width: 65px;
+  height: 65px;
+}
+
+
+/* =========================================================
+   Recommendation List
+   ========================================================= */
+
+.wellie-dog-fit__recommendations {
+  width: 354px;
+  min-height: 415px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   Recommendation
+   ========================================================= */
+
+.wellie-dog-fit__recommendation {
+  width: 354px;
+  height: 117px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   Recommendation Image Wrapper
+   ========================================================= */
+
+.wellie-dog-fit__recommendation-image-wrapper {
+  width: 80px;
+  height: 80px;
+
+  flex: 0 0 80px;
+
+  overflow: hidden;
+
+  background: #E52888;
+
+  border: 1px solid #E52888;
+
+  box-shadow: 1px 1px 0 #E52888;
+
+  border-radius: 8px;
+}
+
+
+/* =========================================================
+   Recommendation Image
+   ========================================================= */
+
+.wellie-dog-fit__recommendation-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: cover;
+
+  border-radius: 7px;
+}
+
+
+/* =========================================================
+   Recommendation Content
+   ========================================================= */
+
+.wellie-dog-fit__recommendation-content {
+  width: 262px;
+  height: 117px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 6px;
+
+  flex: 0 0 262px;
+}
+
+
+/* =========================================================
+   Recommendation Title
+   ========================================================= */
+
+.wellie-dog-fit__recommendation-title {
+  width: 262px;
+  height: 48px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: 16px;
+  line-height: 24px;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   Recommendation Description
+   ========================================================= */
+
+.wellie-dog-fit__recommendation-description {
+  width: 262px;
+  height: 63px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+
+  color: #3A3A3E;
+
+  font-family:
+    'Cabin',
+    var(--font-body--family, sans-serif);
+
+  font-style: normal;
+  font-weight: 400;
+
+  font-size: 14px;
+  line-height: 21px;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   Divider
+   ========================================================= */
+
+.wellie-dog-fit__divider {
+  width: 262px;
+  height: 0;
+
+  margin: 0;
+
+  opacity: 0.2;
+
+  border-top: 0.8px solid #3A3A3E;
+
+  flex: 0 0 0;
+}
+
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  /* =======================================================
+     Section
+     Figma:
+     Width: 1280px
+     Height: 628px
+     ======================================================= */
+
+  .wellie-dog-fit {
+    width: 100%;
+    min-height: 628px;
+
+    margin: 0;
+    padding: 0 0 80px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Inner
+     
+     628px image
+     22px gap
+     630px content
+     
+     Total = 1280px
+     ======================================================= */
+
+  .wellie-dog-fit__inner {
+    width: 1280px;
+    height: 628px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    display: grid;
+
+    grid-template-columns: 628px 630px;
+
+    column-gap: 22px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Hero Wrapper
+     
+     The existing mobile HTML groups the heading and visual
+     inside .hero.
+
+     On desktop we flatten it so:
+     
+     - Image occupies the LEFT column
+     - Heading occupies the RIGHT column
+     ======================================================= */
+
+  .wellie-dog-fit__hero {
+    display: contents;
+  }
+
+
+  /* =======================================================
+     Heading
+     
+     Figma:
+     Width: 630px
+     Height: 44px
+     ======================================================= */
+
+  .wellie-dog-fit__heading {
+    grid-column: 2;
+    grid-row: 1;
+
+    width: 630px;
+    height: 44px;
+
+    margin: 61px 0 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-style: normal;
+    font-weight: 700;
+
+    font-size: 36px;
+    line-height: 44px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Main Visual
+     
+     Figma:
+     628 × 628px
+     
+     LEFT SIDE
+     ======================================================= */
+
+  .wellie-dog-fit__visual {
+    grid-column: 1;
+    grid-row: 1;
+
+    position: relative;
+
+    width: 628px;
+    height: 628px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Dog Image
+     ======================================================= */
+
+  .wellie-dog-fit__dog {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 8px;
+
+    transform: none;
+  }
+
+
+  /* =======================================================
+     Background Shape — Top Left
+     ======================================================= */
+
+  .wellie-dog-fit__shape--top-left {
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    left: -73px;
+    top: -73px;
+
+    background: #C0DD45;
+
+    border-radius: 50%;
+
+    z-index: 1;
+  }
+
+
+  /* =======================================================
+     Background Shape — Bottom Right
+     ======================================================= */
+
+  .wellie-dog-fit__shape--bottom-right {
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    left: 501px;
+    top: 501px;
+
+    background: #C0DD45;
+
+    border-radius: 50%;
+
+    z-index: 1;
+  }
+
+
+  /* =======================================================
+     Decorative Doodles
+     ======================================================= */
+
+  .wellie-dog-fit__doodle {
+    position: absolute;
+
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    z-index: 3;
+  }
+
+
+  /* Pink */
+
+  .wellie-dog-fit__doodle--pink {
+    left: 300px;
+    top: 0;
+
+    width: 100px;
+    height: 100px;
+  }
+
+
+  /* White Top */
+
+  .wellie-dog-fit__doodle--white-top {
+    right: -5px;
+    top: -15px;
+
+    width: 75px;
+    height: 100px;
+  }
+
+
+  /* White Bottom */
+
+  .wellie-dog-fit__doodle--white-bottom {
+    left: -18px;
+    bottom: -15px;
+
+    width: 75px;
+    height: 100px;
+  }
+
+
+  /* White Marks */
+
+  .wellie-dog-fit__doodle--white-marks {
+    left: 325px;
+    top: 90px;
+
+    width: 65px;
+    height: 65px;
+  }
+
+
+  /* =======================================================
+     Recommendation List
+     
+     Figma:
+     Width: 630px
+     Height: 414px
+     
+     Positioned 48px below heading.
+     ======================================================= */
+
+  .wellie-dog-fit__recommendations {
+    grid-column: 2;
+    grid-row: 1;
+
+    width: 630px;
+    height: 414px;
+
+    margin: 153px 0 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 26px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Recommendation
+     
+     88px image
+     20px gap
+     522px content
+     
+     Total:
+     88 + 20 + 522 = 630px
+     ======================================================= */
+
+  .wellie-dog-fit__recommendation {
+    width: 630px;
+    height: 103px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    justify-content: flex-start;
+
+    gap: 20px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Recommendation Image
+     
+     Figma:
+     88 × 88px
+     ======================================================= */
+
+  .wellie-dog-fit__recommendation-image-wrapper {
+    width: 88px;
+    height: 88px;
+
+    flex: 0 0 88px;
+
+    overflow: hidden;
+
+    background: #E52888;
+
+    border: 1px solid #E52888;
+
+    box-shadow: 1px 1px 0 #E52888;
+
+    border-radius: 8px;
+
+    box-sizing: border-box;
+  }
+
+
+  .wellie-dog-fit__recommendation-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: cover;
+
+    border-radius: 7px;
+  }
+
+
+  /* =======================================================
+     Recommendation Content
+     
+     Figma:
+     Width: 522px
+     Height: 103px
+     ======================================================= */
+
+  .wellie-dog-fit__recommendation-content {
+    width: 522px;
+    height: 103px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 16px;
+
+    flex: 0 0 522px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Recommendation Title
+     
+     Figma:
+     24px
+     700
+     33px
+     ======================================================= */
+
+  .wellie-dog-fit__recommendation-title {
+    width: 522px;
+    height: 33px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-style: normal;
+    font-weight: 700;
+
+    font-size: 24px;
+    line-height: 33px;
+
+    text-align: left;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Recommendation Description
+     
+     Figma:
+     18px
+     400
+     27px
+     ======================================================= */
+
+  .wellie-dog-fit__recommendation-description {
+    width: 522px;
+    height: 54px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+
+    color: #3A3A3E;
+
+    font-family:
+      'Cabin',
+      var(--font-body--family, sans-serif);
+
+    font-style: normal;
+    font-weight: 400;
+
+    font-size: 18px;
+    line-height: 27px;
+
+    text-align: left;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     Divider
+     
+     Figma:
+     Width: 522px
+     0.8px
+     20% opacity
+     ======================================================= */
+
+  .wellie-dog-fit__divider {
+    width: 522px;
+    height: 0;
+
+    margin: 0;
+
+    opacity: 0.2;
+
+    border-top: 0.8px solid #3A3A3E;
+
+    flex: 0 0 0;
+
+    box-sizing: border-box;
+  }
+
+}

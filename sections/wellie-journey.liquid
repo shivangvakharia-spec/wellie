@@ -1,0 +1,174 @@
+{{ 'wellie-journey-stylesheet.css' | asset_url | stylesheet_tag }}
+
+<section class="wellie-journey" aria-label="Start your journey with Wellie">
+
+  <div class="wellie-journey__inner">
+
+    <h2 class="wellie-journey__heading">
+      Start Your Journey With Wellie
+    </h2>
+
+    <div class="wellie-journey__content">
+
+      <div class="wellie-journey__image-wrapper">
+        {% if section.settings.image != blank %}
+          {{
+            section.settings.image | image_url: width: 708 | image_tag: class: 'wellie-journey__image', loading: 'lazy'
+          }}
+        {% else %}
+          <div class="wellie-journey__image-placeholder">
+            Select an image
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="wellie-journey__timeline">
+
+        <div class="wellie-journey__months">
+
+          {% for block in section.blocks %}
+
+            <div class="wellie-journey__month" {{ block.shopify_attributes }}>
+              {{ block.settings.month }}
+            </div>
+
+            {% unless forloop.last %}
+
+              <div class="wellie-journey__timeline-line
+          {% if forloop.first %}
+            wellie-journey__timeline-line--first
+          {% else %}
+            wellie-journey__timeline-line--second
+          {% endif %}" aria-hidden="true"></div>
+
+            {% endunless %}
+
+          {% endfor %}
+
+        </div>
+
+
+        <div class="wellie-journey__details">
+
+          {% for block in section.blocks %}
+
+            <article class="wellie-journey__detail" {{ block.shopify_attributes }}>
+
+              <h3 class="wellie-journey__title">
+                {{ block.settings.title }}
+              </h3>
+
+              <div class="wellie-journey__descriptions">
+
+                <p class="wellie-journey__description">
+                  <span class="wellie-journey__bullet">•</span>
+                  <span>{{ block.settings.description_1 }}</span>
+                </p>
+
+                <p class="wellie-journey__description">
+                  <span class="wellie-journey__bullet">•</span>
+                  <span>{{ block.settings.description_2 }}</span>
+                </p>
+
+              </div>
+
+            </article>
+
+          {% endfor %}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+{% schema %}
+
+  {
+    "name": "Wellie journey",
+
+    "tag": "section",
+
+    "class": "wellie-journey-section",
+
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Journey image"
+      }
+    ],
+
+    "blocks": [
+      {
+        "type": "journey_step",
+
+        "name": "Journey step",
+
+        "settings": [
+          {
+            "type": "text",
+            "id": "month",
+            "label": "Month",
+            "default": "Month 1"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Initial adaptation and digestive support"
+          }, {
+            "type": "textarea",
+            "id": "description_1",
+            "label": "Description 1",
+            "default": "The prebiotics help improve nutrient absorption."
+          }, {
+            "type": "textarea",
+            "id": "description_2",
+            "label": "Description 2",
+            "default": "Enhanced digestion often leads to an improved appetite."
+          }
+        ]
+      }
+    ],
+
+    "presets": [
+      {
+        "name": "Wellie journey",
+
+        "blocks": [
+          {
+            "type": "journey_step",
+            "settings": {
+              "month": "Month 1",
+              "title": "Initial adaptation and digestive support",
+              "description_1": "The prebiotics help improve nutrient absorption.",
+              "description_2": "Enhanced digestion often leads to an improved appetite."
+            }
+          }, {
+            "type": "journey_step",
+            "settings": {
+              "month": "Month 2",
+              "title": "Strengthening gut health adn Immunit",
+              "description_1": "Probiotics begin to establish a healthier gut microbiome.",
+              "description_2": "The probiotics reduce bad bacteria, leading to better breath."
+            }
+          }, {
+            "type": "journey_step",
+            "settings": {
+              "month": "Month 3",
+              "title": "Visible skin and coat improvements",
+              "description_1": "Healthy coat noticeable improvement in coat quality.",
+              "description_2": "Dogs experience reduced itchiness and fewer skin irritations."
+            }
+          }
+        ]
+      }
+    ]
+  }
+
+{% endschema %}

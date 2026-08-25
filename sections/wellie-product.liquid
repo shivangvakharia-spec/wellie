@@ -2,6 +2,8 @@
   assign current_variant = product.selected_or_first_available_variant
 -%}
 
+{{ 'wellie-product.liquid-stylesheet.css' | asset_url | stylesheet_tag }}
+
 <section
   class="wellie-product page-width py-8 md:py-12 lg:py-16"
   style="font-family: var(--font-secondary--family);"
@@ -40,6 +42,10 @@
             {%- endcase -%}
           </div>
         {%- endfor -%}
+        {%- if product.media.size > 1 -%}
+          <button type="button" class="wellie-product__gallery-arrow wellie-product__gallery-arrow--previous" data-wellie-gallery-previous aria-label="Previous product image">‹</button>
+          <button type="button" class="wellie-product__gallery-arrow wellie-product__gallery-arrow--next" data-wellie-gallery-next aria-label="Next product image">›</button>
+        {%- endif -%}
       </div>
 
       {%- if product.media.size > 1 -%}
@@ -73,21 +79,7 @@
       Product information
     {%- endcomment -%}
     <div class="wellie-product__info lg:pt-4">
-      {%- comment -%}
-        Product proof
-      {%- endcomment -%}
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'product_proof' -%}
-          <div class="mb-6 rounded-lg border border-border p-4" {{ block.shopify_attributes }}>
-            {%- if block.settings.heading != blank -%}
-              <h2 class="mb-2 text-base font-semibold">
-                {{ block.settings.heading }}
-              </h2>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
-
+      <p class="wellie-product__badge">{{ section.settings.product_badge }}</p>
       <h1 class="mb-3 text-3xl font-bold leading-tight md:text-4xl">
         {{ product.title }}
       </h1>
@@ -96,7 +88,7 @@
       {%- comment -%}
         Price
       {%- endcomment -%}
-      <div class="mb-6 flex flex-wrap items-center gap-3">
+      <div class="wellie-product__price-block mb-6 flex flex-wrap items-center gap-3">
         <span class="text-2xl font-semibold" data-product-price>
           {{ current_variant.price | money }}
         </span>
@@ -122,6 +114,19 @@
           {%- endif -%}
         </span>
       </div>
+      <p class="wellie-product__tax-note">MRP Inclusive of all taxes</p>
+
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'product_proof' -%}
+          <div class="wellie-product__health-proof" {{ block.shopify_attributes }}>
+            <span class="wellie-product__health-icon" aria-hidden="true">♥</span>
+            <div>
+              {%- if block.settings.heading != blank -%}<p><strong>{{ block.settings.heading }}</strong></p>{%- endif -%}
+              {%- if block.settings.copy != blank -%}<small>{{ block.settings.copy }}</small>{%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
 
       {%- comment -%}
         Variant selector
@@ -137,6 +142,7 @@
             , show_labels: true
             , color_display: 'image'
             , pill_style: 'outline'
+            , show_variant_discount: true
           %}
         </div>
       {%- endif -%}
@@ -144,9 +150,31 @@
       {%- comment -%}
         Add to cart
       {%- endcomment -%}
-      <div class="mb-6">
+      <div class="wellie-product__purchase mb-6">
         {% render 'product-form'
           , product: product %}
+        <button
+          class="wellie-product__buy-button"
+          type="submit"
+          form="product-form-{{ product.id }}"
+          name="return_to"
+          value="/checkout"
+          data-buy-now
+          {% unless current_variant.available %}disabled{% endunless %}
+        >
+          Buy it now
+        </button>
+        <div class="wellie-product__offers">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'offer' -%}
+              <button type="button" class="wellie-product__offer" data-copy-code="{{ block.settings.code | escape }}" {{ block.shopify_attributes }}>
+                <span aria-hidden="true">✧</span>
+                <span><strong>{{ block.settings.heading }}</strong><small>{{ block.settings.copy }}</small></span>
+                <span aria-hidden="true">□</span>
+              </button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
       </div>
 
     </div>
@@ -161,7 +189,14 @@
     "name": "Wellie product",
     "tag": "section",
     "class": "wellie-product-section",
-    "settings": [],
+    "settings": [
+      {
+        "type": "text",
+        "id": "product_badge",
+        "label": "Product badge",
+        "default": "India's #1 Advanced Dog Food"
+      }
+    ],
     "blocks": [
       {
         "type": "product_proof",
@@ -172,8 +207,24 @@
             "type": "text",
             "id": "heading",
             "label": "Heading",
-            "default": "India's #1 Advanced Dog Food"
+            "default": "30% Digestive Health Improvement"
+          },
+          {
+            "type": "text",
+            "id": "copy",
+            "label": "Supporting text",
+            "default": "Results may vary based on pet size, diet, and See Reports"
           }
+        ]
+      },
+      {
+        "type": "offer",
+        "name": "Offer",
+        "limit": 2,
+        "settings": [
+          { "type": "text", "id": "heading", "label": "Heading", "default": "Get it for ₹3,190" },
+          { "type": "text", "id": "copy", "label": "Copy", "default": "Copy code to get 10% off" },
+          { "type": "text", "id": "code", "label": "Coupon code" }
         ]
       }
     ],

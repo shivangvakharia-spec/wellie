@@ -1,0 +1,125 @@
+{{ 'wellie-feeding-guide-stylesheet.css' | asset_url | stylesheet_tag }}
+
+{%- assign feeding_guide = product.metafields.custom.feeding_guide.value -%}
+
+<section class="wellie-feeding-guide" aria-label="Feeding guide">
+
+  {%- if feeding_guide != blank -%}
+
+    <div class="wellie-feeding-guide__card">
+
+      <!-- =====================================================
+        Heading
+        ===================================================== -->
+      <h2 class="wellie-feeding-guide__heading">
+        {{ feeding_guide.title.value }}
+    </h2>
+
+
+      <!-- =====================================================
+        Image
+        ===================================================== -->
+      {%- assign guide_image = feeding_guide.image.value -%}
+
+      {%- if guide_image != blank -%}
+
+        <div class="wellie-feeding-guide__image-wrapper">
+
+          {{
+            guide_image | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'wellie-feeding-guide__image', alt: feeding_guide.title.value
+          }}
+
+        </div>
+
+    {%- endif -%}
+
+
+      <!-- =====================================================
+        Feeding Table
+        ===================================================== -->
+      {%- assign feeding_rows = feeding_guide.rows.value -%}
+
+      {%- if feeding_rows != blank -%}
+
+        <div class="wellie-feeding-guide__table">
+
+          <!-- =================================================
+            Header
+            ================================================= -->
+          <div class="wellie-feeding-guide__row wellie-feeding-guide__row--header" role="row">
+
+            <div class="wellie-feeding-guide__cell wellie-feeding-guide__cell--weight" role="columnheader">
+              Dog Weight
+            </div>
+
+            <div class="wellie-feeding-guide__cell wellie-feeding-guide__cell--daily" role="columnheader">
+              Daily
+            </div>
+
+            <div class="wellie-feeding-guide__cell wellie-feeding-guide__cell--monthly" role="columnheader">
+              Monthly QTY
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+            Rows
+            ================================================= -->
+          {%- for feeding_row in feeding_rows -%}
+
+            <div class="wellie-feeding-guide__row" role="row">
+
+              <div class="wellie-feeding-guide__cell wellie-feeding-guide__cell--weight" role="cell">
+                {{ feeding_row.dog_weight.value }}
+              </div>
+
+              <div class="wellie-feeding-guide__cell wellie-feeding-guide__cell--daily" role="cell">
+                {{ feeding_row.daily.value }}
+              </div>
+
+              <div class="wellie-feeding-guide__cell wellie-feeding-guide__cell--monthly" role="cell">
+                {{ feeding_row.monthly_qty.value }}
+              </div>
+
+            </div>
+
+          {%- endfor -%}
+
+        </div>
+
+      {%- endif -%}
+
+    </div>
+
+  {%- else -%}
+
+    <!-- =====================================================
+      Temporary Debug Message
+      ===================================================== -->
+    <div style="padding: 20px; color: red;">
+      Feeding Guide metafield is empty or could not be resolved.
+    </div>
+
+  {%- endif -%}
+
+</section>
+
+
+{% schema %}
+
+  {
+    "name": "Wellie feeding guide",
+    "tag": "section",
+    "class": "wellie-feeding-guide-section",
+
+    "settings": [],
+
+    "presets": [
+      {
+        "name": "Wellie feeding guide"
+      }
+    ]
+  }
+
+{% endschema %}

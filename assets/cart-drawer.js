@@ -288,13 +288,12 @@ class CartDrawer extends HTMLElement {
     const row = this.querySelector(`[data-item-key="${key}"]`);
     if (!row) return;
 
-    clearTimeout(this._flushTimer);
-    this._flushTimer = null;
-    for (const [, pendingData] of this._pendingQty) {
-      CartStore.rollback(pendingData.stateRollback);
+    // Only cancel this item's own pending debounce entry, if it has one.
+    // Other items' pending quantity edits must survive so they still flush.
+    if (this._pendingQty.has(key)) {
+      CartStore.rollback(this._pendingQty.get(key).stateRollback);
+      this._pendingQty.delete(key);
     }
-    this._pendingQty.clear();
-
 
     const parent = row.parentElement;
     const rowWrapper = parent?.children.length === 1 ? parent : row;

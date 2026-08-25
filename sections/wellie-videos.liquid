@@ -1,0 +1,236 @@
+{{ 'wellie-videos-stylesheet.css' | asset_url | stylesheet_tag }}
+
+{%- assign product_videos = product.metafields.custom.videos.value -%}
+
+{%- if product_videos != blank -%}
+
+  <section class="wellie-videos" aria-label="Product videos">
+
+    <!-- =====================================================
+      Header
+      ===================================================== -->
+    <div class="wellie-videos__header">
+
+      <h2 class="wellie-videos__heading">
+        Love at First Bite.
+      </h2>
+
+      <p class="wellie-videos__subheading">
+        Real dogs. Real reactions. Zero convincing required.
+      </p>
+
+    </div>
+
+
+    <!-- =====================================================
+      Video Carousel
+      ===================================================== -->
+    <div class="wellie-videos__carousel-wrap">
+
+      <div
+        class="wellie-videos__carousel"
+        data-videos-carousel
+        tabindex="0"
+        aria-label="Product videos carousel">
+
+        {%- for video_entry in product_videos -%}
+
+          {%- assign videos = video_entry.product_video.value -%}
+
+          {%- if videos != blank -%}
+
+            {%- for product_video in videos -%}
+
+              {%- if product_video != blank -%}
+
+                {%- if product_video != blank -%}
+
+                  {% comment %}
+                    {%- if product_video.media_type == 'video' -%}
+                  {%  endcomment  %}
+
+                  <article class="wellie-videos__card" data-video-card>
+
+                    <div class="wellie-videos__media">
+
+                      {{
+                        product_video | video_tag: autoplay: false, loop: false, muted: true, controls: false, playsinline: true, preload: 'metadata', class: 'wellie-videos__video'
+                      }}
+
+
+                      <!-- =====================================
+                        Bottom Gradient
+                        ===================================== -->
+                      <div class="wellie-videos__gradient" aria-hidden="true"></div>
+
+
+                      <!-- =====================================
+                        Play Button
+                        ===================================== -->
+                      <button
+                        type="button"
+                        class="wellie-videos__play-button"
+                        data-video-play
+                        aria-label="Play video">
+
+                        <svg
+                          width="26"
+                          height="26"
+                          viewBox="0 0 26 26"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true">
+
+                          <foreignObject
+                            x="-4"
+                            y="-4"
+                            width="34"
+                            height="34">
+
+                            <div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(2px);clip-path:url(#bgblur_0_0_502_clip_path);height:100%;width:100%"></div>
+
+                          </foreignObject>
+
+                          <g data-figma-bg-blur-radius="4">
+
+                            <rect
+                              width="26"
+                              height="26"
+                              rx="13"
+                              fill="white"
+                              fill-opacity="0.2" />
+
+                            <rect
+                              x="0.2"
+                              y="0.2"
+                              width="25.6"
+                              height="25.6"
+                              rx="12.8"
+                              stroke="white"
+                              stroke-opacity="0.4"
+                              stroke-width="0.4" />
+
+                            <path
+                              d="M18.6668 13L9.3335 18.3333L9.3335 7.66663L18.6668 13Z"
+                              fill="white"
+                              stroke="white"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+
+                          </g>
+
+                          <defs>
+
+                            <clipPath id="bgblur_0_0_502_clip_path" transform="translate(4 4)">
+
+                              <rect
+                                width="26"
+                                height="26"
+                                rx="13" />
+
+                            </clipPath>
+
+                          </defs>
+
+                        </svg>
+
+                      </button>
+
+                    </div>
+
+                  </article>
+
+                {%- endif -%}
+
+              {%- endif -%}
+
+            {%- endfor -%}
+
+          {%- endif -%}
+
+        {%- endfor -%}
+
+      </div>
+
+
+      <!-- =====================================================
+        Next Button
+        ===================================================== -->
+      <button
+        type="button"
+        class="wellie-videos__next"
+        data-videos-next
+        aria-label="Next video">
+
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+
+          <path
+            d="M9 5L16 12L9 19"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round" />
+
+        </svg>
+
+      </button>
+
+      <!-- =====================================================
+        Previous Button
+        ===================================================== -->
+      <button
+        type="button"
+        class="wellie-videos__previous"
+        data-videos-previous
+        aria-label="Previous video"
+        disabled>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path
+            d="M15 5L8 12L15 19"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <script src="{{ 'wellie-videos-javascript.js' | asset_url }}" defer></script>
+
+{%- endif -%}
+
+
+{% schema %}
+
+  {
+    "name": "Wellie videos",
+    "tag": "section",
+    "class": "wellie-videos-section",
+
+    "settings": [],
+
+    "presets": [
+      {
+        "name": "Wellie videos"
+      }
+    ]
+  }
+
+{% endschema %}

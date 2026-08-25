@@ -1,0 +1,22 @@
+{% doc %}
+  Renders a single rating star, filled or outlined.
+
+  @param {boolean} [filled] - Whether the star renders as solid or outline
+  @param {number} [size] - Icon width/height in pixels
+
+  @example
+  {% render 'icon-star', filled: true %}
+{% enddoc %}
+
+{%- liquid
+  assign icon_size = size | default: 20
+-%}
+<svg class="icon-star{% if filled %} icon-star--filled{% endif %}" width="{{ icon_size }}" height="{{ icon_size }}" viewBox="0 0 20 20" aria-hidden="true">
+  <path
+    d="M10 1.354l2.323 4.706 5.194.755-3.759 3.664.887 5.171L10 13.104l-4.645 2.442.887-5.171-3.759-3.664 5.194-.755L10 1.354z"
+    fill="{% if filled %}currentColor{% else %}none{% endif %}"
+    stroke="currentColor"
+    stroke-width="1.1"
+    stroke-linejoin="round"
+  />
+</svg>

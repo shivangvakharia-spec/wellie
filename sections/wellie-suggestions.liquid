@@ -1,0 +1,211 @@
+{{ 'wellie-suggestions-stylesheet.css' | asset_url | stylesheet_tag }}
+
+<section class="wellie-you-might-also-like" aria-label="{{ section.settings.heading | escape }}">
+
+  <div class="wellie-you-might-also-like__inner">
+
+    <!-- =====================================================
+      Heading
+      ===================================================== -->
+    {% if section.settings.heading != blank %}
+
+      <h2 class="wellie-you-might-also-like__heading">
+        {{ section.settings.heading }}
+      </h2>
+
+    {% endif %}
+
+
+    <!-- =====================================================
+      Product Grid
+      ===================================================== -->
+    <div class="wellie-you-might-also-like__grid">
+
+      {% for block in section.blocks %}
+
+        {% assign product = block.settings.product %}
+
+        {% if product != blank %}
+
+          {% assign selected_variant = product.selected_or_first_available_variant %}
+
+
+            <article class="wellie-you-might-also-like__card" {{ block.shopify_attributes }}>
+
+            <!-- =================================================
+              Product Image
+              ================================================= -->
+            <a
+              href="{{ product.url }}"
+              class="wellie-you-might-also-like__image-link"
+              aria-label="{{ product.title | escape }}">
+
+              {% if product.featured_image != blank %}
+
+                {{
+                  product.featured_image | image_url: width: 340 | image_tag: class: 'wellie-you-might-also-like__image', loading: 'lazy', widths: '170, 340', sizes: '170px'
+                }}
+
+              {% else %}
+
+                <div class="wellie-you-might-also-like__image-placeholder">
+                  {{ 'product-1' | placeholder_svg_tag }}
+                </div>
+
+              {% endif %}
+
+            </a>
+
+
+            <!-- =================================================
+              Product Content
+              ================================================= -->
+            <div class="wellie-you-might-also-like__content">
+
+              <div class="wellie-you-might-also-like__product-info">
+
+                <!-- Product Title -->
+
+                <a href="{{ product.url }}" class="wellie-you-might-also-like__product-title">
+                  {{ product.title }}
+                </a>
+
+
+                <!-- Price -->
+
+                <div class="wellie-you-might-also-like__price-wrapper">
+
+                  <span class="wellie-you-might-also-like__price-label">
+                    From
+                  </span>
+
+
+                  <div class="wellie-you-might-also-like__prices">
+
+                    <span class="wellie-you-might-also-like__price">
+                      {{ selected_variant.price | money }}
+                    </span>
+
+
+                    {% if selected_variant.compare_at_price > selected_variant.price %}
+
+                      <span class="wellie-you-might-also-like__compare-price">
+                        {{ selected_variant.compare_at_price | money }}
+                      </span>
+
+                    {% endif %}
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <!-- =================================================
+                Add To Cart
+                ================================================= -->
+              <form
+                method="post"
+                action="{{ routes.cart_add_url }}"
+                class="wellie-you-might-also-like__form">
+
+                <input
+                  type="hidden"
+                  name="id"
+                  value="{{ selected_variant.id }}">
+
+                <input
+                  type="hidden"
+                  name="quantity"
+                  value="1">
+
+
+                <button
+                  type="submit"
+                  class="wellie-you-might-also-like__add-button"
+                  {% unless selected_variant.available %}
+                  disabled
+                  {% endunless %}>
+
+                  {% if selected_variant.available %}
+                    Add to Cart
+                  {% else %}
+                    Sold Out
+                  {% endif %}
+
+                </button>
+
+              </form>
+
+            </div>
+
+          </article>
+
+        {% endif %}
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+
+{% schema %}
+
+  {
+    "name": "Wellie suggestions",
+
+    "tag": "section",
+
+    "class": "wellie-suggestions",
+
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Wellie Suggestions"
+      }
+    ],
+
+    "blocks": [
+      {
+        "type": "product",
+
+        "name": "Product",
+
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      }
+    ],
+
+    "presets": [
+      {
+        "name": "Wellie suggestions",
+
+        "blocks": [
+          {
+            "type": "product"
+          }, {
+            "type": "product"
+          }, {
+            "type": "product"
+          }, {
+            "type": "product"
+          }
+        ]
+      }
+    ],
+
+    "max_blocks": 4
+  }
+
+{% endschema %}

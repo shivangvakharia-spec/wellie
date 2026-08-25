@@ -10,10 +10,14 @@
   {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
   {{ settings.type_secondary_font | font_face: font_display: 'swap' }}
   {{ settings.type_secondary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
+  {{ settings.type_tertiary_font | font_face: font_display: 'swap' }}
+  {{ settings.type_tertiary_font | font_modify: 'weight', '500' | font_face: font_display: 'swap' }}
+  {{ settings.type_tertiary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
 
   :root {
     --font-primary--family: {{ settings.type_primary_font.family }}, {{ settings.type_primary_font.fallback_families }};
     --font-secondary--family: {{ settings.type_secondary_font.family }}, {{ settings.type_secondary_font.fallback_families }};
+    --font-tertiary--family: {{ settings.type_tertiary_font.family }}, {{ settings.type_tertiary_font.fallback_families }};
 
     /* Primary brand */
     --color-primary: {{ settings.color_primary | color_extract: 'red' }} {{ settings.color_primary | color_extract: 'green' }} {{ settings.color_primary | color_extract: 'blue' }};
