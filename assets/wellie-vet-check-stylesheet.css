@@ -12,7 +12,7 @@
   width: 100%;
 
   margin: 0;
-  padding: 0 0 64px;
+  padding: 0 80px 64px;
 
   box-sizing: border-box;
 
@@ -337,7 +337,7 @@
     height: 300px;
 
     margin: 0 auto;
-    padding: 0;
+    padding: 0 80px 64px;
 
     overflow: hidden;
 

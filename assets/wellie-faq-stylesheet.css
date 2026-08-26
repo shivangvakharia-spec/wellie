@@ -345,7 +345,7 @@
     margin-left: auto;
     margin-right: auto;
 
-    padding: 0;
+    padding: 0 80px 64px;
 
     display: flex;
     flex-direction: column;
