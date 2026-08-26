@@ -148,7 +148,9 @@
 @media screen and (min-width: 750px) {
 
   .wellie-description {
-    padding: 0 48px 80px;
+    --description-gutter: clamp(18px, 4vw, 48px);
+
+    padding: 0 var(--description-gutter) 80px;
   }
 
 

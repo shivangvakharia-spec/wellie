@@ -81,6 +81,21 @@ document.addEventListener('DOMContentLoaded', () => {
       '.animal-food-gallery__main-image'
     );
 
+    const mobileCarousel = gallery.querySelector(
+  '[data-gallery-mobile-carousel]'
+);
+
+const mobileTrack = gallery.querySelector(
+  '[data-gallery-mobile-track]'
+);
+
+const mobileSlides = mobileTrack
+  ? Array.from(
+      mobileTrack.querySelectorAll(
+        '.animal-food-gallery__mobile-slide'
+      )
+    )
+  : [];
 
     const thumbnails = Array.from(
       gallery.querySelectorAll(
@@ -242,6 +257,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const cartDrawer = document.querySelector('cart-drawer');
             const sectionId = cartDrawer?.dataset?.sectionId;
             const sections = sectionId ? [sectionId] : [];
+
+            cartDrawer?.open();
 
             const formData = new FormData();
             formData.append('id', variantId);
@@ -482,6 +499,24 @@ if (buyNowButton) {
         mainImage.dataset.imageId =
           imageId || '';
 
+        /* -----------------------------------------------
+   Update Mobile Carousel
+   ----------------------------------------------- */
+
+if (
+  mobileCarousel &&
+  mobileSlides.length > 0
+) {
+  const targetSlide = mobileSlides[index];
+
+  if (targetSlide) {
+    mobileCarousel.scrollTo({
+      left: targetSlide.offsetLeft,
+      behavior: 'smooth'
+    });
+  }
+}
+
 
         /* -----------------------------------------------
            Remove Selected State
@@ -523,6 +558,19 @@ if (buyNowButton) {
 
         currentIndex = index;
 
+        /* -----------------------------------------------
+   Update Navigation Visibility
+   ----------------------------------------------- */
+
+if (previousButton) {
+  previousButton.hidden = currentIndex === 0;
+}
+
+if (nextButton) {
+  nextButton.hidden =
+    currentIndex === thumbnails.length - 1;
+}
+
       };
 
 
@@ -547,55 +595,49 @@ if (buyNowButton) {
 
 
       /* ---------------------------------------------------
-         Previous Image
-         --------------------------------------------------- */
+   Previous Image
+   --------------------------------------------------- */
 
-      if (previousButton) {
+if (previousButton) {
 
-        previousButton.addEventListener(
-          'click',
-          () => {
+  previousButton.addEventListener(
+    'click',
+    () => {
 
-            const previousIndex =
-              currentIndex === 0
-                ? thumbnails.length - 1
-                : currentIndex - 1;
-
-
-            selectImage(
-              previousIndex
-            );
-
-          }
-        );
-
+      if (currentIndex <= 0) {
+        return;
       }
 
+      selectImage(currentIndex - 1);
+
+    }
+  );
+
+}
 
       /* ---------------------------------------------------
-         Next Image
-         --------------------------------------------------- */
+   Next Image
+   --------------------------------------------------- */
 
-      if (nextButton) {
+if (nextButton) {
 
-        nextButton.addEventListener(
-          'click',
-          () => {
+  nextButton.addEventListener(
+    'click',
+    () => {
 
-            const nextIndex =
-              currentIndex === thumbnails.length - 1
-                ? 0
-                : currentIndex + 1;
-
-
-            selectImage(
-              nextIndex
-            );
-
-          }
-        );
-
+      if (
+        currentIndex >=
+        thumbnails.length - 1
+      ) {
+        return;
       }
+
+      selectImage(currentIndex + 1);
+
+    }
+  );
+
+}
 
     }
 

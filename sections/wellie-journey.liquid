@@ -24,35 +24,20 @@
 
       <div class="wellie-journey__timeline">
 
-        <div class="wellie-journey__months">
+        {% for block in section.blocks %}
 
-          {% for block in section.blocks %}
+          <div class="wellie-journey__timeline-row" {{ block.shopify_attributes }}>
 
-            <div class="wellie-journey__month" {{ block.shopify_attributes }}>
+            <!-- Month -->
+
+            <div class="wellie-journey__month">
               {{ block.settings.month }}
             </div>
 
-            {% unless forloop.last %}
 
-              <div class="wellie-journey__timeline-line
-          {% if forloop.first %}
-            wellie-journey__timeline-line--first
-          {% else %}
-            wellie-journey__timeline-line--second
-          {% endif %}" aria-hidden="true"></div>
+            <!-- Journey detail -->
 
-            {% endunless %}
-
-          {% endfor %}
-
-        </div>
-
-
-        <div class="wellie-journey__details">
-
-          {% for block in section.blocks %}
-
-            <article class="wellie-journey__detail" {{ block.shopify_attributes }}>
+            <article class="wellie-journey__detail">
 
               <h3 class="wellie-journey__title">
                 {{ block.settings.title }}
@@ -74,9 +59,9 @@
 
             </article>
 
-          {% endfor %}
+          </div>
 
-        </div>
+        {% endfor %}
 
       </div>
 
@@ -86,6 +71,7 @@
 
 </section>
 
+<script src="{{ 'wellie-journey-javascript.js' | asset_url }}" defer></script>
 
 {% schema %}
 

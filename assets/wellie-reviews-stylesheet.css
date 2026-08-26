@@ -527,7 +527,8 @@
      ======================================================= */
 
   .wellie-reviews {
-    width: 1280px;
+    width: 100%;
+    max-width: 1280px;
 
     margin: 0 auto;
 
@@ -550,7 +551,8 @@
      ======================================================= */
 
   .wellie-reviews__header {
-    width: 1280px;
+    width: 100%;
+    max-width: 1280px;
 
     margin: 0;
     padding: 0;
@@ -560,7 +562,8 @@
 
 
   .wellie-reviews__heading {
-    width: 1280px;
+    width: 100%;
+    max-width: 1280px;
     height: 44px;
 
     margin: 0;
@@ -595,7 +598,8 @@
      ======================================================= */
 
   .wellie-reviews__carousel-wrap {
-    width: 1280px;
+    width: 100%;
+    max-width: 1280px;
 
     margin: 48px 0 0;
     padding: 0;
@@ -620,13 +624,14 @@
 
     gap: 20px;
 
-    width: 1280px;
+    width: 100%;
+    max-width: 1280px;
     height: 220px;
 
     margin: 0;
     padding: 0;
 
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: hidden;
 
     scroll-snap-type: none;
@@ -691,8 +696,15 @@
     flex-basis: 414px;
 
     width: 414px;
+
+    margin-left: 18px;
   }
 
+  .wellie-reviews__card:last-child {
+
+    margin-right: 18px;
+
+  }
 
   /* =======================================================
      Decorative Background

@@ -11,6 +11,14 @@
   box-sizing: border-box;
 
   font-family: 'Cabin-Regular', sans-serif;
+
+  /*
+   * Discount badge artwork â€” the exact source SVG (fill,
+   * cutouts, and dashed inset border) baked into one
+   * background image so the badge is a pixel-for-pixel
+   * replica instead of a CSS mask approximation.
+   */
+  --discount-badge-svg: url("data:image/svg+xml,%3Csvg width='264' height='56' viewBox='0 0 264 56' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='path-1-inside-1_0_2434' fill='white'%3E%3Cpath d='M256 0C260.418 0 264 3.58172 264 8V22C260.686 22 258 24.6863 258 28C258 31.3137 260.686 34 264 34V48C264 52.4183 260.418 56 256 56H8C3.58172 56 1.93283e-07 52.4183 0 48V34C3.31371 34 6 31.3137 6 28C6 24.6863 3.31371 22 0 22V8C0 3.58172 3.58172 1.28851e-07 8 0H256Z'/%3E%3C/mask%3E%3Cpath d='M256 0C260.418 0 264 3.58172 264 8V22C260.686 22 258 24.6863 258 28C258 31.3137 260.686 34 264 34V48C264 52.4183 260.418 56 256 56H8C3.58172 56 1.93283e-07 52.4183 0 48V34C3.31371 34 6 31.3137 6 28C6 24.6863 3.31371 22 0 22V8C0 3.58172 3.58172 1.28851e-07 8 0H256Z' fill='%23025A60' fill-opacity='0.08'/%3E%3Cpath d='M264 8H264.25V8H264ZM264 22V22.25H264.25V22H264ZM264 34H264.25V33.75H264V34ZM256 56V56.25V56.25V56ZM0 48H-0.25V48H0ZM0 34V33.75H-0.25V34H0ZM0 22H-0.25V22.25H0V22ZM8 0V-0.25V-0.25V0ZM256 0V-0.25H254.488V0V0.25H256V0ZM251.463 0V-0.25H248.439V0V0.25H251.463V0ZM245.415 0V-0.25H242.39V0V0.25H245.415V0ZM239.366 0V-0.25H236.341V0V0.25H239.366V0ZM233.317 0V-0.25H230.293V0V0.25H233.317V0ZM227.268 0V-0.25H224.244V0V0.25H227.268V0ZM221.22 0V-0.25H218.195V0V0.25H221.22V0ZM215.171 0V-0.25H212.146V0V0.25H215.171V0ZM209.122 0V-0.25H206.098V0V0.25H209.122V0ZM203.073 0V-0.25H200.049V0V0.25H203.073V0ZM197.024 0V-0.25H194V0V0.25H197.024V0ZM190.976 0V-0.25H187.951V0V0.25H190.976V0ZM184.927 0V-0.25H181.902V0V0.25H184.927V0ZM178.878 0V-0.25H175.854V0V0.25H178.878V0ZM172.829 0V-0.25H169.805V0V0.25H172.829V0ZM166.78 0V-0.25H163.756V0V0.25H166.78V0ZM160.732 0V-0.25H157.707V0V0.25H160.732V0ZM154.683 0V-0.25H151.659V0V0.25H154.683V0ZM148.634 0V-0.25H145.61V0V0.25H148.634V0ZM142.585 0V-0.25H139.561V0V0.25H142.585V0ZM136.537 0V-0.25H133.512V0V0.25H136.537V0ZM130.488 0V-0.25H127.463V0V0.25H130.488V0ZM124.439 0V-0.25H121.415V0V0.25H124.439V0ZM118.39 0V-0.25H115.366V0V0.25H118.39V0ZM112.341 0V-0.25H109.317V0V0.25H112.341V0ZM106.293 0V-0.25H103.268V0V0.25H106.293V0ZM100.244 0V-0.25H97.2196V0V0.25H100.244V0ZM94.1952 0V-0.25H91.1708V0V0.25H94.1952V0ZM88.1464 0V-0.25H85.122V0V0.25H88.1464V0ZM82.0976 0V-0.25H79.0732V0V0.25H82.0976V0ZM76.0489 0V-0.25H73.0245V0V0.25H76.0489V0ZM70.0001 0V-0.25H66.9757V0V0.25H70.0001V0ZM63.9513 0V-0.25H60.927V0V0.25H63.9513V0ZM57.9026 0V-0.25H54.8782V0V0.25H57.9026V0ZM51.8538 0V-0.25H48.8294V0V0.25H51.8538V0ZM45.805 0V-0.25H42.7807V0V0.25H45.805V0ZM39.7563 0V-0.25H36.7319V0V0.25H39.7563V0ZM33.7075 0V-0.25H30.6831V0V0.25H33.7075V0ZM27.6587 0V-0.25H24.6344V0V0.25H27.6587V0ZM21.61 0V-0.25H18.5856V0V0.25H21.61V0ZM15.5612 0V-0.25H12.5368V0V0.25H15.5612V0ZM9.51243 0V-0.25H8V0V0.25H9.51243V0ZM8 0V-0.25C7.44934 -0.25 6.91104 -0.196015 6.39019 -0.0929745L6.4387 0.152272L6.48722 0.397519C6.97629 0.300767 7.48209 0.25 8 0.25V0ZM3.55507 1.34748L3.41599 1.13973C2.51643 1.74198 1.74198 2.51643 1.13973 3.416L1.34748 3.55508L1.55522 3.69415C2.1211 2.8489 2.8489 2.1211 3.69415 1.55522L3.55507 1.34748ZM0.152272 6.4387L-0.0929746 6.39019C-0.196015 6.91104 -0.25 7.44934 -0.25 8H0H0.25C0.25 7.48209 0.300767 6.97629 0.397519 6.48722L0.152272 6.4387ZM0 8H-0.25V9.75H0H0.25V8H0ZM0 13.25H-0.25V16.75H0H0.25V13.25H0ZM0 20.25H-0.25V22H0H0.25V20.25H0ZM0 22V22.25C0.384336 22.25 0.759625 22.2877 1.12245 22.3595L1.17097 22.1142L1.21949 21.869C0.824874 21.7909 0.417089 21.75 0 21.75V22ZM3.33369 23.0106L3.19461 23.2183C3.82177 23.6382 4.36178 24.1782 4.78165 24.8054L4.98939 24.6663L5.19713 24.5272C4.74091 23.8458 4.15424 23.2591 3.47277 22.8029L3.33369 23.0106ZM5.8858 26.829L5.64055 26.8775C5.71233 27.2404 5.75 27.6157 5.75 28H6H6.25C6.25 27.5829 6.20911 27.1751 6.13104 26.7805L5.8858 26.829ZM6 28H5.75C5.75 28.3843 5.71233 28.7596 5.64055 29.1225L5.8858 29.171L6.13104 29.2195C6.20911 28.8249 6.25 28.4171 6.25 28H6ZM4.98939 31.3337L4.78165 31.1946C4.36178 31.8218 3.82177 32.3618 3.19461 32.7817L3.33369 32.9894L3.47277 33.1971C4.15424 32.7409 4.74091 32.1542 5.19713 31.4728L4.98939 31.3337ZM1.17097 33.8858L1.12245 33.6405C0.759625 33.7123 0.384336 33.75 0 33.75V34V34.25C0.417089 34.25 0.824874 34.2091 1.21949 34.131L1.17097 33.8858ZM0 34H-0.25V35.75H0H0.25V34H0ZM0 39.25H-0.25V42.75H0H0.25V39.25H0ZM0 46.25H-0.25V48H0H0.25V46.25H0ZM0 48H-0.25C-0.25 48.5507 -0.196015 49.089 -0.0929745 49.6098L0.152272 49.5613L0.397519 49.5128C0.300767 49.0237 0.25 48.5179 0.25 48H0ZM1.34748 52.4449L1.13973 52.584C1.74198 53.4836 2.51643 54.258 3.416 54.8603L3.55508 54.6525L3.69415 54.4448C2.8489 53.8789 2.1211 53.1511 1.55522 52.3058L1.34748 52.4449ZM6.4387 55.8477L6.39019 56.093C6.91104 56.196 7.44934 56.25 8 56.25V56V55.75C7.48209 55.75 6.97629 55.6992 6.48722 55.6025L6.4387 55.8477ZM8 56V56.25H9.51219V56V55.75H8V56ZM12.5366 56V56.25H15.561V56V55.75H12.5366V56ZM18.5854 56V56.25H21.6098V56V55.75H18.5854V56ZM24.6341 56V56.25H27.6585V56V55.75H24.6341V56ZM30.6829 56V56.25H33.7073V56V55.75H30.6829V56ZM36.7317 56V56.25H39.7561V56V55.75H36.7317V56ZM42.7805 56V56.25H45.8049V56V55.75H42.7805V56ZM48.8293 56V56.25H51.8537V56V55.75H48.8293V56ZM54.8781 56V56.25H57.9024V56V55.75H54.8781V56ZM60.9268 56V56.25H63.9512V56V55.75H60.9268V56ZM66.9756 56V56.25H70V56V55.75H66.9756V56ZM73.0244 56V56.25H76.0488V56V55.75H73.0244V56ZM79.0732 56V56.25H82.0976V56V55.75H79.0732V56ZM85.122 56V56.25H88.1464V56V55.75H85.122V56ZM91.1707 56V56.25H94.1951V56V55.75H91.1707V56ZM97.2195 56V56.25H100.244V56V55.75H97.2195V56ZM103.268 56V56.25H106.293V56V55.75H103.268V56ZM109.317 56V56.25H112.341V56V55.75H109.317V56ZM115.366 56V56.25H118.39V56V55.75H115.366V56ZM121.415 56V56.25H124.439V56V55.75H121.415V56ZM127.463 56V56.25H130.488V56V55.75H127.463V56ZM133.512 56V56.25H136.537V56V55.75H133.512V56ZM139.561 56V56.25H142.585V56V55.75H139.561V56ZM145.61 56V56.25H148.634V56V55.75H145.61V56ZM151.659 56V56.25H154.683V56V55.75H151.659V56ZM157.707 56V56.25H160.732V56V55.75H157.707V56ZM163.756 56V56.25H166.78V56V55.75H163.756V56ZM169.805 56V56.25H172.829V56V55.75H169.805V56ZM175.854 56V56.25H178.878V56V55.75H175.854V56ZM181.902 56V56.25H184.927V56V55.75H181.902V56ZM187.951 56V56.25H190.976V56V55.75H187.951V56ZM194 56V56.25H197.024V56V55.75H194V56ZM200.049 56V56.25H203.073V56V55.75H200.049V56ZM206.097 56V56.25H209.122V56V55.75H206.097V56ZM212.146 56V56.25H215.171V56V55.75H212.146V56ZM218.195 56V56.25H221.219V56V55.75H218.195V56ZM224.244 56V56.25H227.268V56V55.75H224.244V56ZM230.292 56V56.25H233.317V56V55.75H230.292V56ZM236.341 56V56.25H239.366V56V55.75H236.341V56ZM242.39 56V56.25H245.414V56V55.75H242.39V56ZM248.439 56V56.25H251.463V56V55.75H248.439V56ZM254.488 56V56.25H256V56V55.75H254.488V56ZM256 56V56.25C256.551 56.25 257.089 56.196 257.61 56.093L257.561 55.8477L257.513 55.6025C257.024 55.6992 256.518 55.75 256 55.75V56ZM260.445 54.6525L260.584 54.8603C261.484 54.258 262.258 53.4836 262.86 52.584L262.653 52.4449L262.445 52.3058C261.879 53.1511 261.151 53.8789 260.306 54.4448L260.445 54.6525ZM263.848 49.5613L264.093 49.6098C264.196 49.089 264.25 48.5507 264.25 48H264H263.75C263.75 48.5179 263.699 49.0237 263.602 49.5128L263.848 49.5613ZM264 48H264.25V46.25H264H263.75V48H264ZM264 42.75H264.25V39.25H264H263.75V42.75H264ZM264 35.75H264.25V34H264H263.75V35.75H264ZM264 34V33.75C263.616 33.75 263.24 33.7123 262.878 33.6405L262.829 33.8858L262.781 34.131C263.175 34.2091 263.583 34.25 264 34.25V34ZM260.666 32.9894L260.805 32.7817C260.178 32.3618 259.638 31.8218 259.218 31.1946L259.011 31.3337L258.803 31.4728C259.259 32.1542 259.846 32.7409 260.527 33.1971L260.666 32.9894ZM258.114 29.171L258.359 29.1225C258.288 28.7596 258.25 28.3843 258.25 28H258H257.75C257.75 28.4171 257.791 28.8249 257.869 29.2195L258.114 29.171ZM258 28H258.25C258.25 27.6157 258.288 27.2404 258.359 26.8775L258.114 26.829L257.869 26.7805C257.791 27.1751 257.75 27.5829 257.75 28H258ZM259.011 24.6663L259.218 24.8054C259.638 24.1782 260.178 23.6382 260.805 23.2183L260.666 23.0106L260.527 22.8029C259.846 23.2591 259.259 23.8458 258.803 24.5272L259.011 24.6663ZM262.829 22.1142L262.878 22.3595C263.24 22.2877 263.616 22.25 264 22.25V22V21.75C263.583 21.75 263.175 21.7909 262.781 21.869L262.829 22.1142ZM264 22H264.25V20.25H264H263.75V22H264ZM264 16.75H264.25V13.25H264H263.75V16.75H264ZM264 9.75H264.25V8H264H263.75V9.75H264ZM264 8H264.25C264.25 7.44934 264.196 6.91104 264.093 6.39019L263.848 6.4387L263.602 6.48722C263.699 6.97629 263.75 7.48209 263.75 8H264ZM262.653 3.55507L262.86 3.41599C262.258 2.51643 261.484 1.74198 260.584 1.13973L260.445 1.34748L260.306 1.55522C261.151 2.1211 261.879 2.8489 262.445 3.69415L262.653 3.55507ZM257.561 0.152272L257.61 -0.0929746C257.089 -0.196015 256.551 -0.25 256 -0.25V0V0.25C256.518 0.25 257.024 0.300767 257.513 0.397519L257.561 0.152272ZM264 8H264.5V8H264ZM264 22V22.5H264.5V22H264ZM264 34H264.5V33.5H264V34ZM256 56V56.5V56.5V56ZM0 48H-0.5V48H0ZM0 34V33.5H-0.5V34H0ZM0 22H-0.5V22.5H0V22ZM8 0V-0.5V-0.5V0ZM256 0V-0.5H254.488V0V0.5H256V0ZM251.463 0V-0.5H248.439V0V0.5H251.463V0ZM245.415 0V-0.5H242.39V0V0.5H245.415V0ZM239.366 0V-0.5H236.341V0V0.5H239.366V0ZM233.317 0V-0.5H230.293V0V0.5H233.317V0ZM227.268 0V-0.5H224.244V0V0.5H227.268V0ZM221.22 0V-0.5H218.195V0V0.5H221.22V0ZM215.171 0V-0.5H212.146V0V0.5H215.171V0ZM209.122 0V-0.5H206.098V0V0.5H209.122V0ZM203.073 0V-0.5H200.049V0V0.5H203.073V0ZM197.024 0V-0.5H194V0V0.5H197.024V0ZM190.976 0V-0.5H187.951V0V0.5H190.976V0ZM184.927 0V-0.5H181.902V0V0.5H184.927V0ZM178.878 0V-0.5H175.854V0V0.5H178.878V0ZM172.829 0V-0.5H169.805V0V0.5H172.829V0ZM166.78 0V-0.5H163.756V0V0.5H166.78V0ZM160.732 0V-0.5H157.707V0V0.5H160.732V0ZM154.683 0V-0.5H151.659V0V0.5H154.683V0ZM148.634 0V-0.5H145.61V0V0.5H148.634V0ZM142.585 0V-0.5H139.561V0V0.5H142.585V0ZM136.537 0V-0.5H133.512V0V0.5H136.537V0ZM130.488 0V-0.5H127.463V0V0.5H130.488V0ZM124.439 0V-0.5H121.415V0V0.5H124.439V0ZM118.39 0V-0.5H115.366V0V0.5H118.39V0ZM112.341 0V-0.5H109.317V0V0.5H112.341V0ZM106.293 0V-0.5H103.268V0V0.5H106.293V0ZM100.244 0V-0.5H97.2196V0V0.5H100.244V0ZM94.1952 0V-0.5H91.1708V0V0.5H94.1952V0ZM88.1464 0V-0.5H85.122V0V0.5H88.1464V0ZM82.0976 0V-0.5H79.0732V0V0.5H82.0976V0ZM76.0489 0V-0.5H73.0245V0V0.5H76.0489V0ZM70.0001 0V-0.5H66.9757V0V0.5H70.0001V0ZM63.9513 0V-0.5H60.927V0V0.5H63.9513V0ZM57.9026 0V-0.5H54.8782V0V0.5H57.9026V0ZM51.8538 0V-0.5H48.8294V0V0.5H51.8538V0ZM45.805 0V-0.5H42.7807V0V0.5H45.805V0ZM39.7563 0V-0.5H36.7319V0V0.5H39.7563V0ZM33.7075 0V-0.5H30.6831V0V0.5H33.7075V0ZM27.6587 0V-0.5H24.6344V0V0.5H27.6587V0ZM21.61 0V-0.5H18.5856V0V0.5H21.61V0ZM15.5612 0V-0.5H12.5368V0V0.5H15.5612V0ZM9.51243 0V-0.5H8V0V0.5H9.51243V0ZM8 0V-0.5C7.43296 -0.5 6.87842 -0.444406 6.34167 -0.338222L6.4387 0.152272L6.53574 0.642766C7.00892 0.549158 7.49847 0.5 8 0.5V0ZM3.55507 1.34748L3.27691 0.931993C2.35019 1.55242 1.55242 2.35019 0.931992 3.27692L1.34748 3.55508L1.76296 3.83324C2.31067 3.01513 3.01513 2.31067 3.83323 1.76296L3.55507 1.34748ZM0.152272 6.4387L-0.338222 6.34167C-0.444407 6.87842 -0.5 7.43296 -0.5 8H0H0.5C0.5 7.49847 0.549158 7.00892 0.642766 6.53574L0.152272 6.4387ZM0 8H-0.5V9.75H0H0.5V8H0ZM0 13.25H-0.5V16.75H0H0.5V13.25H0ZM0 20.25H-0.5V22H0H0.5V20.25H0ZM0 22V22.5C0.36796 22.5 0.727001 22.5361 1.07394 22.6047L1.17097 22.1142L1.26801 21.6237C0.857499 21.5425 0.433465 21.5 0 21.5V22ZM3.33369 23.0106L3.05553 23.4261C3.65553 23.8278 4.17222 24.3445 4.57391 24.9445L4.98939 24.6663L5.40488 24.3881C4.93047 23.6795 4.32047 23.0695 3.61185 22.5951L3.33369 23.0106ZM5.8858 26.829L5.3953 26.9261C5.46394 27.273 5.5 27.632 5.5 28H6H6.5C6.5 27.5665 6.4575 27.1425 6.37629 26.732L5.8858 26.829ZM6 28H5.5C5.5 28.368 5.46394 28.727 5.3953 29.0739L5.8858 29.171L6.37629 29.268C6.4575 28.8575 6.5 28.4335 6.5 28H6ZM4.98939 31.3337L4.57391 31.0555C4.17222 31.6555 3.65553 32.1722 3.05553 32.5739L3.33369 32.9894L3.61185 33.4049C4.32047 32.9305 4.93047 32.3205 5.40488 31.6119L4.98939 31.3337ZM1.17097 33.8858L1.07394 33.3953C0.727001 33.4639 0.36796 33.5 0 33.5V34V34.5C0.433465 34.5 0.857499 34.4575 1.26801 34.3763L1.17097 33.8858ZM0 34H-0.5V35.75H0H0.5V34H0ZM0 39.25H-0.5V42.75H0H0.5V39.25H0ZM0 46.25H-0.5V48H0H0.5V46.25H0ZM0 48H-0.5C-0.5 48.567 -0.444406 49.1216 -0.338221 49.6583L0.152272 49.5613L0.642766 49.4643C0.549158 48.9911 0.5 48.5015 0.5 48H0ZM1.34748 52.4449L0.931993 52.7231C1.55242 53.6498 2.35019 54.4476 3.27692 55.068L3.55508 54.6525L3.83324 54.237C3.01513 53.6893 2.31067 52.9849 1.76296 52.1668L1.34748 52.4449ZM6.4387 55.8477L6.34167 56.3382C6.87842 56.4444 7.43296 56.5 8 56.5V56V55.5C7.49847 55.5 7.00892 55.4508 6.53574 55.3572L6.4387 55.8477ZM8 56V56.5H9.51219V56V55.5H8V56ZM12.5366 56V56.5H15.561V56V55.5H12.5366V56ZM18.5854 56V56.5H21.6098V56V55.5H18.5854V56ZM24.6341 56V56.5H27.6585V56V55.5H24.6341V56ZM30.6829 56V56.5H33.7073V56V55.5H30.6829V56ZM36.7317 56V56.5H39.7561V56V55.5H36.7317V56ZM42.7805 56V56.5H45.8049V56V55.5H42.7805V56ZM48.8293 56V56.5H51.8537V56V55.5H48.8293V56ZM54.8781 56V56.5H57.9024V56V55.5H54.8781V56ZM60.9268 56V56.5H63.9512V56V55.5H60.9268V56ZM66.9756 56V56.5H70V56V55.5H66.9756V56ZM73.0244 56V56.5H76.0488V56V55.5H73.0244V56ZM79.0732 56V56.5H82.0976V56V55.5H79.0732V56ZM85.122 56V56.5H88.1464V56V55.5H85.122V56ZM91.1707 56V56.5H94.1951V56V55.5H91.1707V56ZM97.2195 56V56.5H100.244V56V55.5H97.2195V56ZM103.268 56V56.5H106.293V56V55.5H103.268V56ZM109.317 56V56.5H112.341V56V55.5H109.317V56ZM115.366 56V56.5H118.39V56V55.5H115.366V56ZM121.415 56V56.5H124.439V56V55.5H121.415V56ZM127.463 56V56.5H130.488V56V55.5H127.463V56ZM133.512 56V56.5H136.537V56V55.5H133.512V56ZM139.561 56V56.5H142.585V56V55.5H139.561V56ZM145.61 56V56.5H148.634V56V55.5H145.61V56ZM151.659 56V56.5H154.683V56V55.5H151.659V56ZM157.707 56V56.5H160.732V56V55.5H157.707V56ZM163.756 56V56.5H166.78V56V55.5H163.756V56ZM169.805 56V56.5H172.829V56V55.5H169.805V56ZM175.854 56V56.5H178.878V56V55.5H175.854V56ZM181.902 56V56.5H184.927V56V55.5H181.902V56ZM187.951 56V56.5H190.976V56V55.5H187.951V56ZM194 56V56.5H197.024V56V55.5H194V56ZM200.049 56V56.5H203.073V56V55.5H200.049V56ZM206.097 56V56.5H209.122V56V55.5H206.097V56ZM212.146 56V56.5H215.171V56V55.5H212.146V56ZM218.195 56V56.5H221.219V56V55.5H218.195V56ZM224.244 56V56.5H227.268V56V55.5H224.244V56ZM230.292 56V56.5H233.317V56V55.5H230.292V56ZM236.341 56V56.5H239.366V56V55.5H236.341V56ZM242.39 56V56.5H245.414V56V55.5H242.39V56ZM248.439 56V56.5H251.463V56V55.5H248.439V56ZM254.488 56V56.5H256V56V55.5H254.488V56ZM256 56V56.5C256.567 56.5 257.122 56.4444 257.658 56.3382L257.561 55.8477L257.464 55.3572C256.991 55.4508 256.502 55.5 256 55.5V56ZM260.445 54.6525L260.723 55.068C261.65 54.4476 262.448 53.6498 263.068 52.7231L262.653 52.4449L262.237 52.1668C261.689 52.9849 260.985 53.6893 260.167 54.237L260.445 54.6525ZM263.848 49.5613L264.338 49.6583C264.444 49.1216 264.5 48.567 264.5 48H264H263.5C263.5 48.5015 263.451 48.9911 263.357 49.4643L263.848 49.5613ZM264 48H264.5V46.25H264H263.5V48H264ZM264 42.75H264.5V39.25H264H263.5V42.75H264ZM264 35.75H264.5V34H264H263.5V35.75H264ZM264 34V33.5C263.632 33.5 263.273 33.4639 262.926 33.3953L262.829 33.8858L262.732 34.3763C263.142 34.4575 263.567 34.5 264 34.5V34ZM260.666 32.9894L260.944 32.5739C260.344 32.1722 259.828 31.6555 259.426 31.0555L259.011 31.3337L258.595 31.6119C259.07 32.3205 259.68 32.9305 260.388 33.4049L260.666 32.9894ZM258.114 29.171L258.605 29.0739C258.536 28.727 258.5 28.368 258.5 28H258H257.5C257.5 28.4335 257.543 28.8575 257.624 29.268L258.114 29.171ZM258 28H258.5C258.5 27.632 258.536 27.273 258.605 26.9261L258.114 26.829L257.624 26.732C257.543 27.1425 257.5 27.5665 257.5 28H258ZM259.011 24.6663L259.426 24.9445C259.828 24.3445 260.344 23.8278 260.944 23.4261L260.666 23.0106L260.388 22.5951C259.68 23.0695 259.07 23.6795 258.595 24.3881L259.011 24.6663ZM262.829 22.1142L262.926 22.6047C263.273 22.5361 263.632 22.5 264 22.5V22V21.5C263.567 21.5 263.142 21.5425 262.732 21.6237L262.829 22.1142ZM264 22H264.5V20.25H264H263.5V22H264ZM264 16.75H264.5V13.25H264H263.5V16.75H264ZM264 9.75H264.5V8H264H263.5V9.75H264ZM264 8H264.5C264.5 7.43296 264.444 6.87842 264.338 6.34167L263.848 6.4387L263.357 6.53574C263.451 7.00892 263.5 7.49847 263.5 8H264ZM262.653 3.55507L263.068 3.27691C262.448 2.35019 261.65 1.55242 260.723 0.931992L260.445 1.34748L260.167 1.76296C260.985 2.31067 261.689 3.01513 262.237 3.83323L262.653 3.55507ZM257.561 0.152272L257.658 -0.338222C257.122 -0.444407 256.567 -0.5 256 -0.5V0V0.5C256.502 0.5 256.991 0.549158 257.464 0.642766L257.561 0.152272Z' fill='%23025A60' fill-opacity='0.8' mask='url(%23path-1-inside-1_0_2434)'/%3E%3C/svg%3E");
 }
 
 
@@ -79,13 +87,9 @@
 
 .animal-food-gallery__main-image-wrapper {
   width: calc(100% - 36px);
-  height: 354px;
 
-  margin-top: 16.74px;
-  margin-left: 18px;
-  margin-right: 18px;
 
-  aspect-ratio: auto;
+  aspect-ratio: 1 / 1;
 
   position: relative;
   overflow: hidden;
@@ -99,7 +103,7 @@
   display: block;
 
   width: 100%;
-  height: 354px;
+  height: 100%;
 
   margin: 0;
   padding: 0;
@@ -639,6 +643,24 @@
   box-sizing: border-box;
 }
 
+/* =========================================================
+   Variant Wrapper
+   ========================================================= */
+
+.animal-food-gallery__variant-wrapper {
+  position: relative;
+
+  display: inline-flex;
+  align-items: flex-start;
+
+  width: fit-content;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
 
 /* =========================================================
    Variant Options
@@ -1128,21 +1150,25 @@
   width: 264px;
   height: 56px;
 
-  margin-top: 0;
-  margin-bottom: 0;
-
+  margin: 0;
   padding: 0;
-
-  background: rgba(2, 90, 96, 0.08);
-
-  border: 0.5px dashed rgba(2, 90, 96, 0.8);
-  border-radius: 8px;
 
   box-sizing: border-box;
 
+  border-radius: 8px;
   overflow: hidden;
-}
 
+  /*
+   * 1:1 replica of the source SVG â€” fill, side cutouts,
+   * and inset dashed border are all baked into this single
+   * background image, so there's no CSS mask/border
+   * approximation to keep in sync with the design file.
+   */
+  background-image: var(--discount-badge-svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 264px 56px;
+}
 
 /* =========================================================
    First / Last Badge Spacing
@@ -1363,6 +1389,46 @@
 
 
 /* =========================================================
+   Copy Icon â€” Default / Success Swap
+
+   Two icons are stacked in the button; only one is shown
+   at a time. Clicking copies the code and swaps in a
+   checkmark for ~1.5s as visual confirmation (see
+   animal-food-gallery-javascript.js), matching the
+   confirmation pattern used in the vet-check section.
+   ========================================================= */
+
+.animal-food-gallery__discount-badge-copy-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  flex: 0 0 24px;
+}
+
+
+.animal-food-gallery__discount-badge-copy-icon--success {
+  display: none;
+}
+
+
+.animal-food-gallery__discount-badge-copy--copied
+.animal-food-gallery__discount-badge-copy-icon--default {
+  display: none;
+}
+
+
+.animal-food-gallery__discount-badge-copy--copied
+.animal-food-gallery__discount-badge-copy-icon--success {
+  display: flex;
+}
+
+
+/* =========================================================
    Copy Button States
    ========================================================= */
 
@@ -1395,9 +1461,11 @@
   align-items: center;
   justify-content: center;
 
+  width: 56px;
   height: 14px;
 
-  padding: 0 4px;
+  margin: 0;
+  padding: 0;
 
   background: #E52888;
 
@@ -1406,18 +1474,41 @@
 
   box-shadow: 0.5px 0.5px 0 #D4E391;
 
+  box-sizing: border-box;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   Variant Badge Text
+   ========================================================= */
+
+.animal-food-gallery__variant-badge-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 7px;
+
+  margin: 0;
+  padding: 0;
+
   color: #D4E391;
 
   font-family: 'Cafeteria-Regular', sans-serif;
+
   font-size: 10px;
   font-weight: 700;
+
   line-height: 11px;
+
+  text-align: center;
 
   white-space: nowrap;
 
   box-sizing: border-box;
-
-  z-index: 1;
 }
 
 
@@ -1528,6 +1619,154 @@
 
   white-space: nowrap;
 }
+
+/* =========================================================
+   Mobile Image Carousel
+   ========================================================= */
+
+.animal-food-gallery__mobile-carousel {
+  display: none;
+}
+
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media screen and (max-width: 749px) {
+
+  .animal-food-gallery__main-image-wrapper {
+    width: calc(100% - 18px);
+
+    margin-left: 0px;
+    margin-right: 0;
+
+    overflow: visible;
+  }
+
+  .animal-food-gallery__main-image {
+    display: none;
+  }
+
+  .animal-food-gallery__mobile-carousel {
+    display: block;
+
+    /*
+     * The viewport extends to the right edge of the
+     * mobile screen.
+     */
+    width: 100vw;
+
+    height: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+
+    scroll-behavior: smooth;
+
+    touch-action: pan-x;
+    overscroll-behavior-x: contain;
+
+    scroll-snap-type: x mandatory;
+scroll-padding-left: 18px;
+  }
+
+  .animal-food-gallery__mobile-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  .animal-food-gallery__mobile-track {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    width: max-content;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+  }
+
+  .animal-food-gallery__mobile-slide:first-child {
+  margin-left: 18px;
+}
+
+.animal-food-gallery__mobile-slide:last-child {
+  margin-right: 18px;
+}
+
+  .animal-food-gallery__mobile-slide {
+  position: relative;
+
+  /*
+   * 2.8% of the viewport is approximately 10px.
+   *
+   * 10px previous image
+   * + 10px gap
+   * + current image
+   * + 10px gap
+   * + 10px next image
+   */
+  flex: 0 0 calc(100vw - 40px);
+
+  width: calc(100vw - 40px);
+  height: calc(100vw - 40px);
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  box-sizing: border-box;
+}
+
+
+  .animal-food-gallery__mobile-slide img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    box-sizing: border-box;
+  }
+
+
+  .animal-food-gallery__navigation {
+    width: 25px;
+    height: 25px;
+
+    z-index: 5;
+  }
+
+
+  .animal-food-gallery__navigation--left {
+    left: 10px;
+  }
+
+
+  .animal-food-gallery__navigation--right {
+    left: calc(100vw - 51px);
+    right: auto;
+  }
+
+}
 /* =========================================================
    Desktop
    750px and above
@@ -1541,17 +1780,25 @@
      Figma:
      Top: 48px
      Left: 80px
+
+     The gutter scales fluidly with the viewport (instead
+     of staying a flat 80px) so it shrinks in sync with the
+     columns rather than being "consumed" first while the
+     content sits still. It's applied symmetrically as
+     padding inside a capped, centered container so the
+     right-hand edge stays a real, maintained gutter too â€”
+     not just whatever space happens to be left over once
+     the (max-width-capped) columns stop growing.
      ======================================================= */
 
   .animal-food-gallery {
-    width: calc(100% - 80px);
+    --gallery-gutter: clamp(24px, 6vw, 80px);
 
-    margin-top: 48px;
-    margin-left: 80px;
-    margin-right: 0;
-    margin-bottom: 0;
+    width: 100%;
+    max-width: 1522px;
 
-    padding: 0 !important;
+    margin: 48px auto 0;
+    padding: 0 var(--gallery-gutter) !important;
 
     box-sizing: border-box;
   }
@@ -1565,6 +1812,7 @@
     display: flex;
 
     flex-direction: row;
+    flex-wrap: wrap;
 
     align-items: flex-start;
 
@@ -1581,12 +1829,17 @@
 
   /* =======================================================
      Left Gallery Column
+
+     Fluid: shrinks/grows with the viewport instead of
+     staying locked to the Figma desktop pixel width.
      ======================================================= */
 
   .animal-food-gallery__left {
-    width: 710px;
+    width: 100%;
+    max-width: 710px;
 
-    flex: 0 0 710px;
+    flex: 1 1 340px;
+    min-width: 320px;
 
     margin: 0;
     padding: 0;
@@ -1594,7 +1847,7 @@
 
 
   .animal-food-gallery__container {
-    width: 710px;
+    width: 100%;
 
     max-width: 710px;
 
@@ -1610,8 +1863,8 @@
      ======================================================= */
 
   .animal-food-gallery__main-image-wrapper {
-    width: 710px;
-    height: 710px;
+    width: 100%;
+    max-width: 710px;
 
     margin: 0;
 
@@ -1630,8 +1883,8 @@
   .animal-food-gallery__main-image {
     display: block;
 
-    width: 710px;
-    height: 710px;
+    width: 100%;
+    height: 100%;
 
     margin: 0;
     padding: 0;
@@ -1698,7 +1951,8 @@
 
     gap: 10px;
 
-    width: 710px;
+    width: 100%;
+    max-width: 710px;
 
     margin: 24px 0 0;
     margin-bottom: 64px;
@@ -1706,7 +1960,16 @@
 
     box-sizing: border-box;
 
-    overflow: visible;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+
+  .animal-food-gallery__thumbnails::-webkit-scrollbar {
+    display: none;
   }
 
 
@@ -1790,11 +2053,11 @@
      ======================================================= */
 
   .animal-food-gallery__right {
-    width: 626px;
+    width: 100%;
+    max-width: 626px;
 
-    flex: 0 0 626px;
-
-    min-width: 626px;
+    flex: 1 1 300px;
+    min-width: 280px;
 
     margin: 0;
     padding: 0;
@@ -1866,9 +2129,13 @@
      ======================================================= */
 
   .animal-food-gallery__product-title {
-    width: 409px;
+    width: 100%;
+    max-width: 409px;
 
-    height: 40px;
+    /* min-height (not a fixed height) so the box can grow
+       when the title wraps to a second line as it shrinks
+       instead of clipping/overlapping the price row below it */
+    min-height: 40px;
 
     margin: 32px 0 0;
     padding: 0;
@@ -1903,10 +2170,11 @@
 
     gap: 14px;
 
-    width: 201px;
+    width: 100%;
+    max-width: 201px;
     height: 29px;
 
-    margin: 8px 0 0;
+    margin: 16px 0 0;
     padding: 0;
 
     box-sizing: border-box;
@@ -1964,7 +2232,8 @@
 
 
   .animal-food-gallery__tax-info {
-    width: 201px;
+    width: 100%;
+    max-width: 201px;
     height: 15px;
 
     margin: 6px 0 0;
@@ -1996,7 +2265,8 @@
      ======================================================= */
 
   .animal-food-gallery__info-badge {
-    width: 409px;
+    width: 100%;
+    max-width: 409px;
     height: 55px;
 
     min-height: 55px;
@@ -2023,7 +2293,7 @@
 
     align-items: center;
 
-    width: 389px;
+    width: 100%;
     height: 38px;
 
     min-height: 38px;
@@ -2090,11 +2360,11 @@
     align-items: flex-start;
     justify-content: center;
 
-    width: 347px;
+    width: auto;
 
     height: 38px;
 
-    flex: 1 1 347px;
+    flex: 1 1 auto;
 
     min-width: 0;
 
@@ -2120,7 +2390,7 @@
 
     align-items: center;
 
-    width: 347px;
+    width: 100%;
     height: 19px;
 
     flex: 0 0 19px;
@@ -2160,7 +2430,7 @@
   .animal-food-gallery__info-badge-description {
     display: block;
 
-    width: 347px;
+    width: 100%;
     height: 15px;
 
     flex: 0 0 15px;
@@ -2182,9 +2452,9 @@
 
     white-space: nowrap;
 
-    overflow: visible;
+    overflow: hidden;
 
-    text-overflow: clip;
+    text-overflow: ellipsis;
 
     box-sizing: border-box;
   }
@@ -2240,7 +2510,7 @@
      ======================================================= */
 
   .animal-food-gallery__variant-selector {
-    width: 626px;
+    width: 100%;
 
     margin: 32px 0 0;
     padding: 0;
@@ -2254,7 +2524,7 @@
 
 
   .animal-food-gallery__variant-label {
-    width: 626px;
+    width: 100%;
     height: 21px;
 
     margin: 0 0 12px;
@@ -2286,13 +2556,13 @@
 
     align-items: center;
 
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 
     gap: 12px;
 
-    width: 599px;
+    width: 100%;
 
-    height: 40px;
+    height: auto;
 
     margin: 0;
     padding: 0;
@@ -2353,32 +2623,10 @@
 
 
   /* =======================================================
-     Exact Desktop Variant Widths
+     Variant buttons size to their own content (padding
+     already matches the Figma widths) so they stay legible
+     instead of being clamped to a fixed pixel width.
      ======================================================= */
-
-  .animal-food-gallery__variant-option:nth-child(1) {
-    width: 131px;
-    flex: 0 0 131px;
-  }
-
-
-  .animal-food-gallery__variant-option:nth-child(2) {
-    width: 150px;
-    flex: 0 0 150px;
-  }
-
-
-  .animal-food-gallery__variant-option:nth-child(3) {
-    width: 150px;
-    flex: 0 0 150px;
-  }
-
-
-  .animal-food-gallery__variant-option:nth-child(4) {
-    width: 132px;
-    flex: 0 0 132px;
-  }
-
 
   .animal-food-gallery__variant-option
   .animal-food-gallery__variant-text {
@@ -2493,7 +2741,8 @@
      ======================================================= */
 
   .animal-food-gallery__cart-controls {
-    width: 540px;
+    width: 100%;
+    max-width: 540px;
 
     margin: 32px 0 0;
     padding: 0;
@@ -2510,11 +2759,13 @@
     display: flex;
 
     flex-direction: row;
+    flex-wrap: wrap;
 
     align-items: center;
 
-    width: 500px;
-    height: 48px;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
 
     margin: 0;
     padding: 0;
@@ -2541,9 +2792,9 @@
     width: 130px;
     height: 48px;
 
-    flex: 0 0 130px;
+    flex: 0 1 130px;
 
-    min-width: 130px;
+    min-width: 96px;
 
     padding: 7px;
 
@@ -2641,12 +2892,12 @@
 
     align-items: center;
 
-    width: 346px;
+    width: auto;
     height: 48px;
 
-    flex: 0 0 346px;
+    flex: 1 1 180px;
 
-    min-width: 346px;
+    min-width: 140px;
 
     margin: 0;
     padding: 12px 10px;
@@ -2745,7 +2996,8 @@
 
     align-items: center;
 
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     height: 48px;
 
     margin: 24px 0 0;
@@ -2806,19 +3058,39 @@
      ======================================================= */
 
   .animal-food-gallery__discount-badges {
-    width: 540px;
+    width: 100%;
+    max-width: 540px;
 
     height: 56px;
 
     margin: 24px 0 0;
     padding: 0;
 
-    overflow: visible;
+    overflow-x: auto;
+    overflow-y: hidden;
 
     scrollbar-width: none;
 
     box-sizing: border-box;
   }
+
+  .animal-food-gallery__discount-badges {
+  width: calc(100% + var(--gallery-gutter));
+  max-width: none;
+
+  height: 56px;
+
+  margin: 24px 0 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
 
 
   .animal-food-gallery__discount-badges-track {
@@ -2830,9 +3102,9 @@
 
     gap: 12px;
 
-    width: 540px;
+    width: max-content;
 
-    min-width: 540px;
+    min-width: 100%;
 
     height: 56px;
 
@@ -2855,15 +3127,15 @@
 
     padding: 0;
 
-    background: rgba(2, 90, 96, 0.08);
-
-    border: 0.5px dashed rgba(2, 90, 96, 0.8);
-
-    border-radius: 8px;
-
     box-sizing: border-box;
 
+    border-radius: 8px;
     overflow: hidden;
+
+    background-image: var(--discount-badge-svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 264px 56px;
   }
 
 
@@ -2875,7 +3147,7 @@
 
   .animal-food-gallery__discount-badges-track
   .animal-food-gallery__discount-badge:last-child {
-    margin-right: 0;
+    margin-right: 20px;
   }
 
 

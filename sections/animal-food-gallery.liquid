@@ -13,6 +13,23 @@
         {% if product.featured_image %}
           <div class="animal-food-gallery__main-image-wrapper">
 
+            <!-- Mobile Image Carousel -->
+            <div class="animal-food-gallery__mobile-carousel" data-gallery-mobile-carousel>
+              <div class="animal-food-gallery__mobile-track" data-gallery-mobile-track>
+                {% for image in product.images %}
+                  <div class="animal-food-gallery__mobile-slide" data-mobile-slide-index="{{ forloop.index0 }}">
+                    <img
+                      src="{{ image | image_url: width: 1260 }}"
+                      alt="{{ image.alt | escape | default: product.title | escape }}"
+                      width="630"
+                      height="630"
+                      loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <!-- Desktop Image -->
             <img
               id="AnimalFoodGalleryMainImage-{{ section.id }}"
               class="animal-food-gallery__main-image"
@@ -21,7 +38,6 @@
               width="630"
               height="630"
               data-image-id="{{ product.featured_image.id }}">
-
             <!-- Previous Image -->
 
             <button
@@ -572,29 +588,50 @@
                       data-discount-code="{{ discount_badge.code.value | escape }}"
                       aria-label="Copy discount code">
 
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true">
+                      <span class="animal-food-gallery__discount-badge-copy-icon animal-food-gallery__discount-badge-copy-icon--default">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true">
 
-                        <path
-                          d="M15 16.5V20H9.5H4V8H8.5"
-                          stroke="#025A60"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round" />
+                          <path
+                            d="M15 16.5V20H9.5H4V8H8.5"
+                            stroke="#025A60"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round" />
 
-                        <path
-                          d="M20 4H9V16H14.5H20V10V4Z"
-                          stroke="#025A60"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round" />
+                          <path
+                            d="M20 4H9V16H14.5H20V10V4Z"
+                            stroke="#025A60"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round" />
 
-                      </svg>
+                        </svg>
+                      </span>
+
+                      <span class="animal-food-gallery__discount-badge-copy-icon animal-food-gallery__discount-badge-copy-icon--success">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true">
+
+                          <path
+                            d="M5 12.5L9.5 17L19 7"
+                            stroke="#025A60"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round" />
+
+                        </svg>
+                      </span>
 
                     </button>
 

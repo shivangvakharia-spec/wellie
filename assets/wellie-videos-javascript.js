@@ -19,8 +19,8 @@
     );
 
     const previousButton = root.querySelector(
-  '[data-videos-previous]'
-);
+      '[data-videos-previous]'
+    );
 
 
     /* =====================================================
@@ -165,46 +165,15 @@
 
 
         /* =================================================
-           Toggle Video
+           Play Video
            
-           This function belongs INSIDE the card loop
-           because it needs access to:
-           
-           - video
-           - card
-           - stopAllVideos()
+           This function is shared by:
+           - Play button
+           - Video click
+           - Hover
            ================================================= */
 
-        const toggleVideo = async () => {
-
-
-          /* ===============================================
-             VIDEO IS PLAYING
-             → PAUSE
-             =============================================== */
-
-          if (
-            !video.paused
-          ) {
-
-            video.pause();
-
-
-            setPlayingState(
-              card,
-              false
-            );
-
-
-            return;
-
-          }
-
-
-          /* ===============================================
-             VIDEO IS PAUSED
-             → PLAY
-             =============================================== */
+        const playVideo = async () => {
 
           /*
            * Stop any other video that may currently
@@ -232,7 +201,7 @@
           /*
            * Keep the video muted.
            *
-           * This is important for browser playback
+           * This is important for browser autoplay
            * restrictions.
            */
 
@@ -267,6 +236,54 @@
             );
 
           }
+
+        };
+
+
+        /* =================================================
+           Toggle Video
+           
+           This function belongs INSIDE the card loop
+           because it needs access to:
+           
+           - video
+           - card
+           - stopAllVideos()
+           - playVideo()
+           ================================================= */
+
+        const toggleVideo = async () => {
+
+
+          /* ===============================================
+             VIDEO IS PLAYING
+             → PAUSE
+             =============================================== */
+
+          if (
+            !video.paused
+          ) {
+
+            video.pause();
+
+
+            setPlayingState(
+              card,
+              false
+            );
+
+
+            return;
+
+          }
+
+
+          /* ===============================================
+             VIDEO IS PAUSED
+             → PLAY
+             =============================================== */
+
+          await playVideo();
 
         };
 
@@ -308,6 +325,44 @@
 
 
             toggleVideo();
+
+          }
+        );
+
+
+        /* =================================================
+           Hover Autoplay
+           
+           Desktop mouse interaction:
+           
+           Mouse enters video
+           → Play video
+           
+           Mouse leaves video
+           → Pause video
+           ================================================= */
+
+        video.addEventListener(
+          'mouseenter',
+          () => {
+
+            playVideo();
+
+          }
+        );
+
+
+        video.addEventListener(
+          'mouseleave',
+          () => {
+
+            video.pause();
+
+
+            setPlayingState(
+              card,
+              false
+            );
 
           }
         );
@@ -440,250 +495,298 @@
     };
 
 
-/* =====================================================
-   Previous / Next Buttons
-   ===================================================== */
-
-const updateNavigationButtons = () => {
-
-  /*
-   * Are we at the beginning?
-   */
-
-  const atStart =
-    carousel.scrollLeft <= 1;
-
-
-  /*
-   * Are we at the end?
-   */
-
-  const atEnd =
-    carousel.scrollLeft +
-    carousel.clientWidth >=
-    carousel.scrollWidth - 1;
-
-
-  if (previousButton) {
-
-    previousButton.disabled =
-      atStart;
-
-  }
-
-
-  if (nextButton) {
-
-    nextButton.disabled =
-      atEnd;
-
-  }
-
-};
-
-
-/* =====================================================
-   Previous Button
-   ===================================================== */
-
-if (previousButton) {
-
-  previousButton.addEventListener(
-    'click',
-    (event) => {
-
-      event.preventDefault();
-      event.stopPropagation();
-
-
-      const currentIndex =
-        getClosestCardIndex();
-
-
-      const previousIndex =
-        Math.max(
-          currentIndex - 1,
-          0
-        );
-
-
-      const previousCard =
-        cards[previousIndex];
-
-
-      if (!previousCard) {
-        return;
-      }
-
-
-      stopAllVideos();
-
-
-      carousel.scrollTo({
-
-        left:
-          previousCard.offsetLeft -
-          carousel.offsetLeft,
-
-        behavior: 'smooth'
-
-      });
-
-    }
-  );
-
-}
-
-
-/* =====================================================
-   Next Button
-   ===================================================== */
-
-if (nextButton) {
-
-  nextButton.addEventListener(
-    'click',
-    (event) => {
-
-      event.preventDefault();
-      event.stopPropagation();
-
-
-      const currentIndex =
-        getClosestCardIndex();
-
-
-      const nextIndex =
-        Math.min(
-          currentIndex + 1,
-          cards.length - 1
-        );
-
-
-      const nextCard =
-        cards[nextIndex];
-
-
-      if (!nextCard) {
-        return;
-      }
-
-
-      stopAllVideos();
-
-
-      carousel.scrollTo({
-
-        left:
-          nextCard.offsetLeft -
-          carousel.offsetLeft,
-
-        behavior: 'smooth'
-
-      });
-
-    }
-  );
-
-}
-
-
-/* =====================================================
-   Update Navigation While Scrolling
-   ===================================================== */
-
-carousel.addEventListener(
-  'scroll',
-  updateNavigationButtons,
-  {
-    passive: true
-  }
-);
-
-
-/*
- * Set the correct initial state.
- */
-
-updateNavigationButtons();
-
     /* =====================================================
-       Pause Videos When They Leave View
+       Previous / Next Buttons
        ===================================================== */
 
-    if (
-      'IntersectionObserver' in window
-    ) {
+    const updateNavigationButtons = () => {
 
-      const observer =
-        new IntersectionObserver(
-          (entries) => {
+      /*
+       * Are we at the beginning?
+       */
 
-            entries.forEach(
-              (entry) => {
-
-                /*
-                 * If the card is still sufficiently
-                 * visible, do nothing.
-                 */
-
-                if (
-                  entry.isIntersecting
-                ) {
-
-                  return;
-
-                }
+      const atStart =
+        carousel.scrollLeft <= 1;
 
 
-                const video =
-                  getVideo(
-                    entry.target
-                  );
+      /*
+       * Are we at the end?
+       */
+
+      const atEnd =
+        carousel.scrollLeft +
+        carousel.clientWidth >=
+        carousel.scrollWidth - 1;
 
 
-                if (!video) {
-                  return;
-                }
+      if (previousButton) {
+
+        previousButton.disabled =
+          atStart;
+
+      }
 
 
-                /*
-                 * Pause video when its card leaves
-                 * the visible carousel area.
-                 */
+      if (nextButton) {
 
-                video.pause();
+        nextButton.disabled =
+          atEnd;
+
+      }
+
+    };
 
 
-                setPlayingState(
-                  entry.target,
-                  false
-                );
+    /* =====================================================
+       Previous Button
+       ===================================================== */
 
-              }
+    if (previousButton) {
+
+      previousButton.addEventListener(
+        'click',
+        (event) => {
+
+          event.preventDefault();
+
+          event.stopPropagation();
+
+
+          const currentIndex =
+            getClosestCardIndex();
+
+
+          const previousIndex =
+            Math.max(
+              currentIndex - 1,
+              0
             );
 
-          },
-          {
-            root: carousel,
 
-            threshold: 0.5
+          const previousCard =
+            cards[previousIndex];
 
+
+          if (!previousCard) {
+            return;
           }
-        );
 
 
-      cards.forEach(
-        (card) => {
+          stopAllVideos();
 
-          observer.observe(
-            card
-          );
+
+          carousel.scrollTo({
+
+            left:
+              previousCard.offsetLeft -
+              carousel.offsetLeft,
+
+            behavior: 'smooth'
+
+          });
 
         }
       );
 
     }
+
+
+    /* =====================================================
+       Next Button
+       ===================================================== */
+
+    if (nextButton) {
+
+      nextButton.addEventListener(
+        'click',
+        (event) => {
+
+          event.preventDefault();
+
+          event.stopPropagation();
+
+
+          const currentIndex =
+            getClosestCardIndex();
+
+
+          const nextIndex =
+            Math.min(
+              currentIndex + 1,
+              cards.length - 1
+            );
+
+
+          const nextCard =
+            cards[nextIndex];
+
+
+          if (!nextCard) {
+            return;
+          }
+
+
+          stopAllVideos();
+
+
+          carousel.scrollTo({
+
+            left:
+              nextCard.offsetLeft -
+              carousel.offsetLeft,
+
+            behavior: 'smooth'
+
+          });
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       Update Navigation While Scrolling
+       ===================================================== */
+
+    carousel.addEventListener(
+      'scroll',
+      updateNavigationButtons,
+      {
+        passive: true
+      }
+    );
+
+
+    /*
+     * Set the correct initial state.
+     */
+
+    updateNavigationButtons();
+
+
+    /* =====================================================
+   Mobile Autoplay When Video Enters View
+   ===================================================== */
+
+if ('IntersectionObserver' in window) {
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach((entry) => {
+
+        const card = entry.target;
+        const video = getVideo(card);
+
+        if (!video) {
+          return;
+        }
+
+        /*
+         * Only enable viewport autoplay on mobile.
+         */
+        const isMobile = window.matchMedia(
+          '(max-width: 749px)'
+        ).matches;
+
+
+        /* ===============================================
+           VIDEO ENTERS VIEW
+           =============================================== */
+
+        if (entry.isIntersecting && isMobile) {
+
+          /*
+           * Stop every other video first.
+           */
+          stopAllVideos(video);
+
+
+          /*
+           * Make sure autoplay requirements
+           * are satisfied.
+           */
+          video.muted = true;
+          video.playsInline = true;
+
+
+          if (video.readyState === 0) {
+            video.load();
+          }
+
+
+          /*
+           * Start the video.
+           */
+          video.play()
+            .then(() => {
+
+              setPlayingState(
+                card,
+                true
+              );
+
+            })
+            .catch((error) => {
+
+              console.error(
+                'Unable to autoplay product video:',
+                error
+              );
+
+              setPlayingState(
+                card,
+                false
+              );
+
+            });
+
+          return;
+        }
+
+
+        /* ===============================================
+           VIDEO LEAVES VIEW
+           =============================================== */
+
+        if (!entry.isIntersecting) {
+
+          video.pause();
+
+          setPlayingState(
+            card,
+            false
+          );
+
+        }
+
+      });
+
+    },
+    {
+      /*
+       * The observer watches visibility inside
+       * the horizontal video carousel.
+       */
+      root: carousel,
+
+      /*
+       * Start playing when at least 50% of the
+       * card is visible.
+       */
+      threshold: 0.5
+    }
+  );
+
+
+  cards.forEach((card) => {
+
+    observer.observe(card);
+
+  });
+
+}
 
   };
 
