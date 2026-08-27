@@ -1,121 +1,120 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-  const sections = document.querySelectorAll(
-    '.wellie-you-might-also-like'
+  const wellieForms = document.querySelectorAll(
+    '[data-wellie-add-to-cart-form]'
   );
 
-
-  sections.forEach((section) => {
-
-    /* =====================================================
-       Add To Cart
-       ===================================================== */
-
-    const forms = section.querySelectorAll(
-      '.wellie-you-might-also-like__form'
+  wellieForms.forEach((form) => {
+    const addToCartButton = form.querySelector(
+      '[data-wellie-add-to-cart]'
     );
 
+    if (!addToCartButton) {
+      return;
+    }
 
-    forms.forEach((form) => {
+    addToCartButton.addEventListener('click', async () => {
+      const variantId = addToCartButton.dataset.variantId;
 
-      form.addEventListener('submit', async (event) => {
+      if (!variantId) {
+        return;
+      }
 
-        event.preventDefault();
+      if (
+        typeof CartAPI === 'undefined' ||
+        typeof CartStore === 'undefined'
+      ) {
+        console.error(
+          'CartAPI or CartStore is not available.'
+        );
+        return;
+      }
 
-        const addToCartButton = form.querySelector(
-          '.wellie-you-might-also-like__add-button'
+      try {
+        addToCartButton.disabled = true;
+
+        await CartStore.init();
+        CartStore.addPending();
+
+        const cartDrawer = document.querySelector('cart-drawer');
+        const sectionId = cartDrawer?.dataset?.sectionId;
+        const sections = sectionId ? [sectionId] : [];
+
+        // Open the cart drawer immediately
+        cartDrawer?.open();
+
+        const formData = new FormData();
+        formData.append('id', variantId);
+        formData.append('quantity', '1');
+
+        const data = await CartAPI.add(
+          formData,
+          sections
         );
 
-        if (addToCartButton?.disabled) {
-          return;
-        }
-
-
-        /* ---------------------------------------------------
-           Add To Cart
-           --------------------------------------------------- */
-
+        // Update cart drawer contents
         if (
-          typeof CartAPI === 'undefined' ||
-          typeof CartStore === 'undefined'
+          sectionId &&
+          data.sections?.[sectionId] &&
+          cartDrawer &&
+          typeof Idiomorph !== 'undefined'
         ) {
-          form.submit();
-          return;
-        }
-
-        const originalButtonText = addToCartButton?.textContent;
-
-        try {
-
-          if (addToCartButton) {
-            addToCartButton.disabled = true;
-          }
-
-          await CartStore.init();
-          CartStore.addPending();
-
-          const cartDrawer = document.querySelector('cart-drawer');
-          const sectionId = cartDrawer?.dataset?.sectionId;
-          const sectionIds = sectionId ? [sectionId] : [];
-
-          cartDrawer?.open();
-
-          const formData = new FormData(form);
-
-          const data = await CartAPI.add(formData, sectionIds);
-
-          if (
-            sectionId &&
-            data.sections?.[sectionId] &&
-            cartDrawer &&
-            typeof Idiomorph !== 'undefined'
-          ) {
-            const doc = new DOMParser().parseFromString(
-              data.sections[sectionId],
-              'text/html'
-            );
-
-            const newItemsEl = doc.querySelector('[data-cart-items]');
-            const existingItemsEl = cartDrawer.querySelector('[data-cart-items]');
-            if (newItemsEl && existingItemsEl) {
-              Idiomorph.morph(existingItemsEl, newItemsEl, { morphStyle: 'outerHTML' });
-            }
-
-            const newFooterEl = doc.querySelector('[data-cart-footer]');
-            const existingFooterEl = cartDrawer.querySelector('[data-cart-footer]');
-            if (newFooterEl && existingFooterEl) {
-              Idiomorph.morph(existingFooterEl, newFooterEl, { morphStyle: 'outerHTML' });
-            }
-          }
-
-          const cartData = await CartAPI.get();
-          CartStore.addConfirm(cartData);
-
-        } catch (error) {
-
-          CartStore.addRollback();
-
-          console.error(
-            'Add to cart failed:',
-            error
+          const doc = new DOMParser().parseFromString(
+            data.sections[sectionId],
+            'text/html'
           );
 
-        } finally {
+          const newItemsEl = doc.querySelector(
+            '[data-cart-items]'
+          );
 
-          if (addToCartButton) {
-            addToCartButton.disabled = false;
+          const existingItemsEl = cartDrawer.querySelector(
+            '[data-cart-items]'
+          );
 
-            if (originalButtonText !== undefined) {
-              addToCartButton.textContent = originalButtonText;
-            }
+          if (newItemsEl && existingItemsEl) {
+            Idiomorph.morph(
+              existingItemsEl,
+              newItemsEl,
+              {
+                morphStyle: 'outerHTML'
+              }
+            );
           }
 
+          const newFooterEl = doc.querySelector(
+            '[data-cart-footer]'
+          );
+
+          const existingFooterEl = cartDrawer.querySelector(
+            '[data-cart-footer]'
+          );
+
+          if (newFooterEl && existingFooterEl) {
+            Idiomorph.morph(
+              existingFooterEl,
+              newFooterEl,
+              {
+                morphStyle: 'outerHTML'
+              }
+            );
+          }
         }
 
-      });
+        const cartData = await CartAPI.get();
 
+        CartStore.addConfirm(cartData);
+
+      } catch (error) {
+        CartStore.addRollback();
+
+        console.error(
+          'Wellie Suggestions add to cart failed:',
+          error
+        );
+
+      } finally {
+        addToCartButton.disabled = false;
+      }
     });
-
   });
-
 });

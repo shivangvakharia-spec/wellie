@@ -108,13 +108,14 @@
 
   width: 100%;
   height: auto;
-/*
-  aspect-ratio: 170 / 306;
-*/
-  margin: 0;
-  padding: 0;
 
-  overflow: visible;
+  margin: 0;
+  padding: 0 8px 16px;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
 
   background: #FFFFFF;
 
@@ -130,22 +131,24 @@
    ========================================================= */
 
 .wellie-you-might-also-like__image-link {
-  position: absolute;
+  position: relative;
 
-  top: 0;
-  left: 0;
+  top: auto;
+  left: auto;
 
   display: block;
 
-  width: 100%;
+  width: calc(100% + 16px);
   aspect-ratio: 1 / 1;
 
-  margin: 0;
+  margin: 0 -8px;
   padding: 0;
 
   overflow: hidden;
 
   text-decoration: none;
+
+  flex: 0 0 auto;
 }
 
 
@@ -197,17 +200,16 @@
    ========================================================= */
 
 .wellie-you-might-also-like__content {
-  position: absolute;
+  position: relative;
 
-  left: 8px;
+  left: auto;
+  top: auto;
 
-  top: calc((100% - 14px) * 0.5556);
-
-  width: calc(100% - 16px);
+  width: 100%;
 
   height: auto;
 
-  margin: 0;
+  margin: 8px 0 0;
   padding: 0;
 
   display: flex;
@@ -215,6 +217,10 @@
   align-items: flex-start;
 
   gap: 12px;
+
+  box-sizing: border-box;
+
+  flex: 1 1 auto;
 }
 
 /* =========================================================
@@ -609,9 +615,6 @@
 
   /* =======================================================
      Product Card
-     
-     Figma:
-     305 × 469px
      ======================================================= */
 
   .wellie-you-might-also-like__card {
