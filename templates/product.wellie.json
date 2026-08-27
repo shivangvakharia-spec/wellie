@@ -85,40 +85,6 @@
     },
     "wellie_journey_bAqcNy": {
       "type": "wellie-journey",
-      "blocks": {
-        "journey_step_K4QHnn": {
-          "type": "journey_step",
-          "settings": {
-            "month": "Month 1",
-            "title": "Initial adaptation and digestive support",
-            "description_1": "The prebiotics help improve nutrient absorption.",
-            "description_2": "Enhanced digestion often leads to an improved appetite."
-          }
-        },
-        "journey_step_7387zz": {
-          "type": "journey_step",
-          "settings": {
-            "month": "Month 2",
-            "title": "Strengthening gut health adn Immunit",
-            "description_1": "Probiotics begin to establish a healthier gut microbiome.",
-            "description_2": "The probiotics reduce bad bacteria, leading to better breath."
-          }
-        },
-        "journey_step_KcN8cg": {
-          "type": "journey_step",
-          "settings": {
-            "month": "Month 3",
-            "title": "Visible skin and coat improvements",
-            "description_1": "Healthy coat noticeable improvement in coat quality.",
-            "description_2": "Dogs experience reduced itchiness and fewer skin irritations."
-          }
-        }
-      },
-      "block_order": [
-        "journey_step_K4QHnn",
-        "journey_step_7387zz",
-        "journey_step_KcN8cg"
-      ],
       "name": "Wellie journey",
       "settings": {
         "image": "shopify://shop_images/87aabff1c1dbca8031f3746aa1b9d658648a1e48.png"
