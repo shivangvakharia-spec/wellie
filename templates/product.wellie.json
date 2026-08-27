@@ -179,42 +179,6 @@
     },
     "wellie_faq_aMTrEz": {
       "type": "wellie-faq",
-      "blocks": {
-        "faq_TUx3hU": {
-          "type": "faq",
-          "settings": {
-            "question": "My dog doesn’t have stomach problems is this still useful?",
-            "answer": "<p>Yes, Bellie Bites help prevent issues, boost nutrient absorption, boost immunity, improve poop quality, and improve breath.</p>"
-          }
-        },
-        "faq_6KjF4K": {
-          "type": "faq",
-          "settings": {
-            "question": "I feed commercial food. Isn’t that enough?",
-            "answer": "<p>Commercial food can provide a complete diet, but additional nutritional support can help address specific wellness needs.</p>"
-          }
-        },
-        "faq_CwrLUi": {
-          "type": "faq",
-          "settings": {
-            "question": "What’s the difference from syrups or pills?",
-            "answer": "<p>Bellie Bites provide nutritional support in a convenient treat format that is easy to add to your dog’s routine.</p>"
-          }
-        },
-        "faq_RML8hn": {
-          "type": "faq",
-          "settings": {
-            "question": "I give my dog curd - isn’t that fine?",
-            "answer": "<p>Curd can be part of a dog's diet, but it does not provide the same nutritional support as a targeted supplement.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "faq_TUx3hU",
-        "faq_6KjF4K",
-        "faq_CwrLUi",
-        "faq_RML8hn"
-      ],
       "name": "Wellie FAQ",
       "settings": {
         "heading": "FAQ’s"
