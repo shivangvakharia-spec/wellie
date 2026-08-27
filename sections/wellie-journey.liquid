@@ -24,44 +24,101 @@
 
       <div class="wellie-journey__timeline">
 
-        {% for block in section.blocks %}
+        {% if section.blocks.size > 0 %}
 
-          <div class="wellie-journey__timeline-row" {{ block.shopify_attributes }}>
+          {%- comment -%}
+            Use manually added Journey Step blocks
+            when the merchant has configured them.
+          {%- endcomment -%}
 
-            <!-- Month -->
+          {% for block in section.blocks %}
 
-            <div class="wellie-journey__month">
-              {{ block.settings.month }}
-            </div>
+            <div class="wellie-journey__timeline-row" {{ block.shopify_attributes }}>
 
+              <!-- Month -->
 
-            <!-- Journey detail -->
-
-            <article class="wellie-journey__detail">
-
-              <h3 class="wellie-journey__title">
-                {{ block.settings.title }}
-              </h3>
-
-              <div class="wellie-journey__descriptions">
-
-                <p class="wellie-journey__description">
-                  <span class="wellie-journey__bullet">•</span>
-                  <span>{{ block.settings.description_1 }}</span>
-                </p>
-
-                <p class="wellie-journey__description">
-                  <span class="wellie-journey__bullet">•</span>
-                  <span>{{ block.settings.description_2 }}</span>
-                </p>
-
+              <div class="wellie-journey__month">
+                {{ block.settings.month }}
               </div>
 
-            </article>
 
-          </div>
+              <!-- Journey detail -->
+
+              <article class="wellie-journey__detail">
+
+                <h3 class="wellie-journey__title">
+                  {{ block.settings.title }}
+                </h3>
+
+                <div class="wellie-journey__descriptions">
+
+                  {% if block.settings.description_1 != blank %}
+                    <p class="wellie-journey__description">
+                      <span class="wellie-journey__bullet">•</span>
+                      <span>{{ block.settings.description_1 }}</span>
+                    </p>
+                  {% endif %}
+
+                  {% if block.settings.description_2 != blank %}
+                    <p class="wellie-journey__description">
+                      <span class="wellie-journey__bullet">•</span>
+                      <span>{{ block.settings.description_2 }}</span>
+                    </p>
+                  {% endif %}
+
+                </div>
+
+              </article>
+
+            </div>
+
+          {% endfor %}
+
+        {% else %}
+
+          {%- comment -%}
+            No Journey Step blocks have been added.
+            Use the journey metaobject as the fallback source.
+          {%- endcomment -%}
+
+          {% assign journey_steps = shop.metaobjects.journey.values | sort: 'month' %}
+
+{% for journey in journey_steps %}
+
+  <div class="wellie-journey__timeline-row">
+
+    <div class="wellie-journey__month">
+      Month {{ journey.month.value }}
+    </div>
+
+    <article class="wellie-journey__detail">
+
+      <h3 class="wellie-journey__title">
+        {{ journey.title.value }}
+      </h3>
+
+      <div class="wellie-journey__descriptions">
+
+        {% for description in journey.description.value %}
+
+          {% if description != blank %}
+            <p class="wellie-journey__description">
+              <span class="wellie-journey__bullet">•</span>
+              <span>{{ description }}</span>
+            </p>
+          {% endif %}
 
         {% endfor %}
+
+      </div>
+
+    </article>
+
+  </div>
+
+{% endfor %}
+
+        {% endif %}
 
       </div>
 
@@ -126,33 +183,6 @@
       {
         "name": "Wellie journey",
 
-        "blocks": [
-          {
-            "type": "journey_step",
-            "settings": {
-              "month": "Month 1",
-              "title": "Initial adaptation and digestive support",
-              "description_1": "The prebiotics help improve nutrient absorption.",
-              "description_2": "Enhanced digestion often leads to an improved appetite."
-            }
-          }, {
-            "type": "journey_step",
-            "settings": {
-              "month": "Month 2",
-              "title": "Strengthening gut health adn Immunit",
-              "description_1": "Probiotics begin to establish a healthier gut microbiome.",
-              "description_2": "The probiotics reduce bad bacteria, leading to better breath."
-            }
-          }, {
-            "type": "journey_step",
-            "settings": {
-              "month": "Month 3",
-              "title": "Visible skin and coat improvements",
-              "description_1": "Healthy coat noticeable improvement in coat quality.",
-              "description_2": "Dogs experience reduced itchiness and fewer skin irritations."
-            }
-          }
-        ]
       }
     ]
   }

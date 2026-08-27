@@ -1,170 +1,407 @@
+{{ 'wellie-footer-stylesheet.css' | asset_url | stylesheet_tag }}
+
 {%- liquid
   assign current_year = 'now' | date: '%Y'
+  assign social_platforms = 'facebook,instagram,twitter,youtube' | split: ','
+
+  assign has_social = false
+  for platform in social_platforms
+    assign setting_id = 'social_' | append: platform
+    if settings[setting_id] != blank
+      assign has_social = true
+      break
+    endif
+  endfor
 -%}
 
 <footer
-  class="footer"
-  style="
-    background-color: {{ section.settings.background_color }};
-    color: {{ section.settings.text_color }};
-    --footer-padding-top: {{ section.settings.padding_top }}px;
-    --footer-padding-bottom: {{ section.settings.padding_bottom }}px;
-  "
+  class="wellie-footer"
+  style="--footer-bg: {{ section.settings.background_color }}; --footer-color: {{ section.settings.text_color }};"
 >
-  <div class="page-width" style="padding-top: var(--footer-padding-top); padding-bottom: var(--footer-padding-bottom);">
-    <div class="grid gap-12 md:grid-cols-12 lg:gap-16">
-      {%- comment -%} Logo & description {%- endcomment -%}
-      <div class="md:col-span-4">
-        {%- if settings.logo != blank -%}
-          <a href="{{ routes.root_url }}" class="mb-4 inline-block">
-            <img
-              src="{{ settings.logo | image_url: width: 200 }}"
-              alt="{{ shop.name }}"
-              width="{{ settings.logo_width | default: 120 }}"
-              height="auto"
-              loading="lazy"
-            >
-          </a>
-        {%- else -%}
-          <a href="{{ routes.root_url }}" class="mb-4 inline-block font-primary text-2xl font-normal tracking-tight">
-            {{ shop.name }}
-          </a>
-        {%- endif -%}
 
-        {%- if section.settings.description != blank -%}
-          <div class="mt-4 text-sm leading-loose opacity-70">
+  <div class="wellie-footer__inner">
+
+    <!-- =====================================================
+      Back To Top (mobile position)
+      ===================================================== -->
+    <a href="#main-header" class="wellie-footer__back-to-top wellie-footer__back-to-top--mobile" data-footer-back-to-top>
+      {% render 'icon-arrow-up', size: 20 %}
+      <span>{{ section.settings.back_to_top_label }}</span>
+    </a>
+
+
+    <div class="wellie-footer__row">
+
+      <!-- ===================================================
+        Brand
+        =================================================== -->
+      <div class="wellie-footer__brand">
+
+        <a href="{{ routes.root_url }}" class="wellie-footer__logo" aria-label="{{ shop.name }}">
+          {% render 'wellie-logo', width: 223, color: 'light' %}
+        </a>
+
+
+        {% if section.settings.description != blank %}
+
+          <div class="wellie-footer__description">
             {{ section.settings.description }}
           </div>
-        {%- endif -%}
 
-        {%- comment -%} Social links {%- endcomment -%}
-        {%- assign social_links = 'facebook,twitter,instagram,youtube,tiktok,pinterest,linkedin' | split: ',' -%}
-        {%- assign has_social = false -%}
-        {%- for platform in social_links -%}
-          {%- assign setting_id = 'social_' | append: platform -%}
-          {%- if settings[setting_id] != blank -%}
-            {%- assign has_social = true -%}
-            {%- break -%}
-          {%- endif -%}
-        {%- endfor -%}
+        {% endif %}
 
-        {%- if has_social -%}
-          <div class="mt-6 flex gap-5">
-            {%- for platform in social_links -%}
-              {%- assign setting_id = 'social_' | append: platform -%}
-              {%- if settings[setting_id] != blank -%}
-                <a
-                  href="{{ settings[setting_id] }}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-sm opacity-60 transition-all duration-200 hover:opacity-100"
-                  aria-label="{{ platform | capitalize }}"
-                >
-                  {{ platform | capitalize }}
-                </a>
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-      </div>
 
-      {%- comment -%} Menu columns {%- endcomment -%}
-      <div class="md:col-span-8">
-        {%- if section.settings.menu != blank -%}
-          <ul class="grid grid-cols-2 gap-8">
-            {%- for link in linklists[section.settings.menu].links -%}
-              <li>
-                <a
-                  href="{{ link.url }}"
-                  class="block text-[11px] font-medium uppercase tracking-[0.25em] hover:underline hover:underline-offset-4 break-words"
-                >
-                  {{ link.title }}
-                </a>
-                {%- if link.links.size > 0 -%}
-                  <ul class="space-y-3">
-                    {%- for child_link in link.links -%}
-                      <li>
-                        <a
-                          href="{{ child_link.url }}"
-                          class="text-sm opacity-60 transition-all duration-200 hover:opacity-100"
-                        >
-                          {{ child_link.title }}
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                {%- endif -%}
-              </li>
-            {%- endfor -%}
+        {% if has_social %}
+
+          <ul class="wellie-footer__social" role="list">
+
+            {% for platform in social_platforms %}
+
+              {% assign setting_id = 'social_' | append: platform %}
+
+              {% if settings[setting_id] != blank %}
+
+                <li>
+                  <a
+                    href="{{ settings[setting_id] }}"
+                    class="wellie-footer__social-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="{{ platform | capitalize }}"
+                  >
+                    {% case platform %}
+                      {% when 'facebook' %}
+                        {% render 'icon-facebook', size: 20 %}
+                      {% when 'instagram' %}
+                        {% render 'icon-instagram', size: 20 %}
+                      {% when 'twitter' %}
+                        {% render 'icon-x', size: 20 %}
+                      {% when 'youtube' %}
+                        {% render 'icon-youtube', size: 20 %}
+                    {% endcase %}
+                  </a>
+                </li>
+
+              {% endif %}
+
+            {% endfor %}
+
           </ul>
-        {%- endif -%}
+
+        {% endif %}
+
       </div>
+
+
+      <!-- ===================================================
+        Divider (mobile only, between brand and links)
+        =================================================== -->
+      <div class="wellie-footer__divider wellie-footer__divider--brand" role="presentation"></div>
+
+
+      <!-- ===================================================
+        Links
+        =================================================== -->
+      <div class="wellie-footer__links">
+
+        {% if section.settings.company_menu != blank %}
+
+          <nav class="wellie-footer__links-col" aria-labelledby="FooterCompanyHeading-{{ section.id }}">
+
+            <h3 id="FooterCompanyHeading-{{ section.id }}" class="wellie-footer__links-heading">
+              {{ section.settings.company_heading }}
+            </h3>
+
+            <ul class="wellie-footer__links-list" role="list">
+
+              {% for link in linklists[section.settings.company_menu].links %}
+                <li>
+                  <a href="{{ link.url }}" class="wellie-footer__link">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+
+            </ul>
+
+          </nav>
+
+        {% endif %}
+
+
+        {% if section.settings.products_menu != blank %}
+
+          <nav class="wellie-footer__links-col" aria-labelledby="FooterProductsHeading-{{ section.id }}">
+
+            <h3 id="FooterProductsHeading-{{ section.id }}" class="wellie-footer__links-heading">
+              {{ section.settings.products_heading }}
+            </h3>
+
+            <ul class="wellie-footer__links-list" role="list">
+
+              {% for link in linklists[section.settings.products_menu].links %}
+                <li>
+                  <a href="{{ link.url }}" class="wellie-footer__link">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+
+            </ul>
+
+          </nav>
+
+        {% endif %}
+
+      </div>
+
+
+      <!-- ===================================================
+        Contact
+        =================================================== -->
+      <div class="wellie-footer__contact">
+
+        <a href="#main-header" class="wellie-footer__back-to-top wellie-footer__back-to-top--desktop" data-footer-back-to-top>
+          {% render 'icon-arrow-up', size: 20 %}
+          <span>{{ section.settings.back_to_top_label }}</span>
+        </a>
+
+
+        {% if section.settings.get_in_touch_heading != blank or section.settings.get_in_touch_text != blank %}
+
+          <div class="wellie-footer__contact-intro">
+
+            {% if section.settings.get_in_touch_heading != blank %}
+              <h2 class="wellie-footer__contact-heading">{{ section.settings.get_in_touch_heading }}</h2>
+            {% endif %}
+
+            {% if section.settings.get_in_touch_text != blank %}
+              <div class="wellie-footer__contact-text">{{ section.settings.get_in_touch_text }}</div>
+            {% endif %}
+
+          </div>
+
+        {% endif %}
+
+
+        <div class="wellie-footer__contact-details">
+
+          {% if section.settings.contact_email != blank or section.settings.contact_phone != blank %}
+
+            <div class="wellie-footer__contact-row">
+
+              {% if section.settings.contact_email != blank %}
+                <a href="mailto:{{ section.settings.contact_email }}" class="wellie-footer__contact-link">
+                  Email: {{ section.settings.contact_email }}
+                </a>
+              {% endif %}
+
+              {% if section.settings.contact_phone != blank %}
+                <a href="tel:{{ section.settings.contact_phone | remove: ' ' }}" class="wellie-footer__contact-link">
+                  Phone: {{ section.settings.contact_phone }}
+                </a>
+              {% endif %}
+
+            </div>
+
+          {% endif %}
+
+
+          {% if section.settings.hours_value != blank %}
+
+            <p class="wellie-footer__hours">
+              {% if section.settings.hours_label != blank %}
+                <strong>{{ section.settings.hours_label }}</strong>
+                <br>
+              {% endif %}
+              {{ section.settings.hours_value }}
+            </p>
+
+          {% endif %}
+
+        </div>
+
+      </div>
+
     </div>
 
-    {%- comment -%} Copyright {%- endcomment -%}
-    <div class="mt-16 border-t border-white/10 pt-8 text-sm opacity-60">
-      {%- if section.settings.copyright_text != blank -%}
+
+    <!-- =====================================================
+      Divider (full width, before copyright)
+      ===================================================== -->
+    <div class="wellie-footer__divider wellie-footer__divider--full" role="presentation"></div>
+
+
+    <!-- =====================================================
+      Copyright
+      ===================================================== -->
+    <p class="wellie-footer__copyright">
+      {% if section.settings.copyright_text != blank %}
         {{ section.settings.copyright_text | replace: 'YEAR', current_year }}
-      {%- else -%}
-        &copy; {{ current_year }}
-        {{ shop.name }}. All rights reserved.
-      {%- endif -%}
-    </div>
+      {% else %}
+        &copy; {{ current_year }} {{ shop.name }}. Powered by Shopify.
+      {% endif %}
+    </p>
+
   </div>
+
 </footer>
 
+<script src="{{ 'wellie-footer-javascript.js' | asset_url }}" defer></script>
+
 {% schema %}
-{
-  "name": "Footer",
-  "class": "footer-section",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "Menu",
-      "default": "footer"
-    },
-    {
-      "type": "richtext",
-      "id": "description",
-      "label": "Description"
-    },
-    {
-      "type": "richtext",
-      "id": "copyright_text",
-      "label": "Copyright text",
-      "info": "Use YEAR to show the current year"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background color",
-      "default": "#0a0a0a"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "label": "Padding top",
-      "min": 0,
-      "max": 100,
-      "default": 80,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "label": "Padding bottom",
-      "min": 0,
-      "max": 100,
-      "default": 60,
-      "unit": "px"
-    }
-  ]
-}
+
+  {
+    "name": "Footer",
+
+    "tag": "footer",
+
+    "class": "wellie-footer-section",
+
+    "settings": [
+
+      {
+        "type": "header",
+        "content": "Brand"
+      },
+
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description",
+        "default": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>"
+      },
+
+      {
+        "type": "header",
+        "content": "Company column"
+      },
+
+      {
+        "type": "text",
+        "id": "company_heading",
+        "label": "Heading",
+        "default": "Company"
+      },
+
+      {
+        "type": "link_list",
+        "id": "company_menu",
+        "label": "Menu",
+        "default": "footer"
+      },
+
+      {
+        "type": "header",
+        "content": "Products column"
+      },
+
+      {
+        "type": "text",
+        "id": "products_heading",
+        "label": "Heading",
+        "default": "Products"
+      },
+
+      {
+        "type": "link_list",
+        "id": "products_menu",
+        "label": "Menu"
+      },
+
+      {
+        "type": "header",
+        "content": "Get in touch"
+      },
+
+      {
+        "type": "text",
+        "id": "get_in_touch_heading",
+        "label": "Heading",
+        "default": "Want to get in touch?"
+      },
+
+      {
+        "type": "richtext",
+        "id": "get_in_touch_text",
+        "label": "Text",
+        "default": "<p>We'd love to hear from you! For any feedback or queries, contact us on :</p>"
+      },
+
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Email",
+        "default": "raya@wellie.in"
+      },
+
+      {
+        "type": "text",
+        "id": "contact_phone",
+        "label": "Phone",
+        "default": "+91 97407 57184"
+      },
+
+      {
+        "type": "text",
+        "id": "hours_label",
+        "label": "Operating hours label",
+        "default": "Operating Hours:"
+      },
+
+      {
+        "type": "text",
+        "id": "hours_value",
+        "label": "Operating hours value",
+        "default": "Mon- Sun, 10am to 6pm"
+      },
+
+      {
+        "type": "header",
+        "content": "Back to top"
+      },
+
+      {
+        "type": "text",
+        "id": "back_to_top_label",
+        "label": "Label",
+        "default": "Back to Top"
+      },
+
+      {
+        "type": "header",
+        "content": "Copyright"
+      },
+
+      {
+        "type": "richtext",
+        "id": "copyright_text",
+        "label": "Copyright text",
+        "info": "Use YEAR to show the current year",
+        "default": "<p>&copy; YEAR Wellie. Powered by Shopify.</p>"
+      },
+
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#025A60"
+      },
+
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#FAF1EC"
+      }
+
+    ]
+
+  }
+
 {% endschema %}

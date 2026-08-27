@@ -2,9 +2,14 @@
   Renders the merchant-selected logo, with the supplied Wellie SVG as the storefront fallback.
 
   @param {number} [width] - Rendered logo width in pixels.
+  @param {string} [color] - Fallback SVG variant when no custom logo is set: 'dark' (default) or 'light'.
 {% enddoc %}
 
 {%- assign logo_width = width | default: settings.logo_width | default: 135 -%}
+{%- assign fallback_logo = 'wellie-logo.svg' -%}
+{%- if color == 'light' -%}
+  {%- assign fallback_logo = 'wellie-logo-light.svg' -%}
+{%- endif -%}
 
 {%- if settings.logo != blank -%}
   <img
@@ -16,7 +21,7 @@
   >
 {%- else -%}
   <img
-    src="{{ 'wellie-logo.svg' | asset_url }}"
+    src="{{ fallback_logo | asset_url }}"
     alt="{{ shop.name | escape }}"
     width="{{ logo_width }}"
     height="{{ logo_width | times: 30 | divided_by: 135 | round }}"

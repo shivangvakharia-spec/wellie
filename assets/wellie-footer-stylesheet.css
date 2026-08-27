@@ -1,0 +1,543 @@
+/* =========================================================
+   Wellie Footer
+   Mobile First
+   ========================================================= */
+
+
+/* =========================================================
+   Section
+   ========================================================= */
+
+.wellie-footer {
+  --footer-gutter: 18px;
+  --footer-bg: #025A60;
+  --footer-color: #FAF1EC;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 32px var(--footer-gutter);
+
+  background: var(--footer-bg);
+  color: var(--footer-color);
+
+  box-sizing: border-box;
+}
+
+
+.wellie-footer *,
+.wellie-footer *::before,
+.wellie-footer *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Inner
+   ========================================================= */
+
+.wellie-footer__inner {
+  width: 100%;
+  max-width: 354px;
+
+  margin: 0 auto;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  gap: 32px;
+}
+
+
+/* =========================================================
+   Row
+   Groups the brand block, the link columns and the contact
+   block. On mobile it renders as `display: contents` so its
+   children flow as flat siblings inside `.wellie-footer__inner`;
+   on desktop it becomes a real flex row.
+   ========================================================= */
+
+.wellie-footer__row {
+  display: contents;
+}
+
+
+/* =========================================================
+   Back To Top
+   ========================================================= */
+
+.wellie-footer__back-to-top {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 4px 10px;
+
+  border: 0.6px solid var(--footer-color);
+  border-radius: 40px;
+
+  color: var(--footer-color);
+
+  font-family: 'Cabin', var(--font-body--family, sans-serif);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+
+  text-decoration: none;
+
+  transition: opacity 200ms ease;
+}
+
+
+.wellie-footer__back-to-top:hover,
+.wellie-footer__back-to-top:focus-visible {
+  opacity: 0.75;
+}
+
+
+.wellie-footer__back-to-top svg {
+  flex: none;
+}
+
+
+.wellie-footer__back-to-top--desktop {
+  display: none;
+}
+
+
+/* =========================================================
+   Brand
+   ========================================================= */
+
+.wellie-footer__brand {
+  width: 100%;
+  max-width: 305px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 16px;
+}
+
+
+.wellie-footer__logo {
+  display: inline-block;
+}
+
+
+.wellie-footer__logo img {
+  width: 134px;
+  height: auto;
+}
+
+
+.wellie-footer__description {
+  width: 100%;
+
+  color: var(--footer-color);
+
+  font-family: 'Cabin', var(--font-body--family, sans-serif);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+
+.wellie-footer__social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.wellie-footer__social-link {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--footer-color);
+
+  transition: opacity 200ms ease;
+}
+
+
+.wellie-footer__social-link:hover,
+.wellie-footer__social-link:focus-visible {
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   Divider
+   ========================================================= */
+
+.wellie-footer__divider {
+  width: 100%;
+  height: 0;
+
+  margin: 0;
+
+  border: none;
+  border-top: 1px solid rgba(250, 241, 236, 0.6);
+  opacity: 0.2;
+}
+
+
+.wellie-footer__divider--full {
+  margin-inline: calc(-1 * var(--footer-gutter));
+  width: auto;
+}
+
+
+/* =========================================================
+   Links
+   ========================================================= */
+
+.wellie-footer__links {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  gap: 0;
+}
+
+
+.wellie-footer__links-col {
+  flex: 1 1 0;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 14px;
+}
+
+
+.wellie-footer__links-heading {
+  width: 100%;
+
+  margin: 0;
+
+  color: var(--footer-color);
+
+  font-family: 'Cabin', var(--font-body--family, sans-serif);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+
+.wellie-footer__links-list {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 16px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.wellie-footer__link {
+  color: var(--footer-color);
+
+  font-family: 'Cabin', var(--font-body--family, sans-serif);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+
+  text-decoration: none;
+}
+
+
+.wellie-footer__link:hover,
+.wellie-footer__link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+
+/* =========================================================
+   Contact
+   ========================================================= */
+
+.wellie-footer__contact {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 16px;
+}
+
+
+.wellie-footer__contact-intro {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 4px;
+}
+
+
+.wellie-footer__contact-heading {
+  width: 100%;
+
+  margin: 0;
+
+  color: var(--footer-color);
+
+  font-family: 'Cabin', var(--font-body--family, sans-serif);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+
+.wellie-footer__contact-text {
+  width: 100%;
+
+  color: var(--footer-color);
+
+  font-family: 'Cabin', var(--font-body--family, sans-serif);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+
+.wellie-footer__contact-details {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 16px;
+}
+
+
+.wellie-footer__contact-row {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 22px;
+}
+
+
+.wellie-footer__contact-link {
+  color: var(--footer-color);
+
+  font-family: 'Cabin', var(--font-body--family, sans-serif);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+
+  text-decoration: none;
+}
+
+
+.wellie-footer__contact-link:hover,
+.wellie-footer__contact-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+
+.wellie-footer__hours {
+  width: 100%;
+
+  margin: 0;
+
+  color: var(--footer-color);
+
+  font-family: 'Cabin', var(--font-body--family, sans-serif);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+
+.wellie-footer__hours strong {
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   Copyright
+   ========================================================= */
+
+.wellie-footer__copyright {
+  width: 100%;
+
+  margin: 0;
+
+  color: #F9F3F1;
+
+  font-family: 'Cabin', var(--font-body--family, sans-serif);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+}
+
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  /* =======================================================
+     Section
+     ======================================================= */
+
+  .wellie-footer {
+    --footer-gutter: clamp(24px, 5.5vw, 80px);
+
+    padding: 60px var(--footer-gutter);
+  }
+
+
+  /* =======================================================
+     Inner
+     ======================================================= */
+
+  .wellie-footer__inner {
+    max-width: 1280px;
+  }
+
+
+  /* =======================================================
+     Back To Top
+
+     Hidden at the top of the flow on mobile; re-shown inside
+     the contact column on desktop.
+     ======================================================= */
+
+  .wellie-footer__back-to-top--mobile {
+    display: none;
+  }
+
+  .wellie-footer__back-to-top--desktop {
+    display: inline-flex;
+  }
+
+
+  /* =======================================================
+     Row
+
+     Brand, links and contact sit side by side. The mobile
+     divider between brand and links does not exist on
+     desktop.
+     ======================================================= */
+
+  .wellie-footer__row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    width: 100%;
+
+    row-gap: 40px;
+    column-gap: 40px;
+  }
+
+  .wellie-footer__divider--brand {
+    display: none;
+  }
+
+
+  /* =======================================================
+     Brand
+     ======================================================= */
+
+  .wellie-footer__brand {
+    flex: 1 1 305px;
+  }
+
+  .wellie-footer__logo img {
+    width: 223px;
+  }
+
+
+  /* =======================================================
+     Links
+     ======================================================= */
+
+  .wellie-footer__links {
+    flex: 2 1 394px;
+    max-width: 394px;
+
+    gap: 40px;
+  }
+
+
+  /* =======================================================
+     Contact
+     ======================================================= */
+
+  .wellie-footer__contact {
+    flex: 1 1 354px;
+    max-width: 354px;
+  }
+
+}
+
+
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .wellie-footer__back-to-top {
+    transition: none;
+  }
+
+  .wellie-footer__social-link {
+    transition: none;
+  }
+
+}

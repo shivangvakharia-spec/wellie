@@ -5,11 +5,13 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "background_color": "#0a0a0a",
-        "text_color": "#ffffff",
-        "menu": "footer"
+        "background_color": "#025A60",
+        "text_color": "#FAF1EC",
+        "company_menu": "footer"
       }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }
