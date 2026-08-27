@@ -84,6 +84,65 @@
 
 
   /* =======================================================
+     Reorder Before Suggestions On Mobile
+     ======================================================= */
+
+  const MOBILE_QUERY = '(max-width: 749px)';
+
+  const reorderForMobile = () => {
+
+    const vetCheckSection = document.querySelector(
+      '.wellie-vet-check-section'
+    );
+
+    const suggestionsSection = document.querySelector(
+      '.wellie-suggestions'
+    );
+
+    if (!vetCheckSection || !suggestionsSection) {
+      return;
+    }
+
+    const parent = suggestionsSection.parentNode;
+
+    if (!parent || parent !== vetCheckSection.parentNode) {
+      return;
+    }
+
+    const isMobile = window.matchMedia(MOBILE_QUERY).matches;
+
+    if (isMobile) {
+
+      if (vetCheckSection.nextElementSibling !== suggestionsSection) {
+        parent.insertBefore(vetCheckSection, suggestionsSection);
+      }
+
+    } else if (suggestionsSection.nextElementSibling !== vetCheckSection) {
+
+      parent.insertBefore(suggestionsSection, vetCheckSection);
+
+    }
+
+  };
+
+
+  const mobileMediaQuery = window.matchMedia(MOBILE_QUERY);
+
+  if (mobileMediaQuery.addEventListener) {
+
+    mobileMediaQuery.addEventListener(
+      'change',
+      reorderForMobile
+    );
+
+  } else if (mobileMediaQuery.addListener) {
+
+    mobileMediaQuery.addListener(reorderForMobile);
+
+  }
+
+
+  /* =======================================================
      Initial Load
      ======================================================= */
 
@@ -92,6 +151,8 @@
     document
       .querySelectorAll('.wellie-vet-check')
       .forEach(initVetCheck);
+
+    reorderForMobile();
 
   };
 
@@ -126,6 +187,8 @@
       if (section) {
         initVetCheck(section);
       }
+
+      reorderForMobile();
 
     }
   );
